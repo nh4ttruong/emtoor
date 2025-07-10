@@ -1,21 +1,18 @@
-name: Deploy
+name: Github Pages
 on:
   push:
     branches:
       - gh-pages
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v2
         with:
@@ -23,6 +20,7 @@ jobs:
       - run: mdbook build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/gh-pages'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./book
