@@ -35,7 +35,7 @@ jobs:
 
       - name: Build site with mdbook
         run: |
-          mdbook build
+          mdbook build book
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
