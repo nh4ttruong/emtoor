@@ -3,7 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - gh-pages
+      - book
   workflow_dispatch:
 
 jobs:
@@ -39,6 +39,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/book'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./book
