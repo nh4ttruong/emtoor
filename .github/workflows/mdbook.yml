@@ -15,22 +15,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions-rs/toolchain@v1
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v2
         with:
-          toolchain: stable
-      - name: Install latest mdbook
-        run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
-      - name: Install mdbook-wordcount
-        run: (test -x $HOME/.cargo/bin/mdbook-wordcount || cargo install mdbook-wordcount)
-      - name: Build & Test Book
-        run: |
-          mdbook build && mdbook test
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          mdbook-version: 'latest'
+      - run: mdbook build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/gh-pages' }}
         with:
-          path: 'book'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book
