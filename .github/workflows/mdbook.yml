@@ -21,7 +21,7 @@ jobs:
       - name: Install latest mdbook
         run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
       - name: Install mdbook-wordcount
-        run: (test -x $HOME/.cargo/bin/mdbook || cargo install mdbook-wordcount)
+        run: (test -x $HOME/.cargo/bin/mdbook-wordcount || cargo install mdbook-wordcount)
       - name: Build & Test Book
         run: |
           mdbook build && mdbook test
