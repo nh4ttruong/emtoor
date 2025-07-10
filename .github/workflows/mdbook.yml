@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches: [ gh-pages ]
-    
+
 jobs:
   build:
     name: Build, Test and Deploy
@@ -16,7 +16,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
+      - run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook mdbook-wordcount)
       - run: mdbook build && mdbook test # In case of custom book path: mdbook build path/to/mybook && mdbook test path/to/mybook
       - uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
