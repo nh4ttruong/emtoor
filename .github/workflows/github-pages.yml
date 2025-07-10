@@ -25,11 +25,13 @@ jobs:
           CARGO_HOME: ${{ runner.temp }}/cargo
         shell: bash
 
-      - name: Build site with mdbook
+      - name: Prepare book sources
         run: |
           mkdir -p book/src
-          cp -r ./*.md book/src/ || true
-          cp -r */*.md book/src/ || true
+          cp -r book/src/SUMMARY.md book/src/README.md book/src/ || true
+          # Optionally copy referenced files if needed
+      - name: Build site with mdbook
+        run: |
           mdbook build book
 
       - name: Deploy to GitHub Pages
