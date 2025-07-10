@@ -35,10 +35,7 @@ jobs:
 
       - name: Build site with mdbook
         run: |
-          mkdir -p book/src
-          cp -r ./*.md book/src/ || true
-          cp -r */*.md book/src/ || true
-          mdbook build book
+          mdbook build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
