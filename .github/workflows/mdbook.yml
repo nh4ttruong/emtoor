@@ -1,8 +1,9 @@
-name: Github Pages
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - gh-pages
+      - main  # Change this to your actual source branch
 
 jobs:
   deploy:
@@ -13,14 +14,17 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v2
         with:
           mdbook-version: 'latest'
+
       - run: mdbook build
-      - name: Deploy
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./book
-          publish_branch: gh-pages
+          publish_branch: gh-pages  # <--- Deploy TO this branch
