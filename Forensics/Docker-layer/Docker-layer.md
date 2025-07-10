@@ -4,7 +4,7 @@ Challenge: [https://www.root-me.org/fr/Challenges/Forensic/Docker-layers](https:
 
 Sử dụng `container-diff` để analyze history của file `.tar`
 
-```
+```bash
 container-diff analyze -t history ch29.tar
 
 -----History-----
@@ -23,7 +23,7 @@ Ta thấy, tác giả sử dụng encrypt file flag lấy từ https://pastebin.
 
 Giờ thì untar file `ch29.tar` ra và tìm kiếm flag:
 
-```
+```bash
  1bbd61a572ad5f5e2ac0f073465d10dc1c94a71359b0adfd2c105be4c1cb2507
  316bbb8c58be42c73eefeb8fc0fdc6abb99bf3d5686dd5145fc7bb2f32790229.tar
  3309d6da2bd696689a815f55f18db3f173bc9b9a180e5616faf4927436cf199d.tar
@@ -45,19 +45,19 @@ Giờ thì untar file `ch29.tar` ra và tìm kiếm flag:
 
 Unzip tiếp các file `.tar` còn lại sẽ xuất hiện file `flag.enc` và `pass.txt`:
 
-```
+```bash
 cat pass.txt
 d4428185a6202a1c5806d7cf4a0bb738a05c03573316fe18ba4eb5a21a1bc8ea
 ```
 
-```
+```bash
 cat flag.enc
 Salted__s`;?�d�q���/�!����$@�����8�=NK:�E�n%���.N��02)�d
 ```
 
 Sử dụng `openssl` để descrypt `flag.enc`:
 
-```
+```bash
 openssl enc -aes-256-cbc -iter 10 -d -in flag.enc -out flag.txt
 ```
 
