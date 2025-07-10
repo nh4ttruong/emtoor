@@ -19,12 +19,7 @@ jobs:
         with:
           toolchain: stable
       - name: Install latest mdbook
-        run: |
-          tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
-          url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
-          mkdir mdbook
-          curl -sSL $url | tar -xz --directory=./mdbook
-          echo `pwd`/mdbook >> $GITHUB_PATH
+        run: (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
       - name: Install mdbook-wordcount
         run: (test -x $HOME/.cargo/bin/mdbook-wordcount || cargo install mdbook-wordcount)
       - name: Build & Test Book
