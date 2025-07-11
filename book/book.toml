@@ -12,7 +12,7 @@ build-dir = "./"
 [preprocessor.links]
 
 [output.html]
-default-theme = "light"
+default-theme = "ayu"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nh4ttruong/emtoor"
 git-repository-icon = "fa-github"
