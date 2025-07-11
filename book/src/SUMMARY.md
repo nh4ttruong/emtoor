@@ -54,4 +54,5 @@
 - [Steganography](./Steganography/README.md)
 
 -----------
-[Contributors](./contributor.md)
+[Disclaimer](./disclaimer.md)
+[Contributor](./contributor.md)
