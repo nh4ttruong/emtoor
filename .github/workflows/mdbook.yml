@@ -40,5 +40,4 @@ jobs:
         if: github.ref == 'refs/heads/book'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book/html
-        working-directory: ./book
+          publish_dir: ./book/book/html
