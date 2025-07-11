@@ -27,8 +27,8 @@ jobs:
 
       - name: Sync sources
         run: |
-          chmod +x script/sync.sh
-          bash script/sync.sh
+          chmod +x ci/sync.sh
+          bash ci/sync.sh
         working-directory: ./book
 
       - name: Build site with mdbook
