@@ -3,42 +3,42 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Contributors</title>
+        <title>Local File Inclusion Double Encoding - RootMe Solutions &amp; Write-Ups</title>
 
 
         <!-- Custom HTML head -->
 
-        <meta name="description" content="">
+        <meta name="description" content="RootMe Solutions &amp; Write-Ups for education purposes.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="../../toc.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -102,7 +102,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -134,11 +134,14 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title"></h1>
+                    <h1 class="menu-title">RootMe Solutions &amp; Write-Ups</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nh4ttruong/emtoor" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
                     </div>
@@ -166,29 +169,42 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
-<p>Thank you to everyone who has contributed to this project! Your efforts help make this resource better for the community.</p>
-<h2 id="how-to-contribute"><a class="header" href="#how-to-contribute">How to Contribute</a></h2>
-<ol>
-<li>Fork the repository and create your branch from <code>main</code>.</li>
-<li>Add your content or improvements.</li>
-<li>Open a pull request with a clear description of your changes.</li>
-</ol>
-<h2 id="contributors-list"><a class="header" href="#contributors-list">Contributors List</a></h2>
-<ul>
-<li><a href="https://github.com/nh4ttruong">nh4ttruong</a> (maintainer)</li>
-</ul>
-<hr />
-<p><em>If you contributed and are not listed, please open a PR or issue to be added!</em></p>
+                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
+<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion-Double-encoding">Local File Inclusion – Double Encoding</a></p>
+<img src="./media/image1.png" style="width:6.5in;height:1.94792in" alt="Graphical user interface, text, application Description automatically generated" />
+<p>Fuzz với Path Traversal, ta thấy web server block hoặc filter ‘../’:</p>
+<img src="./media/image2.png" style="width:6.5in;height:0.91667in" alt="Graphical user interface, text, application Description automatically generated" />
+<p>Tên challenge là LFI – Double Encoding URL Double Encoding. Ta convert ../ %252E%252E%252F (%252E = . ; %252F = /)</p>
+<p>Đưa vào ?page=[value] ta được:</p>
+<img src="./media/image3.png" style="width:6.5in;height:0.99306in" alt="Graphical user interface, text Description automatically generated" />
+<p>Đến đây, sau khi append bất kỳ text nào thì server sẽ concat text.inc.php:</p>
+<img src="./media/image4.png" style="width:6.5in;height:1.08958in" alt="Graphical user interface, text, application Description automatically generated" />
+<p>Dạo quanh index.html và homepage thì không phát hiện bất kỳ điều gì đặc biệt. Tương tự các bài LFI khác, ta cần get source để xem tác giả đặt gì trong web. Khi xem về cách get source php, ta có payload get như sau:</p>
+<p><em>?page=php://filter/convert.base64-encode/resource=[source_file]</em></p>
+<p>Giờ thì đưa vào payload ta để get source ở <strong>home.inc.php</strong>:</p>
+<p><em>?page=php://filter/convert.base64-encode/resource=home</em></p>
+<p>Double encoding: <em>?page=php%253A%252F%252Ffilter%252Fconvert%252Ebase64%252Dencode%252Fresource%253Dhome</em></p>
+<img src="./media/image5.png" style="width:6.5in;height:0.59653in" />
+<p>Bỏ vào base64 decode:</p>
+<img src="./media/image6.png" style="width:6.5in;height:3.25347in" alt="Graphical user interface, text, application Description automatically generated" />
+<p>View source không tìm được gì đặc biệt. Tuy vậy, website đã sử dụng thư viện từ <strong>conf.inc.php</strong>. Từ đó, tiến hành xem thử conf.inc.php:</p>
+<p><em>?page=php%253A%252F%252Ffilter%252Fconvert%252Ebase64%252Dencode%252Fresource%253Dconf</em></p>
+<img src="./media/image7.png" style="width:6.5in;height:0.66597in" />
+<p>Flag xuất hiện trong conf.inc.php:</p>
+<img src="./media/image8.png" style="width:6.5in;height:3.23472in" alt="Graphical user interface, text Description automatically generated" />
+<p>- Flag: *********************</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../Steganography/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../../../PHP/LocalFileInclusion/LocalFileInclusion.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="../../../../PHP/LocalFileInclusion-Wrappers/LocalFileInclusion-Wrappers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -196,10 +212,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../Steganography/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../../../PHP/LocalFileInclusion/LocalFileInclusion.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next prefetch" href="../../../../PHP/LocalFileInclusion-Wrappers/LocalFileInclusion-Wrappers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -212,13 +231,13 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
 
