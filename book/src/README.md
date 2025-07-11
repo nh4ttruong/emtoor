@@ -1,10 +1,14 @@
 
-![Flag](./ctf-flag.png)
+# Root Me Solutions & Write-ups
 
-A curated archive of Root Me CTF challenge solutions for educational and ethical hacking practice. This repository provides step-by-step write-ups for a variety of web security, application security, and digital forensics challenges.
+This repository offers write-ups and solutions for [Root Me CTF challenges](https://nh4ttruong.github.io/emtoor), aimed at educational and ethical hacking practice. It provides step-by-step guides for various web security, application security, and digital forensics challenges.
 
-## Challenge Categories
+> [!IMPORTANT]
+> Please read the [**Disclaimer**](https://nh4ttruong.github.io/emtoor/disclaimer.html) before "dive" into the challenges.
 
+---
+
+## Categories
 This repository is organized into several categories, each focusing on different aspects of cybersecurity challenges:
 
 | Category              | Description                       |
@@ -16,12 +20,14 @@ This repository is organized into several categories, each focusing on different
 | Steganography         | Hidden data in files/images       |
 | Forensics             | Digital forensics challenges      |
 
-> Note: This is just my solution approach and it may not be correct at the time you attempt the challenge.
+> [!WARNING]
+> This is just my solution approach and it may not be correct at the time you attempt the challenge.
 
-## Disclaimer
+> [!NOTE]
+> 🚩Flags are redacted for compliance. Guides are detailed for self-learning and education purpose only.
 
-Note that, you should read the [disclaimer](./disclaimer.md) before "dive" into the challenges.
+---
 
 ## Contributors
 
-- [@nh4ttruong](https://github.com/nh4ttruong)
+- [GitHub: nh4ttruong](https://github.com/nh4ttruong)
