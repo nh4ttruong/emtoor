@@ -35,16 +35,6 @@ jobs:
         run: mdbook build
         working-directory: ./book
 
-      - name: Debug built site content
-        run: |
-          echo "📂 Listing built files"
-          ls -alh book/
-          echo "📂 Listing"
-          ls -alh book/html/
-          echo "📂 Listing book/html files
-          ls -alh book/book/*"
-          ls -alh book/book/html"
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/book'
