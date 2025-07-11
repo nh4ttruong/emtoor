@@ -25,6 +25,7 @@ jobs:
         run: |
           chmod +x book/script/sync.sh
           bash book/script/sync.sh
+        working-directory: ./book
 
       - name: Build site with mdbook
         run: mdbook build
