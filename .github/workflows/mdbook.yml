@@ -28,10 +28,11 @@ jobs:
 
       - name: Build site with mdbook
         run: mdbook build book
+        working-directory: ./book
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/book'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book
+          publish_dir: ./book/book
