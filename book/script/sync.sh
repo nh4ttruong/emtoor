@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $GITHUB_WORKSPACE
+BASE=".."
 
 categories=(
     "CSRF"
@@ -13,13 +13,18 @@ categories=(
 )
 
 for dir in "${categories[@]}"; do
-    if [ -d "$dir" ]; then
-        echo "Copying $dir to book/src/$dir"
-        mkdir -p "book/src/$dir"
-        cp -r "$dir/"* "book/src/$dir/"
+    if [ -d "$BASE/$dir" ]; then
+        echo "Copying $dir to src/$dir"
+        mkdir -p "src/$dir"
+        cp -r "$BASE/$dir/"* "src/$dir/"
     else
         echo "Directory $dir does not exist, skipping."
     fi
 done
 
-cp README.md book/src/README.md
+if [ -z $BASE/README.md ]; then
+    echo "README.md does not exist, skipping."
+else
+    echo "Copying README.md to src/README.md"
+    cp $BASE/README.md src/README.md
+fi
