@@ -1,0 +1,42 @@
+[book]
+title = "RootMe Solutions & Write-Ups"
+authors = ["nh4ttruong"]
+description = "RootMe Solutions & Write-Ups for education purposes."
+
+[build]
+create-missing = false
+build-dir = "./"
+
+[preprocessor.index]
+
+[preprocessor.links]
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/nh4ttruong/emtoor"
+git-repository-icon = "fa-github"
+site-url = "/emtoor/"
+hash-files = true
+
+[output.html.search]
+enable = true            # enables the search feature
+limit-results = 30       # maximum number of search results
+teaser-word-count = 30   # number of words used for a search result teaser
+use-boolean-and = true   # multiple search terms must all match
+boost-title = 2          # ranking boost factor for matches in headers
+boost-hierarchy = 1      # ranking boost factor for matches in page names
+boost-paragraph = 1      # ranking boost factor for matches in text
+expand = true            # partial words will match longer terms
+heading-split-level = 3  # link results to heading levels
+copy-js = true           # include Javascript code for search
+
+[output.html.playground]
+copyable = true
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.wordcount]
+optional = true
