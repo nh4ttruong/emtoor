@@ -32,4 +32,4 @@ Vậy là website có config.php, get source config.php:
 
 <img src="./media/image9.png" style="width:6.5in;height:3.65625in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

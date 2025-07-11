@@ -18,4 +18,4 @@ assert("strpos(' ' **and die(show\_source('.passwd')) or** ' ', '..') === false"
 
 <img src="./media/image2.png" style="width:6.5in;height:1.23125in" alt="Graphical user interface, text, application Description automatically generated" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

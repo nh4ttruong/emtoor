@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge:** [**XSS DOM Based - Angular**](https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-AngularJS)
+# [XSS DOM Based - Angular](https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-AngularJS)
 
 Thử submit giá vị vào input, ta xem được script mà website handle:
 
@@ -8,7 +6,7 @@ Thử submit giá vị vào input, ta xem được script mà website handle:
 
 Mất khá nhiều thời gian để tránh filter và hiểu code. Có vẻ không thể attack bằng cách “hiểu” code được. Đề bài có tên là **AngularJS,** tra cứu cheatsheet XSS Angular, ta có thể tìm được payload: **$on.constructor('alert(1)')()**
 
-Để khiến JS thực thi command, ta chèn {{ }} để triển khai expression:
+Để khiến JS thực thi command, ta chèn `{{ }}` để triển khai expression:
 
 **{{$on.constructor('alert(1)')()}}**
 
@@ -38,4 +36,4 @@ HTTP Request nhận về:
 
 <img src="./media/image7.png" style="width:5.42995in;height:2.95398in" alt="A screenshot of a computer Description automatically generated" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

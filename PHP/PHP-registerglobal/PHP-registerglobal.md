@@ -14,4 +14,4 @@ Thử bằng payload với **/index.php?\_SESSION\[*logged*\]=1**, ta tìm đư�
 
 <img src="./media/image3.png" style="width:6.5in;height:3.67431in" alt="A screenshot of a computer Description automatically generated" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

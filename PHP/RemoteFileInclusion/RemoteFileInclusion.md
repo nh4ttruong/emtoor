@@ -38,4 +38,4 @@ Giờ thì gắn vào ?lang ta được:
 
 <img src="./media/image9.png" style="width:6.5in;height:3.4359in" alt="A screenshot of a computer Description automatically generated" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

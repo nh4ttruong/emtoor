@@ -44,4 +44,4 @@ Flag xuất hiện trong conf.inc.php:
 
 <img src="./media/image8.png" style="width:6.5in;height:3.23472in" alt="Graphical user interface, text Description automatically generated" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

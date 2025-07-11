@@ -37,4 +37,4 @@ Code đã chạy, ta get được password:
 
 <img src="./media/image7.png" style="width:6.5in;height:3.89792in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

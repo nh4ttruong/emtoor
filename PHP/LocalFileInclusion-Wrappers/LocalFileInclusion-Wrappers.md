@@ -90,4 +90,4 @@ Xong, nó list all ra được và ta có thể thấy được flag:
 
 <img src="./media/image14.png" style="width:6.5in;height:4.05208in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

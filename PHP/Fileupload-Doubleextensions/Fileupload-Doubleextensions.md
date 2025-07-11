@@ -29,4 +29,4 @@ Upload thành công, truy cập link và nhận password:
 
 <img src="./media/image5.png" style="width:6.5in;height:3.79444in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

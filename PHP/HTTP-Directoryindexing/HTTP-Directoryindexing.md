@@ -18,4 +18,4 @@ Mò một lúc thì ta thấy được password nằm tại admin/backup/admin.t
 
 <img src="./media/image4.png" style="width:6.5in;height:0.63889in" alt="A screenshot of a computer Description automatically generated" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

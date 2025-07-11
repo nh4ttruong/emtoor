@@ -42,4 +42,4 @@ Vậy là đã tìm được account của admin:
 
 <img src="./media/image9.png" style="width:6.5in;height:1.24653in" alt="Graphical user interface, text, application Description automatically generated" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"

@@ -22,4 +22,4 @@ Có lẽ galerie lúc này phải là null hoặc bằng value nào đó. Ta bac
 
 <img src="./media/image6.png" style="width:6.5in;height:3.63333in" alt="A screenshot of a computer Description automatically generated" />
 
-\- Flag: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+- Flag: "****************************"
