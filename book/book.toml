@@ -18,7 +18,8 @@ git-repository-url = "https://github.com/nh4ttruong/emtoor"
 git-repository-icon = "fa-github"
 site-url = "/emtoor/"
 hash-files = true
-additional-js = ["./js/medium-zoom.min.js", "./js/image-zoom.js"]
+additional-js = ["js/medium-zoom.min.js", "js/image-zoom.js"]
+additional-css = ["css/image-zoom.css"]
 
 [output.html.search]
 enable = true            # enables the search feature
