@@ -22,7 +22,9 @@ jobs:
           mdbook-version: 'latest'
 
       - name: Sync sources
-        run: bash book/scripts/sync.sh
+        run: |
+          chmod +x book/script/sync.sh
+          bash book/script/sync.sh
 
       - name: Build site with mdbook
         run: mdbook build book
