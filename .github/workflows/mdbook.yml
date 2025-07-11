@@ -27,7 +27,7 @@ jobs:
           bash book/script/sync.sh
 
       - name: Build site with mdbook
-        run: mdbook build book
+        run: mdbook build
         working-directory: ./book
 
       - name: Deploy to GitHub Pages
