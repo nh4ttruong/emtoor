@@ -2,9 +2,6 @@
 
 cd $GITHUB_WORKSPACE
 
-rm -rf book/src/*
-mkdir -p book/src
-
 categories=(
     "CSRF"
     "Cross-Site-Scripting"
