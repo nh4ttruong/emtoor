@@ -170,49 +170,42 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Error">SQL injection - Error</a></p>
-<img src="./media/image1.png" style="width:6.5in;height:2.97917in" alt="A screenshot of a computer Description automatically generated" />
+                        <h1 id="sql-injection---error"><a class="header" href="#sql-injection---error"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Error">SQL injection - Error</a></a></h1>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Website cung cấp cho ta 2 tab (Authentication và Contents), tuy vậy, khi fuzz SQLi vào Authentication thì không có kết quả khả thi. Chuyển qua tab Contents, ta phát hiện ra website sẽ res về lỗi cho ta:</p>
-<img src="./media/image2.png" style="width:6.5in;height:2.53125in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Thử fuzz các payload dựa vào “ORDER BY”:</p>
-<img src="./media/image3.png" style="width:6.5in;height:1.67014in" alt="Graphical user interface, text, application, website Description automatically generated" />
-<img src="./media/image4.png" style="width:6.5in;height:1.86042in" alt="Graphical user interface, text, application Description automatically generated" />
-<img src="./media/image5.png" style="width:6.32555in;height:2.41688in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Có thể thấy, với position==3 hoặc VARCHAR/CHAR type thì database res về lỗi. Như vậy, ta cần phải hiết 3 position của database này cũng như dựa vào type varibles để attack. Dựa vào cheatsheet của MySQL, ta có thể sử dụng <em><strong>CAST … AS [type]</strong></em> để khiến database res về error khi <u>postion không thể là VARCHAR/CHAR</u>. Mở burpsuite và thử payload:</p>
-<img src="./media/image6.png" style="width:6.5in;height:3.34583in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image2.png" alt="" /></p>
+<p>Thử fuzz các payload dựa vào <code>“ORDER BY”</code>:</p>
+<p><img src="./media/image3.png" alt="" /></p>
+<p><img src="./media/image4.png" alt="" /></p>
+<p><img src="./media/image5.png" alt="" /></p>
+<p>Có thể thấy, với <code>position==3</code> hoặc <code>VARCHAR/CHAR</code> type thì database res về lỗi. Như vậy, ta cần phải hiết 3 position của database này cũng như dựa vào type varibles để attack. Dựa vào cheatsheet của MySQL, ta có thể sử dụng <code>CAST … AS [type]</code> để khiến database res về error khi postion không thể là <code>VARCHAR/CHAR</code>. Mở burpsuite và thử payload:</p>
+<p><img src="./media/image6.png" alt="" /></p>
 <p>Lỗi res về cho ta biết, website sẽ chỉ hiển thị 1 row. Đến đây, ta có thể sử dụng LIMIT để filter res về 1 row:</p>
-<img src="./media/image7.png" style="width:6.5in;height:3.15972in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image7.png" alt="" /></p>
 <ul>
-<li>Table name: <strong>m3mbr35t4bl3</strong></li>
+<li>Table name: <code>m3mbr35t4bl3</code></li>
 </ul>
-<img src="./media/image8.png" style="width:6.5in;height:3.31736in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image8.png" alt="" /></p>
 <ul>
-<li>Column name (first column): <strong>id</strong></li>
+<li>Column name (first column): <code>id</code></li>
 </ul>
 <p>Đến đây, ta cần sử dụng OFFSET để có thể filter vào đúng postion ta cần LIMIT để hiển thị các column còn lại:</p>
-<img src="./media/image9.png" style="width:6.5in;height:3.27014in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<img src="./media/image10.png" style="width:6.5in;height:3.32014in" alt="Graphical user interface, text, email Description automatically generated" />
+<p><img src="./media/image9.png" alt="" /></p>
+<p><img src="./media/image10.png" alt="" /></p>
 <ul>
-<li>
-<p>Username column: us3rn4m3_c0l</p>
-</li>
-<li>
-<p>Password column: p455w0rd_c0l</p>
-</li>
+<li>Username column: <code>us3rn4m3_c0l</code></li>
+<li>Password column: <code>p455w0rd_c0l</code></li>
 </ul>
-<img src="./media/image11.png" style="width:6.5in;height:3.24375in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<img src="./media/image12.png" style="width:6.5in;height:3.27292in" alt="Graphical user interface, text, email Description automatically generated" />
+<p><img src="./media/image11.png" alt="" /></p>
+<p><img src="./media/image12.png" alt="" /></p>
 <ul>
-<li>
-<p>Username của admin: <strong>admin</strong></p>
-</li>
-<li>
-<p>Password của admin: <strong>1a2BdKT5DIx3qxQN3UaC</strong></p>
-</li>
+<li>Username của admin: <code>admin</code></li>
+<li>Password của admin: <code>1a2BdKT5DIx3qxQN3UaC</code></li>
 </ul>
-<img src="./media/image13.png" style="width:6.5in;height:3.82083in" alt="A screenshot of a computer Description automatically generated" />
-<p>- Flag: ***************************</p>
+<p><img src="./media/image13.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

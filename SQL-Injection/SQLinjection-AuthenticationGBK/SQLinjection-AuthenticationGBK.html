@@ -170,40 +170,31 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-authentication-GBK">SQL injection - Authentication - GBK</a></p>
-<img src="./media/image1.png" style="width:6.5in;height:1.99792in" alt="Graphical user interface, application Description automatically generated with medium confidence" />
-<p>Thử với các payload như bài SQLi Authenticaiton thì mọi thứ đã không qua được:</p>
-<img src="./media/image2.png" style="width:6.5in;height:2.05069in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Thử đổi payload sang <strong>login[]=admin&amp;password[]=1</strong>, ta nhận được thông báo lỗi sau:</p>
-<img src="./media/image3.png" style="width:3.76344in;height:1.82433in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<p>Từ đó, ta có thể đoán được password sẽ dùng md5 đã hash và username sử dụng addslashes() để encoding input. Hàm <a href="https://www.php.net/manual/en/function.addslashes.php">PHP: addslashes - Manual</a> sẽ chèn thêm “\” trước các ký tự đóng ngoặc đơn để tránh SQL. Từ đó, ta chỉ cần bypass username qua addslashes là có thể SQLi thành công.</p>
+                        <h1 id="sql-injection---authentication---gbk"><a class="header" href="#sql-injection---authentication---gbk"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-authentication-GBK">SQL injection - Authentication - GBK</a></a></h1>
+<p><img src="./media/image1.png" alt="" /></p>
+<p>Thử với các payload như bài <strong>SQLi Authenticaiton</strong> thì mọi thứ đã không qua được:</p>
+<p><img src="./media/image2.png" alt="" /></p>
+<p>Thử đổi payload sang l<code>ogin[]=admin&amp;password[]=1</code>, ta nhận được thông báo lỗi sau:</p>
+<p><img src="./media/image3.png" alt="" /></p>
+<p>Từ đó, ta có thể đoán được password sẽ dùng md5 đã hash và username sử dụng addslashes() để encoding input. Hàm <a href="https://www.php.net/manual/en/function.addslashes.php">PHP: addslashes - Manual</a> sẽ chèn thêm <code>\</code> trước các ký tự đóng ngoặc đơn để tránh SQL. Từ đó, ta chỉ cần bypass username qua addslashes là có thể SQLi thành công.</p>
 <p>Theo GBK, nó sẽ thực hiện mã encoding các ký tự hex về tiếng Trung. Bên cạnh đó, nó sẽ encode 2 bytes hex về 1 ký tự tiếng Trung và tuân theo quy luật (<a href="https://en.wikipedia.org/wiki/GBK_(character_encoding)">GBK (character encoding) - Wikipedia</a>):</p>
-<img src="./media/image4.png" style="width:6.5in;height:0.24306in" />
+<p><img src="./media/image4.png" alt="" /></p>
 <p>Do đó, ta có thể lợi dụng điều này để khiến server tự động thêm “\” vào input (1 byte) vào input và từ đó khiến nó trở thành 1 ký tự tiếng Trung:</p>
 <ul>
-<li>
-<p>Ký tự ‘\’ có mã hex là %5C (phù hợp với luận ở byte thứ 2)</p>
-</li>
-<li>
-<p>Vì luật quy định byte đầu tiên trong khoảng 81 – FE, do đó ta chọn byte đầu là %81</p>
-</li>
+<li>Ký tự <code>\</code> có mã hex là <code>%5C</code> (phù hợp với luận ở byte thứ 2)</li>
+<li>Vì luật quy định byte đầu tiên trong khoảng <strong>81 – FE</strong>, do đó ta chọn byte đầu là<code> %81</code></li>
+<li>Ta có ký tự hoàn chỉnh sau khi nhập <code>%81</code> vào sẽ được convert sang <code>%81%5c</code> ~ <code>乗</code></li>
 </ul>
-<!-- -->
-<ul>
-<li>Ta có ký tự hoàn chỉnh sau khi nhập %81 vào sẽ được convert sang %81%5c ~ 乗</li>
-</ul>
-<img src="./media/image5.png" style="width:3.14194in;height:0.80007in" alt="Shape, rectangle Description automatically generated" />
-<p>Giờ đến việc inject username, ta thử với payload:</p>
-<p><strong>login=admin%81'+or+1=1--+-&amp;password=1</strong></p>
-<p>Dự đoán, server sẽ convert nó thành:</p>
-<p><strong>login=admin%81%5C'+or+1=1--+-&amp;password=1</strong></p>
-<p>Hay:</p>
-<p><strong>login=admin</strong>乗**'+or+1=1--+-&amp;password=1**</p>
-<img src="./media/image6.png" style="width:4.88666in;height:2.2841in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image5.png" alt="" /></p>
+<p>Giờ đến việc inject username, ta thử với payload: <code>login=admin%81'+or+1=1--+-&amp;password=1</code></p>
+<p>Dự đoán, server sẽ convert nó thành: <code>login=admin%81%5C'+or+1=1--+-&amp;password=1</code></p>
+<p>Hay: <code>login=admin乗'+or+1=1--+-&amp;password=1</code></p>
+<p><img src="./media/image6.png" alt="" /></p>
 <p>Sau khi send request, Burp hiển thị Redirection, click vào thì hiển thị flag:</p>
-<img src="./media/image7.png" style="width:6.5in;height:2.32917in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>- Flag: ********************</p>
+<p><img src="./media/image7.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

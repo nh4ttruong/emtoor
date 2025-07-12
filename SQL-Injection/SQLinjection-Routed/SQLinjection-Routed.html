@@ -170,24 +170,24 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-Injection-Routed">SQL-Injection-Routed</a></p>
-<img src="./media/image1.png" style="width:5.41761in;height:1.74394in" alt="Graphical user interface Description automatically generated with medium confidence" />
+                        <h1 id="sql-injection-routed"><a class="header" href="#sql-injection-routed"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-Injection-Routed">SQL-Injection-Routed</a></a></h1>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Thử login và intercept request, ta có được kết quả:</p>
-<img src="./media/image2.png" style="width:6.5in;height:2.20417in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image2.png" alt="" /></p>
 <p>Có vẻ như khó có thể bypass được ở hàm login này khi request trả về:</p>
-<p><img src="./media/image3.png" style="width:6.5in;height:1.87153in" alt="Graphical user interface, text, application Description automatically generated" /> Chuyển qua tab Search, khi query ta đều nhận được kết quả trả về dựa trên query:</p>
-<img src="./media/image4.png" style="width:6.5in;height:1.90833in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Ta sẽ attack vào đây với payload <strong>‘ union select 1 from information_schema-- -</strong> thì nhận được response <strong>“Attack detected!”</strong>:</p>
-<p><img src="./media/image5.png" style="width:6.5in;height:2.19931in" alt="Graphical user interface, text, application Description automatically generated" /> Thử fuzz ta biết được, input sẽ filter các ký tự như ‘,’, các ký tự có thể liên quan đến SQLi. Tuy nhiên không filter một vài từ như union, select,…</p>
+<p><img src="./media/image3.png" alt="" /> Chuyển qua tab Search, khi query ta đều nhận được kết quả trả về dựa trên query:</p>
+<p><img src="./media/image4.png" alt="" /></p>
+<p>Ta sẽ attack vào đây với payload <code>‘ union select 1 from information_schema-- -</code> thì nhận được response <strong>“Attack detected!”</strong>:</p>
+<p><img src="./media/image5.png" alt="" /> Thử fuzz ta biết được, input sẽ filter các ký tự như ‘,’, các ký tự có thể liên quan đến SQLi. Tuy nhiên không filter một vài từ như union, select,…</p>
 <p>Tìm hiểu về Routed SQL (<a href="https://repository.root-me.org/Exploitation%20-%20Web/EN%20-%20Routed%20SQL%20Injection%20-%20Zenodermus%20Javanicus.txt">https://repository.root-me.org/Exploitation - Web/EN - Routed SQL Injection - Zenodermus Javanicus.txt</a>) ta có thể tìm được thông tin:</p>
 <p>In simple words routed SQL injection can be a scenario when you are not able to see any output after using "union select", earlier when i was playing with SQLi i found a website where i wasnt getting any output so it just striked through my mind that may be the output is not coming to the page then it must be going somewhere, and that somewhere is an another sql query.</p>
 <p>Nghĩ là, khi ta inject với union select thì sẽ không thể thấy được input của câu inject đó.</p>
-<p>Payload: <strong>'union select login,password from users-- -</strong></p>
-<p>Convert sang hexa: <strong>0x27756e696f6e2073656c656374206c6f67696e2c70617373776f72642066726f6d2075736572732d2d202d</strong></p>
-<img src="./media/image6.png" style="width:6.5in;height:1.60972in" alt="Graphical user interface, text, application Description automatically generated" />
-<p><strong>Flag:</strong> qs89QdAs9A</p>
-<p>- Flag:</p>
+<p>Payload: <code>'union select login,password from users-- -</code></p>
+<p>Convert sang hexa: <code>0x27756e696f6e2073656c656374206c6f67696e2c70617373776f72642066726f6d2075736572732d2d202d</code></p>
+<p><img src="./media/image6.png" alt="" /></p>
+<ul>
+<li>Flag: *********************</li>
+</ul>
 
                     </main>
 

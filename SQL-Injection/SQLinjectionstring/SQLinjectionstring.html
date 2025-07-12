@@ -170,26 +170,27 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-String">SQL injection - String</a></p>
-<img src="./media/image1.png" style="width:6.5in;height:1.10208in" alt="Graphical user interface Description automatically generated with low confidence" />
+                        <h1 id="sql-injection---string"><a class="header" href="#sql-injection---string"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-String">SQL injection - String</a></a></h1>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Thử SQLi ở thẻ Login thì không bypass được, ta qua thẻ Search để thử. Ở thẻ này có vẻ khả thi hơn vì nó có thực hiện query theo input của ta. Ví dụ:</p>
-<img src="./media/image2.png" style="width:6.5in;height:1.20278in" alt="Graphical user interface, text Description automatically generated with medium confidence" />
+<p><img src="./media/image2.png" alt="" /></p>
 <p>Đầu tiên, thử với payload đơn giản <strong>1’ or 1=1--</strong> , thì phát hiện nó đã bị SQLi thành công:</p>
-<img src="./media/image3.png" style="width:6.5in;height:1.59375in" alt="A picture containing text Description automatically generated" />
+<p><img src="./media/image3.png" alt="" /></p>
 <p>Ta thực hiện blind SQL để tìm kiếm thông tin infor của admin để có thể login. Ta thử với payload <strong>1’ union select 1</strong> , thì nhận về lỗi sau:</p>
-<img src="./media/image4.png" style="width:6.5in;height:0.78125in" />
+<p><img src="./media/image4.png" alt="" /></p>
 <p>Có thể biết được server sử dụng SQLite3, từ đó, công việc của ta cần sử dụng cú pháp của SQLite3 để mò ra các table trong database với hi vọng tìm được admin. Nhưng trước tiên, ta cần phải thực hiện dò số cột. Thay payload thành <strong>1’ union select 1,1--</strong> thì có vẻ đã tìm được số cột là 2:</p>
-<img src="./media/image5.png" style="width:3.87534in;height:1.46679in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image5.png" alt="" /></p>
 <p>Vì server dùng SQLite3, do vậy, ta cần truy vẫn các table bằng cách tìm trong <strong>sqlite_master</strong> hoặc <strong>sqlite_schema.</strong> Thử truy vấn với payload <strong>1’ union select 1,name from sqlite_master--</strong> ta có:</p>
-<img src="./media/image6.png" style="width:5.75883in;height:2.3502in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image6.png" alt="" /></p>
 <p>Tiếp tục, ta blind vào table users <em>1' union select 1,1 from users--</em></p>
-<img src="./media/image7.png" style="width:4.9671in;height:1.9585in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image7.png" alt="" /></p>
 <p>Tiếp tục, ta thử query tìm username và password với payload <strong>1' union select username,password from users-- :</strong></p>
-<img src="./media/image8.png" style="width:5.93385in;height:2.45855in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image8.png" alt="" /></p>
 <p>Thử login thì thành công:</p>
-<img src="./media/image9.png" style="width:6.5in;height:1.92431in" alt="Graphical user interface, application Description automatically generated" />
-<p>- Flag: **********************</p>
+<p><img src="./media/image9.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

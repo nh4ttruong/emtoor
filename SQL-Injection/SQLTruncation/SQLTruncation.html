@@ -170,12 +170,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge: <a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-Truncation">SQL Truncation</a></strong></p>
-<img src="./media/image1.png" style="width:6.5in;height:1.93403in" alt="Graphical user interface, application Description automatically generated" />
+                        <h1 id="sql-truncation"><a class="header" href="#sql-truncation"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-Truncation">SQL Truncation</a>**</a></h1>
+<p><img src="./media/image1.png" alt="" /></p>
 <p><strong>SQL Truncation</strong> là lỗ hổng xảy ra khi user input vượt qua các điều kiện của database khiến database xung đột và gây ra hiện tượng thiếu xác thực.</p>
 <p>Ở challenge này, ta phải mạo danh admin và login vào tab của admin. Đầu tiên, ta kiếm tra sources code và thấy được comment về các query khi register:</p>
-<img src="./media/image2.png" style="width:6.5in;height:3.08403in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image2.png" alt="" /></p>
 <p>Ở username và password, ta có thể thấy, database giới hạng length = 12 (login) và length = 32 (password). Như vậy, ta thử attack vào username với payload:</p>
 <ul>
 <li>
@@ -185,7 +184,7 @@
 <p><strong>Password:</strong> somethinghere</p>
 </li>
 </ul>
-<img src="./media/image3.png" style="width:4.44205in;height:1.73348in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image3.png" alt="" /></p>
 <p>Khi này, ta nhận được thông báo “User saved”. Theo SQL Truncations, lúc này, thông tin login của ta sẽ bị truncate thành:</p>
 <ul>
 <li>
@@ -196,10 +195,11 @@
 </li>
 </ul>
 <p>Ta chuyển qua tab Administrator, login vào bằng password vừa tạo:</p>
-<img src="./media/image4.png" style="width:6.08386in;height:2.44188in" alt="Graphical user interface, text, application, website Description automatically generated" />
+<p><img src="./media/image4.png" alt="" /></p>
 <p>Ta nhận được flag sau khi login!</p>
-<p><strong>Flag:</strong> J41m3Qu4nD54Tr0nc</p>
-<p>- Flag:</p>
+<ul>
+<li>Flag: *********************</li>
+</ul>
 
                     </main>
 

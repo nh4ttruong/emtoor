@@ -170,72 +170,71 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Insert">SQL injection - Insert</a></p>
-<img src="./media/image1.png" style="width:6.5in;height:2.09028in" alt="Graphical user interface, text, application Description automatically generated" />
+                        <h1 id="sql-injection---insert"><a class="header" href="#sql-injection---insert"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Insert">SQL injection - Insert</a></a></h1>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Website cho ta 2 tab gồm authentication và register. Ở Register, ta có thể tùy ý tạo được account và không hề có filter input.</p>
-<img src="./media/image2.png" style="width:5.95544in;height:1.93615in" alt="Graphical user interface, text, application Description automatically generated" />
-<img src="./media/image3.png" style="width:5.98037in;height:2.43987in" alt="Graphical user interface, text, application Description automatically generated" />
-<img src="./media/image4.png" style="width:6.5in;height:1.90208in" alt="Graphical user interface, text, application, website Description automatically generated" />
-<p>Từ đó, ta xác định chỗ để tiêm vào database. Ở tab register, ta có thể thấy website yêu câu 3 field gồm username, password và email. Do đó, database sẽ thực hiện tạo user theo kiểu:</p>
-<p><em><strong>INSERT INTO users VALUES (username, password, email)</strong></em></p>
+<p><img src="./media/image2.png" alt="" /></p>
+<p><img src="./media/image3.png" alt="" /></p>
+<p><img src="./media/image4.png" alt="" /></p>
+<p>Từ đó, ta xác định chỗ để tiêm vào database. Ở tab register, ta có thể thấy website yêu câu 3 field gồm username, password và email. Do đó, database sẽ thực hiện tạo user theo kiểu:
+<code>INSERT INTO users VALUES (username, password, email)</code></p>
 <p>Trong khi đó, website không hề filter email field và ta có thể lợi dụng bug này để có thể INSERT thêm các giá trị ta muốn với multiple insertions và tấn công vào email field.</p>
-<p><strong>Payload:</strong> <em>INSERT INTO users VALUES (username, password, email), (sth, sth, attack_payload)-- -</em></p>
-<img src="./media/image5.png" style="width:6.5in;height:3.27292in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Login vào account, <em><strong>ss, ss, (select version()):</strong></em></p>
-<img src="./media/image6.png" style="width:6.5in;height:3.23264in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><strong>Payload:</strong> <code>INSERT INTO users VALUES (username, password, email), (sth, sth, attack_payload)-- -</code></p>
+<p><img src="./media/image5.png" alt="" /></p>
+<p>Login vào account, <code>ss, ss, (select version()):</code></p>
+<p><img src="./media/image6.png" alt="" /></p>
 <ul>
-<li>Database version(): <strong>10.3.34-MariaDB-0ubuntu0.20.04.1</strong></li>
+<li>Database version(): <code>10.3.34-MariaDB-0ubuntu0.20.04.1</code></li>
 </ul>
-<p>Tiếp tục, ta cần fuzz để tìm ra được table và column, nhưng khi thử thì bị message “Request failed” cho đến khi sử dụng LIMIT thì mới biết là nó bị giới hạn:</p>
-<img src="./media/image7.png" style="width:6.5in;height:3.16458in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p>Tiếp tục, ta cần fuzz để tìm ra được table và column, nhưng khi thử thì bị message <strong>“Request failed”</strong> cho đến khi sử dụng LIMIT thì mới biết là nó bị giới hạn:</p>
+<p><img src="./media/image7.png" alt="" /></p>
 <p>Thử sử dụng trick với OFFSET thì được response <strong>“Attack detected”.</strong></p>
-<img src="./media/image8.png" style="width:6.5in;height:3.20139in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image8.png" alt="" /></p>
 <p>Login vào account vừa INSERT, ta biết được 1 table:</p>
-<img src="./media/image9.png" style="width:6.5in;height:2.57778in" alt="Graphical user interface, text Description automatically generated" />
-<p>Sử dụng GROUP_CONCAT để show các table nhưng có vẻ không có tables nào có thông tin user hoặc flag mà toàn là các table khác.:</p>
-<img src="./media/image10.png" style="width:6.5in;height:2.48125in" alt="Graphical user interface, text, application Description automatically generated" />
-<img src="./media/image11.png" style="width:6.5in;height:3.03889in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image9.png" alt="" /></p>
+<p>Sử dụng <strong>GROUP_CONCAT</strong> để show các table nhưng có vẻ không có tables nào có thông tin user hoặc flag mà toàn là các table khác.:</p>
+<p><img src="./media/image10.png" alt="" /></p>
+<p><img src="./media/image11.png" alt="" /></p>
 <p>Thử xem lại version, ta thấy server sử dụng MariaDB. Sau một hồi stuck và check cheatsheet, ta có thể sử dụng <strong>information_schema.processlist</strong> để check các thread đang thực thi của server database (vì user có thể reg bất cứ lúc nào). Lúc này, ta có thể kiểm tra table <strong>INFO</strong> để có thể xem server sẽ thực thi cái gì khi reg account (<a href="https://mariadb.com/kb/en/information-schema-processlist-table/">Information Schema PROCESSLIST Table - MariaDB Knowledge Base</a>):</p>
-<img src="./media/image12.png" style="width:5.99323in;height:2.98848in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image12.png" alt="" /></p>
 <p>Reg acc để show table <strong>INFO</strong> của <strong>information_schema.processlist</strong>:</p>
-<img src="./media/image13.png" style="width:6.32601in;height:2.75749in" alt="Graphical user interface, text Description automatically generated" />
-<img src="./media/image14.png" style="width:6.37083in;height:2.61121in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image13.png" alt="" /></p>
+<p><img src="./media/image14.png" alt="" /></p>
 <p>Payload thực thi của server:</p>
-<p><em><strong>INSERT INTO `membres` ( `username`, `password`, `email`)</strong></em></p>
+<p><em><strong>INSERT INTO <code>membres</code> ( <code>username</code>, <code>password</code>, <code>email</code>)</strong></em></p>
 <ul>
 <li>Table cần tìm: <strong>membres</strong></li>
 </ul>
 <p>Show các column của membres table:</p>
-<img src="./media/image15.png" style="width:6.5in;height:2.81597in" alt="Graphical user interface, text, email Description automatically generated" />
+<p><img src="./media/image15.png" alt="" /></p>
 <p>Tuy vậy, ta chẳng kiếm được bất kỳ thông tin nào từ bảng membres này cả</p>
 <p>Sau 2 tiếng stuck, vì quá bất lực, em quyết định sử dụng burpsuite để bruteforce tất cả các table của <strong>information_schema.tables:</strong></p>
 <ul>
 <li>Auto register account:</li>
 </ul>
-<img src="./media/image16.png" style="width:6.5in;height:3.27083in" alt="Graphical user interface, application Description automatically generated" />
+<p><img src="./media/image16.png" alt="" /></p>
 <ul>
 <li>Auto login:</li>
 </ul>
-<img src="./media/image17.png" style="width:6.5in;height:3.64375in" alt="Graphical user interface, application Description automatically generated" />
+<p><img src="./media/image17.png" alt="" /></p>
 <ul>
 <li>Sau khi xem qua các table mà bruteforce giúp ta leak, ta đã tìm được đúng table cần tìm :</li>
 </ul>
-<img src="./media/image18.png" style="width:6.5in;height:3.50972in" alt="Graphical user interface, application Description automatically generated" />
+<p><img src="./media/image18.png" alt="" /></p>
 <p>Đến đây, ta thực hiện tìm column trong flag table:</p>
 <ul>
-<li>Payload: <em>username=uuysyy&amp;password=123&amp;email=gg'),('cgc','123',(select column_name from information_schema.columns where table_name='flag' limit 0,1))-- -</em></li>
+<li>Payload: <code>username=uuysyy&amp;password=123&amp;email=gg'),('cgc','123',(select column_name from information_schema.columns where table_name='flag' limit 0,1))-- -</code></li>
 </ul>
-<img src="./media/image19.png" style="width:6.5in;height:3.40139in" alt="Graphical user interface, text Description automatically generated" />
-<p>Giờ thì tìm flag:</p>
-<p><em>username=sadadas&amp;password=123&amp;email=gg'),('cvb','123',(select flag from flag limit 0,1))-- -</em></p>
-<img src="./media/image20.png" style="width:6.5in;height:3.20903in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image19.png" alt="" /></p>
+<p>Giờ thì tìm flag: <code>username=sadadas&amp;password=123&amp;email=gg'),('cvb','123',(select flag from flag limit 0,1))-- -</code></p>
+<p><img src="./media/image20.png" alt="" /></p>
 <ul>
-<li>Flag: moaZ63rVXUhlQ8tVS7Hw</li>
+<li>Flag: ******************************</li>
 </ul>
-<img src="./media/image21.png" style="width:6.5in;height:3.29722in" alt="Graphical user interface, text, application Description automatically generated" />
-<p><strong>Flag:</strong> moaZ63rVXUhlQ8tVS7Hw</p>
-<p>- Flag:</p>
+<p><img src="./media/image21.png" alt="" /></p>
+<ul>
+<li>Flag: ******************************</li>
+</ul>
 
                     </main>
 

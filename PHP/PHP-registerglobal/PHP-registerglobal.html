@@ -170,17 +170,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-register-globals">PHP – register globals</a></p>
-<p>Theo document, ta có các global variable thường gặp là: '_REQUEST', '_SESSION', '_SERVER', '_ENV', '_FILES'. Kiểm tra cookie của website, ta có thể thấy được PHP Session ID. Từ đó, ta có thể đoán được website có thể sử dụng _SESSION để lưu trữ mảng các session (<a href="https://www.php.net/manual/en/reserved.variables.session.php">PHP: $_SESSION - Manual</a>).</p>
-<img src="./media/image1.png" style="width:6.5in;height:2.45764in" alt="Graphical user interface, application Description automatically generated" />
-<p>Thử bằng payload với <strong>/index.php?_SESSION[<em>logged</em>]=1</strong>, ta tìm được password:</p>
-<img src="./media/image2.png" style="width:6.5in;height:1.88611in" alt="Graphical user interface, text, application Description automatically generated" />
+                        <h1 id="php--register-globals"><a class="header" href="#php--register-globals"><a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-register-globals">PHP – register globals</a></a></h1>
+<p>Theo document, ta có các global variable thường gặp là: <code>_REQUEST</code>, <code>_SESSION</code>, <code>_SERVER</code>, <code>_ENV</code>, <code>_FILES</code>. Kiểm tra cookie của website, ta có thể thấy được PHP Session ID. Từ đó, ta có thể đoán được website có thể sử dụng <code>_SESSION</code> để lưu trữ mảng các session (<a href="https://www.php.net/manual/en/reserved.variables.session.php">PHP: $_SESSION - Manual</a>).</p>
+<p><img src="./media/image1.png" alt="" /></p>
+<p>Thử bằng payload với <code>/index.php?_SESSION[logged]=1</code>, ta tìm được password:</p>
+<p><img src="./media/image2.png" alt="" /></p>
+<pre><code class="language-yaml">Password: **NoTQYipcRKkgrqG**
+</code></pre>
+<p><img src="./media/image3.png" alt="" /></p>
 <ul>
-<li>Password: <strong>NoTQYipcRKkgrqG</strong></li>
+<li>Flag: "****************************"</li>
 </ul>
-<img src="./media/image3.png" style="width:6.5in;height:3.67431in" alt="A screenshot of a computer Description automatically generated" />
-<p>- Flag: **********************</p>
 
                     </main>
 

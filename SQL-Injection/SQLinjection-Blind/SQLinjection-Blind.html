@@ -170,21 +170,20 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge: <a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-blind">SQL Injection - Blind</a></strong></p>
-<p>Thử fuzz với payload <strong>admin’-- -</strong> ta đã access thành công qua Authentication v 0.02. Tuy vậy, website chẳng trả về cho thông tin password gì cả:</p>
-<img src="./media/image1.png" style="width:6.5in;height:2.46458in" alt="Graphical user interface, application Description automatically generated" />
+                        <h1 id="sql-injection---blind"><a class="header" href="#sql-injection---blind"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-blind">SQL Injection - Blind</a></a></h1>
+<p>Thử fuzz với payload <code>admin’-- -</code> ta đã access thành công qua Authentication v 0.02. Tuy vậy, website chẳng trả về cho thông tin password gì cả:</p>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Mở burpsuite và tìm kiếm thôi. Thử thay đổi payload bằng cách sử dụng union select thì phát hiện ra website đã filter các keyword chông SQL Injection với thông báo <strong>“Injection detected”</strong>:</p>
-<img src="./media/image2.png" style="width:6.5in;height:2.46667in" />
+<p><img src="./media/image2.png" alt="" /></p>
 <p>Với blind injection, ta thực hiện mò thử với các cấu trúc mà server database hay tạo, fuzz thôi:</p>
-<img src="./media/image3.png" style="width:6.5in;height:2.65694in" alt="Graphical user interface, text, website Description automatically generated" />
+<p><img src="./media/image3.png" alt="" /></p>
 <p>Với payload:</p>
-<p><em>username=admin%27+AND+(select+username+from+sqlite_master)='admin'--+-&amp;password=admin%27--+-</em></p>
+<p><code>username=admin%27+AND+(select+username+from+sqlite_master)='admin'--+-&amp;password=admin%27--+-</code></p>
 <p>Server trả về là TRUE fuzz tìm password bằng substr() thôi!</p>
 <ol>
 <li><strong>Tìm length(password):</strong></li>
 </ol>
-<img src="./media/image4.png" style="width:6.5in;height:3.17639in" alt="Graphical user interface, application Description automatically generated" />
+<p><img src="./media/image4.png" alt="" /></p>
 <ul>
 <li>Length(password) == 8</li>
 </ul>
@@ -193,10 +192,12 @@
 </ol>
 <p>Payload để fuzz:</p>
 <p><em>username=admin%27+AND+substr((select+password+from+sqlite_master),1,1)='a'--+-&amp;password=admin%27--+-</em></p>
-<img src="./media/image5.png" style="width:6.5in;height:4.19097in" alt="Table Description automatically generated with medium confidence" />
-<p>Sau một khoảng thời gian, ta đã ghép được password: <strong>e2azO93i</strong></p>
-<img src="./media/image6.png" style="width:6.5in;height:3.90347in" alt="A picture containing text, screenshot, monitor, computer Description automatically generated" />
-<p>- Flag: ***************</p>
+<p><img src="./media/image5.png" alt="" /></p>
+<p>Sau một khoảng thời gian, ta đã ghép được <code>password: e2a*********3i</code></p>
+<p><img src="./media/image6.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

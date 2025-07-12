@@ -170,35 +170,31 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion">Local File Inclusion</a></p>
+                        <h1 id="local-file-inclusion"><a class="header" href="#local-file-inclusion"><a href="https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion">Local File Inclusion</a></a></h1>
 <p>Website có rất nhiều tab và gây confuse khi làm:</p>
-<img src="./media/image1.png" style="width:6.5in;height:1.82222in" alt="Graphical user interface, text Description automatically generated" />
+<p><img src="./media/image1.png" alt="" /></p>
 <p>Câu query URL có dạng <a href="http://challenge01.root-me.org/web-serveur/ch16/?files=crypto&amp;f=index.html">challenge01.root-me.org/web-serveur/ch16/?files=sysadm&amp;f=index.html</a> với files sẽ chỉ định folder và f sẽ chỉ định tệp hoặc folder con mà ta chọn:</p>
-<img src="./media/image2.png" style="width:6.5in;height:1.81875in" alt="Shape Description automatically generated with low confidence" />
-<img src="./media/image3.png" style="width:6.5in;height:1.71806in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image2.png" alt="" /></p>
+<p><img src="./media/image3.png" alt="" /></p>
 <p>Chuyển qua mò tab Admin thì website bắt login. Biết gì đâu mà login :v. Tắt promt login thì ta nhận được dòng text:</p>
-<img src="./media/image4.png" style="width:6.5in;height:0.69444in" alt="Graphical user interface, text, application, website Description automatically generated" />
+<p><img src="./media/image4.png" alt="" /></p>
 <p>Như vậy, website sử dụng backend là PHP. Thử mò file source code của nó dựa theo query ở trên:</p>
-<img src="./media/image5.png" style="width:6.5in;height:1.60417in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Lỗi trả về là <strong>file_get_contents()</strong> không tìm được filename. Sau khi thử fuzz một lúc thì phát hiện ra website không block <strong>‘../’.</strong> Đã đến lúc ta dùng Path Traversal.</p>
-<p>Thử với <strong>files=../</strong>:</p>
-<img src="./media/image6.png" style="width:6.5in;height:1.85417in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<p>Lúc này, ta thấy được các thư mục cha chứa thư mục files, trong đó, có folder admin. Đặc biệt, website có một file là index.php giống như ở homepage của website. Vậy hướng của ta là xem được các file có trong folder admin (như index.php). Thử trỏ <strong>files=../admin</strong> và <strong>&amp;f=index.php</strong> thì ta đã truy cập thành công index.php:</p>
-<img src="./media/image7.png" style="width:6.5in;height:1.99306in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image5.png" alt="" /></p>
+<p>Lỗi trả về là <code>file_get_contents()</code> không tìm được filename. Sau khi thử fuzz một lúc thì phát hiện ra website không block <code>‘../’.</code> Đã đến lúc ta dùng <strong>Path Traversal</strong>.</p>
+<p>Thử với <code>files=../</code>:</p>
+<p><img src="./media/image6.png" alt="" /></p>
+<p>Lúc này, ta thấy được các thư mục cha chứa thư mục files, trong đó, có folder admin. Đặc biệt, website có một file là index.php giống như ở homepage của website. Vậy hướng của ta là xem được các file có trong folder admin (như index.php). Thử trỏ <code>files=../admin</code> và <code>&amp;f=index.php</code> thì ta đã truy cập thành công index.php:</p>
+<p><img src="./media/image7.png" alt="" /></p>
 <p>Dò source code ta thấy được 2 dòng code rất giá trị:</p>
-<img src="./media/image8.png" style="width:6.5in;height:2.48889in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<p><img src="./media/image8.png" alt="" /></p>
 <p>Vậy là đã tìm được account của admin:</p>
+<pre><code class="language-yaml">- Username: admin
+- Password: OpbNJ60xYpvAQU8
+</code></pre>
+<p><img src="./media/image9.png" alt="" /></p>
 <ul>
-<li>
-<p>Username: admin</p>
-</li>
-<li>
-<p>Password: OpbNJ60xYpvAQU8</p>
-</li>
+<li>Flag: "****************************"</li>
 </ul>
-<img src="./media/image9.png" style="width:6.5in;height:1.24653in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>- Flag: **********************</p>
 
                     </main>
 

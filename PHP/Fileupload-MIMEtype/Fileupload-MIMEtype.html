@@ -170,28 +170,37 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="write-up"><a class="header" href="#write-up">WRITE UP</a></h1>
-<p><strong>Challenge:</strong> <a href="https://www.root-me.org/en/Challenges/Web-Server/File-upload-MIME-type">File upload - MIME type</a></p>
+                        <h1 id="file-upload---mime-type"><a class="header" href="#file-upload---mime-type"><a href="https://www.root-me.org/en/Challenges/Web-Server/File-upload-MIME-type">File upload - MIME type</a></a></h1>
 <p>Đề yêu cầu ta tìm .passwd. Thử check với .passwd tại <strong>/ch21/.passwd</strong> thì nhận được 404 Forbidden:</p>
-<img src="./media/image1.png" style="width:6.5in;height:1.04792in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Website có cung cấp một cổng upload và challenge có đề cập đến MIME type. ổng này sau khi nhận file của ta thì lưu trữ tại ./[name]. Bây giờ ta cần chèn payload vào để push lên server:</p>
-<img src="./media/image2.png" style="width:6.5in;height:1.95833in" alt="Graphical user interface, text Description automatically generated" />
-<img src="./media/image3.png" style="width:6.5in;height:2.41667in" alt="Graphical user interface, text, application Description automatically generated" />
+<p><img src="./media/image1.png" alt="" /></p>
+<p>Website có cung cấp một cổng upload và challenge có đề cập đến <strong>MIME type</strong>. ổng này sau khi nhận file của ta thì lưu trữ tại <code>./[name]</code>. Bây giờ ta cần chèn payload vào để push lên server:</p>
+<p><img src="./media/image2.png" alt="" /></p>
+<p><img src="./media/image3.png" alt="" /></p>
 <p>URL sau khi upload: <a href="http://challenge01.root-me.org/web-serveur/ch21/galerie/upload/40ce7d3f3fe27d0d9c1970598b6d09a8//nh4ttruong.jpg">http://challenge01.root-me.org/web-serveur/ch21/galerie/upload/40ce7d3f3fe27d0d9c1970598b6d09a8//nh4ttruong.jpg</a></p>
 <p>Lúc đầu, ta đã biết .passwd nằm tại …/ch21/.passwd. Do đó, ta cần đi ngược folder 3 lần để đọc được.</p>
-<p>Gắn <a href="https://www.php.net/manual/en/function.mime-content-type.php">shell_exec()</a> vào file nh4ttruong123.php.jpg:</p>
-<p>&lt;?php<br />
-$output = shell_exec('cat ../../../.passwd');<br />
-echo "&lt;pre&gt;$output&lt;/pre&gt;";<br />
-?&gt;</p>
-<p>Bởi vì server chỉ cho ta upload các file image (jpeg/png/gif), do đó, ta cần sử dụng BurpSuite để modify request convert .jpg sang .php:</p>
-<img src="./media/image4.png" style="width:6.5in;height:2.6625in" alt="Graphical user interface, text, application, email Description automatically generated" />
-<p>Mod thành công:</p>
-<img src="./media/image5.png" style="width:6.5in;height:1.75833in" alt="Graphical user interface, text, application Description automatically generated" />
-<p>Code đã chạy, ta get được password:</p>
-<img src="./media/image6.png" style="width:6.5in;height:0.96389in" alt="Graphical user interface, application Description automatically generated" />
-<img src="./media/image7.png" style="width:6.5in;height:3.89792in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
-<p>- Flag: ********************************</p>
+<p>Gắn <a href="https://www.php.net/manual/en/function.mime-content-type.php">shell_exec()</a> vào file <code>nh4ttruong123.php.jpg</code>:</p>
+<pre><code class="language-php">&lt;?php  
+$output = shell_exec('cat ../../../.passwd');  
+echo "&lt;pre&gt;&lt;/pre&gt;$output&lt;/pre&gt;";  
+?&gt;
+``
+
+Bởi vì server chỉ cho ta upload các file image (jpeg/png/gif), do đó, ta cần sử dụng BurpSuite để modify request convert `.jpg` sang `.php`:
+
+![](./media/image4.png)
+
+Mod thành công:
+
+![](./media/image5.png)
+
+Code đã chạy, ta get được password:
+
+![](./media/image6.png)
+
+![](./media/image7.png)
+
+- Flag: "****************************"
+</code></pre>
 
                     </main>
 
