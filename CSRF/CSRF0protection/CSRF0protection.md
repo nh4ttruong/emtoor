@@ -2,19 +2,19 @@
 
 Tạo tài khoản và login vào website:
 
-<img src="./media/image1.png" style="width:6.5in;height:2.2875in" alt="Graphical user interface, application Description automatically generated" />
+![](./media/image1.png)
 
 Ở tab Profile, khi ta thực hiện submit thử thì nhận được message:
 
-<img src="./media/image2.png" style="width:3.73366in;height:0.92508in" alt="Graphical user interface Description automatically generated with low confidence" />
+![](./media/image2.png)
 
 Ở tab Contact, ta có thể thấy form với `method=“post”`, submit thử thì ta nhận được message:
 
-<img src="./media/image3.png" style="width:4.53168in;height:2.25946in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image3.png)
 
 Qua tab Private, ta thấy message:
 
-<img src="./media/image4.png" style="width:5.34213in;height:1.31678in" alt="Graphical user interface, text, application Description automatically generated" />
+![](./media/image4.png)
 
 Từ đó, ta có thể đoán ra rằng, nội dung ở tab Contact sẽ được post lên và được admin kiểm duyệt Admin có thể click vào message của ta Có thể tấn công CSRF.
 
@@ -34,10 +34,10 @@ Qua tab Profile, inspect element và thực hiện giả mạo một form tươn
 <script>document.getElementById("clickme").submit();</script>
 ```
 
-<img src="./media/image5.png" style="width:5.98385in;height:3.14194in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image5.png)
 
 Submit để gửi contact đến admin và qua tab Private để kiểm tra kết quả. Sau hơn 1 phút, ta nhận được flag:
 
-<img src="./media/image6.png" style="width:5.95885in;height:1.84183in" alt="Graphical user interface, application Description automatically generated with medium confidence" />
+![](./media/image6.png)
 
 - Flag: "****************************"

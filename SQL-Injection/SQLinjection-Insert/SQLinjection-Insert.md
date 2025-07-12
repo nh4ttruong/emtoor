@@ -1,14 +1,14 @@
 # [SQL injection - Insert](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Insert)
 
-<img src="./media/image1.png" style="width:6.5in;height:2.09028in" alt="Graphical user interface, text, application Description automatically generated" />
+![](./media/image1.png)
 
 Website cho ta 2 tab gồm authentication và register. Ở Register, ta có thể tùy ý tạo được account và không hề có filter input.
 
-<img src="./media/image2.png" style="width:5.95544in;height:1.93615in" alt="Graphical user interface, text, application Description automatically generated" />
+![](./media/image2.png)
 
-<img src="./media/image3.png" style="width:5.98037in;height:2.43987in" alt="Graphical user interface, text, application Description automatically generated" />
+![](./media/image3.png)
 
-<img src="./media/image4.png" style="width:6.5in;height:1.90208in" alt="Graphical user interface, text, application, website Description automatically generated" />
+![](./media/image4.png)
 
 Từ đó, ta xác định chỗ để tiêm vào database. Ở tab register, ta có thể thấy website yêu câu 3 field gồm username, password và email. Do đó, database sẽ thực hiện tạo user theo kiểu:
 `INSERT INTO users VALUES (username, password, email)`
@@ -17,41 +17,41 @@ Trong khi đó, website không hề filter email field và ta có thể lợi d�
 
 **Payload:** `INSERT INTO users VALUES (username, password, email), (sth, sth, attack_payload)-- -`
 
-<img src="./media/image5.png" style="width:6.5in;height:3.27292in" alt="Graphical user interface, text, application Description automatically generated" />
+![](./media/image5.png)
 
 Login vào account, `ss, ss, (select version()):`
 
-<img src="./media/image6.png" style="width:6.5in;height:3.23264in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image6.png)
 
 -   Database version(): `10.3.34-MariaDB-0ubuntu0.20.04.1`
 
 Tiếp tục, ta cần fuzz để tìm ra được table và column, nhưng khi thử thì bị message **“Request failed”** cho đến khi sử dụng LIMIT thì mới biết là nó bị giới hạn:
 
-<img src="./media/image7.png" style="width:6.5in;height:3.16458in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image7.png)
 
 Thử sử dụng trick với OFFSET thì được response **“Attack detected”.**
 
-<img src="./media/image8.png" style="width:6.5in;height:3.20139in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image8.png)
 
 Login vào account vừa INSERT, ta biết được 1 table:
 
-<img src="./media/image9.png" style="width:6.5in;height:2.57778in" alt="Graphical user interface, text Description automatically generated" />
+![](./media/image9.png)
 
 Sử dụng **GROUP_CONCAT** để show các table nhưng có vẻ không có tables nào có thông tin user hoặc flag mà toàn là các table khác.:
 
-<img src="./media/image10.png" style="width:6.5in;height:2.48125in" alt="Graphical user interface, text, application Description automatically generated" />
+![](./media/image10.png)
 
-<img src="./media/image11.png" style="width:6.5in;height:3.03889in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image11.png)
 
 Thử xem lại version, ta thấy server sử dụng MariaDB. Sau một hồi stuck và check cheatsheet, ta có thể sử dụng **information_schema.processlist** để check các thread đang thực thi của server database (vì user có thể reg bất cứ lúc nào). Lúc này, ta có thể kiểm tra table **INFO** để có thể xem server sẽ thực thi cái gì khi reg account ([Information Schema PROCESSLIST Table - MariaDB Knowledge Base](https://mariadb.com/kb/en/information-schema-processlist-table/)):
 
-<img src="./media/image12.png" style="width:5.99323in;height:2.98848in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image12.png)
 
 Reg acc để show table **INFO** của **information_schema.processlist**:
 
-<img src="./media/image13.png" style="width:6.32601in;height:2.75749in" alt="Graphical user interface, text Description automatically generated" />
+![](./media/image13.png)
 
-<img src="./media/image14.png" style="width:6.37083in;height:2.61121in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image14.png)
 
 Payload thực thi của server:
 
@@ -61,7 +61,7 @@ Payload thực thi của server:
 
 Show các column của membres table:
 
-<img src="./media/image15.png" style="width:6.5in;height:2.81597in" alt="Graphical user interface, text, email Description automatically generated" />
+![](./media/image15.png)
 
 Tuy vậy, ta chẳng kiếm được bất kỳ thông tin nào từ bảng membres này cả
 
@@ -69,28 +69,28 @@ Sau 2 tiếng stuck, vì quá bất lực, em quyết định sử dụng burpsu
 
 -   Auto register account:
 
-<img src="./media/image16.png" style="width:6.5in;height:3.27083in" alt="Graphical user interface, application Description automatically generated" />
+![](./media/image16.png)
 
 -   Auto login:
 
-<img src="./media/image17.png" style="width:6.5in;height:3.64375in" alt="Graphical user interface, application Description automatically generated" />
+![](./media/image17.png)
 
 -   Sau khi xem qua các table mà bruteforce giúp ta leak, ta đã tìm được đúng table cần tìm :
 
-<img src="./media/image18.png" style="width:6.5in;height:3.50972in" alt="Graphical user interface, application Description automatically generated" />
+![](./media/image18.png)
 
 Đến đây, ta thực hiện tìm column trong flag table:
 
 -   Payload: `username=uuysyy&password=123&email=gg'),('cgc','123',(select column_name from information_schema.columns where table_name='flag' limit 0,1))-- -`
 
-<img src="./media/image19.png" style="width:6.5in;height:3.40139in" alt="Graphical user interface, text Description automatically generated" />
+![](./media/image19.png)
 
 Giờ thì tìm flag: `username=sadadas&password=123&email=gg'),('cvb','123',(select flag from flag limit 0,1))-- -`
 
-<img src="./media/image20.png" style="width:6.5in;height:3.20903in" alt="Graphical user interface, text, application, email Description automatically generated" />
+![](./media/image20.png)
 
 - Flag: ******************************
 
-<img src="./media/image21.png" style="width:6.5in;height:3.29722in" alt="Graphical user interface, text, application Description automatically generated" />
+![](./media/image21.png)
 
 - Flag: ******************************

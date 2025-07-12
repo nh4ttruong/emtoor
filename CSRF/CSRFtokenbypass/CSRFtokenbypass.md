@@ -2,11 +2,11 @@
 
 Nhìn qua, ta thấy website này có các chức năng tương tự bài CSRF 0 protection. Tuy vậy, ta có thể phát hiện được ở tab Contact, có một thẻ input bị hidden có name là token:
 
-<img src="./media/image1.png" style="width:6.5in;height:0.76667in" />
+![](./media/image1.png)
 
 Giá trị token này sẽ thay đổi liên tục khi ta thực hiện submit form:
 
-<img src="./media/image2.png" style="width:6.5in;height:0.54722in" />
+![](./media/image2.png)
 
 Điều này sẽ được xác thực bởi server. Từ đó, ta cần trộm token này trước khi submit form như bài CSRF 0 protection. Ta có thể sử dụng Ajax và XMLHttpRequest() để có thể get được value này.
 
@@ -42,10 +42,10 @@ document.getElementById("clickme").submit();
 </script>
 ```
 
-<img src="./media/image3.png" style="width:6.5in;height:2.19444in" alt="Graphical user interface, text, application Description automatically generated" />
+![](./media/image3.png)
 
 Submit để gửi contact đến admin và qua tab Private để kiểm tra kết quả. Sau hơn 1 phút, ta nhận được flag:
 
-<img src="./media/image4.png" style="width:5.968in;height:2.21847in" alt="Graphical user interface, text, application, chat or text message Description automatically generated" />
+![](./media/image4.png)
 
 - Flag: "****************************"
