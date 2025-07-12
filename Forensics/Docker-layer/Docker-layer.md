@@ -1,6 +1,4 @@
-# Docker layers
-
-Challenge: [https://www.root-me.org/fr/Challenges/Forensic/Docker-layers](https://www.root-me.org/fr/Challenges/Forensic/Docker-layers)
+# [Docker layers](https://www.root-me.org/fr/Challenges/Forensic/Docker-layers)
 
 Sử dụng `container-diff` để analyze history của file `.tar`
 
