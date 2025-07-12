@@ -1,6 +1,4 @@
-# WRITE UP
-
-## Challenge: [Javascript - Authentication](https://www.root-me.org/en/Challenges/Web-Client/Javascript-Authentication)
+# [Javascript - Authentication](https://www.root-me.org/en/Challenges/Web-Client/Javascript-Authentication)
 
 Kiểm tra website, ta thấy ở phần Elements không có gì khác biệt:
 

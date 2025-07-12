@@ -1,6 +1,4 @@
-# WRITE UP
-
-## Challenge: [Javascript - Obfuscation 2](https://www.root-me.org/en/Challenges/Web-Client/Javascript-Obfuscation-2)
+# [Javascript - Obfuscation 2](https://www.root-me.org/en/Challenges/Web-Client/Javascript-Obfuscation-2)
 
 Kiểm tra Sources website, ta thấy có file ch12.html:
 

@@ -1,4 +1,4 @@
-#[HTML - disabled buttons](https://www.root-me.org/en/Challenges/Web-Client/HTML-disabled-buttons)**
+# [HTML - disabled buttons](https://www.root-me.org/en/Challenges/Web-Client/HTML-disabled-buttons)
 
 Đầu tiên, truy cập vào challenge ta thấy được 2 thẻ input đều bị gán thuộc tính *disabled:*
 
