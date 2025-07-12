@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge:** [SQL injection - String](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-String)
+# [SQL injection - String](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-String)
 
 <img src="./media/image1.png" style="width:6.5in;height:1.10208in" alt="Graphical user interface Description automatically generated with low confidence" />
 

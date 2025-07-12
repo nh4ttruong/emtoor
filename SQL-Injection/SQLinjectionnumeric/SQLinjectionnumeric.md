@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge:** [SQL injection - Numeric](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Numeric)
+# [SQL injection - Numeric](https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Numeric)
 
 <img src="./media/image1.png" style="width:6.5in;height:1.55208in" alt="Shape Description automatically generated with low confidence" />
 

@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge: [SQL Truncation](https://www.root-me.org/en/Challenges/Web-Server/SQL-Truncation)**
+# [SQL Truncation](https://www.root-me.org/en/Challenges/Web-Server/SQL-Truncation)**
 
 <img src="./media/image1.png" style="width:6.5in;height:1.93403in" alt="Graphical user interface, application Description automatically generated" />
 
@@ -30,6 +28,4 @@ Ta chuyển qua tab Administrator, login vào bằng password vừa tạo:
 
 Ta nhận được flag sau khi login!
 
-**Flag:** J41m3Qu4nD54Tr0nc
-
-\- Flag:
+- Flag: *********************

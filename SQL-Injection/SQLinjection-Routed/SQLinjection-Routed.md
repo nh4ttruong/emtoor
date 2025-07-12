@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge:** [SQL-Injection-Routed](https://www.root-me.org/en/Challenges/Web-Server/SQL-Injection-Routed)
+# [SQL-Injection-Routed](https://www.root-me.org/en/Challenges/Web-Server/SQL-Injection-Routed)
 
 <img src="./media/image1.png" style="width:5.41761in;height:1.74394in" alt="Graphical user interface Description automatically generated with medium confidence" />
 
@@ -14,7 +12,7 @@ Có vẻ như khó có thể bypass được ở hàm login này khi request tr�
 
 <img src="./media/image4.png" style="width:6.5in;height:1.90833in" alt="Graphical user interface, text, application Description automatically generated" />
 
-Ta sẽ attack vào đây với payload **‘ union select 1 from information\_schema-- -** thì nhận được response **“Attack detected!”**:
+Ta sẽ attack vào đây với payload `‘ union select 1 from information_schema-- -` thì nhận được response **“Attack detected!”**:
 
 <img src="./media/image5.png" style="width:6.5in;height:2.19931in" alt="Graphical user interface, text, application Description automatically generated" /> Thử fuzz ta biết được, input sẽ filter các ký tự như ‘,’, các ký tự có thể liên quan đến SQLi. Tuy nhiên không filter một vài từ như union, select,…
 
@@ -24,12 +22,10 @@ In simple words routed SQL injection can be a scenario when you are not able to 
 
 Nghĩ là, khi ta inject với union select thì sẽ không thể thấy được input của câu inject đó.
 
-Payload: **'union select login,password from users-- -**
+Payload: `'union select login,password from users-- -`
 
-Convert sang hexa: **0x27756e696f6e2073656c656374206c6f67696e2c70617373776f72642066726f6d2075736572732d2d202d**
+Convert sang hexa: `0x27756e696f6e2073656c656374206c6f67696e2c70617373776f72642066726f6d2075736572732d2d202d`
 
 <img src="./media/image6.png" style="width:6.5in;height:1.60972in" alt="Graphical user interface, text, application Description automatically generated" />
 
-**Flag:** qs89QdAs9A
-
-\- Flag:
+- Flag: *********************
