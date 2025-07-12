@@ -1,6 +1,4 @@
-# WRITE UP
-
-**Challenge:** [Local File Inclusion](https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion)
+# [Local File Inclusion](https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion)
 
 Website có rất nhiều tab và gây confuse khi làm:
 
@@ -20,13 +18,13 @@ Như vậy, website sử dụng backend là PHP. Thử mò file source code củ
 
 <img src="./media/image5.png" style="width:6.5in;height:1.60417in" alt="Graphical user interface, text, application Description automatically generated" />
 
-Lỗi trả về là **file\_get\_contents()** không tìm được filename. Sau khi thử fuzz một lúc thì phát hiện ra website không block **‘../’.** Đã đến lúc ta dùng Path Traversal.
+Lỗi trả về là `file_get_contents()` không tìm được filename. Sau khi thử fuzz một lúc thì phát hiện ra website không block `‘../’.` Đã đến lúc ta dùng **Path Traversal**.
 
-Thử với **files=../**:
+Thử với `files=../`:
 
 <img src="./media/image6.png" style="width:6.5in;height:1.85417in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
-Lúc này, ta thấy được các thư mục cha chứa thư mục files, trong đó, có folder admin. Đặc biệt, website có một file là index.php giống như ở homepage của website. Vậy hướng của ta là xem được các file có trong folder admin (như index.php). Thử trỏ **files=../admin** và **&f=index.php** thì ta đã truy cập thành công index.php:
+Lúc này, ta thấy được các thư mục cha chứa thư mục files, trong đó, có folder admin. Đặc biệt, website có một file là index.php giống như ở homepage của website. Vậy hướng của ta là xem được các file có trong folder admin (như index.php). Thử trỏ `files=../admin` và `&f=index.php` thì ta đã truy cập thành công index.php:
 
 <img src="./media/image7.png" style="width:6.5in;height:1.99306in" alt="Graphical user interface, text, application Description automatically generated" />
 
@@ -36,9 +34,10 @@ Dò source code ta thấy được 2 dòng code rất giá trị:
 
 Vậy là đã tìm được account của admin:
 
--   Username: admin
-
--   Password: OpbNJ60xYpvAQU8
+```yaml
+- Username: admin
+- Password: OpbNJ60xYpvAQU8
+```
 
 <img src="./media/image9.png" style="width:6.5in;height:1.24653in" alt="Graphical user interface, text, application Description automatically generated" />
 
