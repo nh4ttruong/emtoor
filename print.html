@@ -15,9 +15,9 @@
 
         <link rel="icon" href="favicon-de23e50b.svg">
         <link rel="shortcut icon" href="favicon-8114d1fc.png">
-        <link rel="stylesheet" href="css/variables-0f4f7d13.css">
-        <link rel="stylesheet" href="css/general-d4e31f58.css">
-        <link rel="stylesheet" href="css/chrome-49e8d624.css">
+        <link rel="stylesheet" href="css/variables-3865ffda.css">
+        <link rel="stylesheet" href="css/general-4c35105a.css">
+        <link rel="stylesheet" href="css/chrome-c0e702bf.css">
         <link rel="stylesheet" href="css/print-ad67d350.css" media="print">
 
         <!-- Fonts -->
@@ -38,6 +38,7 @@
             const path_to_root = "";
             const default_light_theme = "ayu";
             const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "searchindex-db75bb8b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-668db0a3.js"></script>
@@ -94,10 +95,13 @@
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
@@ -151,7 +155,12 @@
 
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -1363,7 +1372,7 @@ Password: `1’ or 1=1--`
 <div style="break-before: page; page-break-before: always;"></div><h1 id="steganography"><a class="header" href="#steganography">Steganography</a></h1>
 <p>Root-me link for this subject: <a href="https://www.root-me.org/en/Challenges/Steganography/">https://www.root-me.org/en/Challenges/Steganography/</a></p>
 <ul>
-<li><a href="Steganography/index.html#steganography">Steganography</a>
+<li><a href="Steganography/index.html#steganography">Steganography</a>:
 <ul>
 <li><a href="Steganography/index.html#exif---metadata">EXIF - Metadata</a></li>
 <li><a href="Steganography/index.html#dot-and-next-line">Dot and next line</a></li>
@@ -1384,6 +1393,7 @@ Password: `1’ or 1=1--`
 </ul>
 </li>
 </ul>
+<hr />
 <h2 id="exif---metadata"><a class="header" href="#exif---metadata">EXIF - Metadata</a></h2>
 <p>Link challenges: <a href="https://www.root-me.org/en/Challenges/Steganography/EXIF-Metadata">https://www.root-me.org/en/Challenges/Steganography/EXIF-Metadata</a></p>
 <p>Sử dụng tool để xem exifdata: <a href="https://www.metadata2go.com/">https://www.metadata2go.com/</a></p>
@@ -1394,6 +1404,7 @@ Password: `1’ or 1=1--`
 <p>Flag là thành phố nơi chụp bức ảnh.</p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image3.png" alt="" /></p>
+<hr />
 <h2 id="dot-and-next-line"><a class="header" href="#dot-and-next-line">Dot and next line</a></h2>
 <p>Hình ảnh được cho:</p>
 <img src="Steganography/./media/image4.jpeg" style="width:5.58276in;height:4.35606in" alt="Text, letter Description automatically generated" />
@@ -1407,6 +1418,7 @@ Password: `1’ or 1=1--`
 <p>Submit và thành công</p>
 <p><strong>Flag</strong>: *******</p>
 <p><img src="Steganography/./media/image5.png" alt="" /></p>
+<hr />
 <h2 id="steganomobile"><a class="header" href="#steganomobile">Steganomobile</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Steganomobile">https://www.root-me.org/en/Challenges/Steganography/Steganomobile</a></p>
 <p><img src="Steganography/./media/image6.png" alt="" /></p>
@@ -1415,6 +1427,7 @@ Password: `1’ or 1=1--`
 <p>Thử nhập kết quả nhưng sai. Chuyển sang lowercase thì submit thành công!</p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image8.png" alt="" /></p>
+<hr />
 <h2 id="twitter-secret-messages"><a class="header" href="#twitter-secret-messages">Twitter Secret Messages</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Twitter-Secret-Messages">https://www.root-me.org/en/Challenges/Steganography/Twitter-Secret-Messages</a></p>
 <p>Sử dụng công cụ Twtitter Secret Message: <a href="https://holloway.nz/steg/">https://holloway.nz/steg/</a></p>
@@ -1422,6 +1435,7 @@ Password: `1’ or 1=1--`
 <p>Ta nhận được message: <strong>rendezvous at grand central terminal on friday.</strong></p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image10.png" alt="" /></p>
+<hr />
 <h2 id="poem-from-space"><a class="header" href="#poem-from-space">Poem from Space</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Poem-from-Space">https://www.root-me.org/en/Challenges/Steganography/Poem-from-Space</a></p>
 <p><img src="Steganography/./media/image11.png" alt="" /></p>
@@ -1432,6 +1446,7 @@ Password: `1’ or 1=1--`
 <p><img src="Steganography/./media/image13.png" alt="" /></p>
 <p><strong>Flag:</strong> RootMe{*******}</p>
 <p><img src="Steganography/./media/image14.png" alt="" /></p>
+<hr />
 <h2 id="yellow-dots"><a class="header" href="#yellow-dots">Yellow dots</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Yellow-dots">https://www.root-me.org/en/Challenges/Steganography/Yellow-dots</a></p>
 <p><img src="Steganography/./media/image15.png" alt="" /></p>
@@ -1443,6 +1458,7 @@ Password: `1’ or 1=1--`
 <p><img src="Steganography/./media/image18.png" alt="" /></p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image19.png" alt="" /></p>
+<hr />
 <h2 id="wav---noise-analysis"><a class="header" href="#wav---noise-analysis">WAV - Noise analysis</a></h2>
 <p>Link:<a href="https://www.root-me.org/en/Challenges/Steganography/WAV-Noise-analysis">https://www.root-me.org/en/Challenges/Steganography/WAV-Noise-analysis</a></p>
 <p>Đề bài là một file ch3.wav. Mở lên nghe thì rất khó chịu. Phân tích metadata thì không thu thập được bất cứ gì.</p>
@@ -1451,6 +1467,7 @@ Password: `1’ or 1=1--`
 <p>Nghe lại ta có được flag: <strong>3b27641fc5h0</strong></p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image21.png" alt="" /></p>
+<hr />
 <h2 id="exif---thumbnail"><a class="header" href="#exif---thumbnail">EXIF - Thumbnail</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/EXIF-Thumbnail">https://www.root-me.org/en/Challenges/Steganography/EXIF-Thumbnail</a></p>
 <p>Strings thử file thì thấy mấy không tìm được gì đặc biệt, kể cả exiftool:</p>
@@ -1459,12 +1476,14 @@ Password: `1’ or 1=1--`
 <p><img src="Steganography/./media/image23.png" alt="" /></p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image24.png" alt="" /></p>
+<hr />
 <h2 id="wav-spectral-analysis"><a class="header" href="#wav-spectral-analysis">WAV-Spectral-analysis</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/WAV-Spectral-analysis">https://www.root-me.org/en/Challenges/Steganography/WAV-Spectral-analysis</a></p>
 <p>Sử dụng Audicity tool và chọn chế độ Spectogram để xem. Ta có thể xem được sóng và nó hình thành đoạn text:</p>
 <p><img src="Steganography/./media/image25.png" alt="" /></p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image26.png" alt="" /></p>
+<hr />
 <h2 id="apng--just-a-png"><a class="header" href="#apng--just-a-png">APNG – Just a PNG</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/APNG-Just-A-PNG">https://www.root-me.org/en/Challenges/Steganography/APNG-Just-A-PNG</a></p>
 <p>Exiftool kiểm tra file:</p>
@@ -1477,6 +1496,7 @@ Password: `1’ or 1=1--`
 <p><img src="Steganography/./media/image30.png" alt="" /></p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image31.png" alt="" /></p>
+<hr />
 <h2 id="txt---george-and-alfred"><a class="header" href="#txt---george-and-alfred">TXT - George and Alfred</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/TXT-George-and-Alfred">https://www.root-me.org/en/Challenges/Steganography/TXT-George-and-Alfred</a></p>
 <p>Mở challenge, ta tìm được đoạn text là bài thơ:</p>
@@ -1486,6 +1506,7 @@ Password: `1’ or 1=1--`
 <p>Mở bài gốc, ta biết được, những từ đầu hàng ở đoạn cuối là lời mà Musset gửi đến Georges. Bản của challenge đã thay dòng <strong>“La réponse de Georges Sand :”</strong> à <strong>“De la même manière George Sand a répondu ceci :”.</strong> Dựa vào hint, ở trên, ta có thể đoán được “phrase cachée” là <strong>Cette Nuit</strong>. Thử flag thì thấy passed!</p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image34.png" alt="" /></p>
+<hr />
 <h2 id="embedded-pdf"><a class="header" href="#embedded-pdf">Embedded PDF</a></h2>
 <p>Sử dụng <strong>pdf-parser</strong> để xem cấu trúc của file pdf:</p>
 <p><strong>pdf-parser -w epreuve_BAC_2004.pdf</strong></p>
@@ -1502,6 +1523,7 @@ Password: `1’ or 1=1--`
 <p><img src="Steganography/./media/image40.png" alt="" /></p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image41.png" alt="" /></p>
+<hr />
 <h2 id="kitty-spy"><a class="header" href="#kitty-spy">Kitty spy</a></h2>
 <p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Kitty-spy">https://www.root-me.org/en/Challenges/Steganography/Kitty-spy</a></p>
 <p>Binwalk file ch16.jpg ta thấy được các file zip lồng trong file img:</p>
@@ -1532,6 +1554,7 @@ Password: `1’ or 1=1--`
 <p>Ở file index.html, ta có được message sau:</p>
 <p><img src="Steganography/./media/image54.png" alt="" /></p>
 <p>Tui bị dừng lại ở đây là chưa nghĩ ra hướng tiếp theo.</p>
+<hr />
 <h2 id="crypto-art"><a class="header" href="#crypto-art">Crypto Art</a></h2>
 <p><img src="Steganography/./media/image55.png" alt="" /></p>
 <p>Đây là file Netpbm với đuôi là .ppm.</p>
@@ -1546,12 +1569,14 @@ Password: `1’ or 1=1--`
 <p><img src="Steganography/./media/image59.png" alt="" /></p>
 <p><strong>Flag:</strong> *******</p>
 <p><img src="Steganography/./media/image60.png" alt="" /></p>
+<hr />
 <h2 id="png---pixel-indicator-technique"><a class="header" href="#png---pixel-indicator-technique">PNG - Pixel Indicator Technique</a></h2>
 <p>Pixel Indicator Technique là kỹ thuật ẩn giấu thông tin vào pixel của ảnh. Sử dụng công cụ stegopit (chuyên cho PIT) để phân tích ảnh của challenge:</p>
 <p><img src="Steganography/./media/image61.png" alt="" /></p>
 <p>Và ta tìm được hidden data:</p>
 <p><strong>Flag:</strong> <strong>*******</strong></p>
 <p><img src="Steganography/./media/image62.png" alt="" /></p>
+<hr />
 <h2 id="png---pixel-value-differencing"><a class="header" href="#png---pixel-value-differencing">PNG - Pixel Value Differencing</a></h2>
 <p>Đây là challenge dựa trên kỹ thuật PVD (Pixel Value Differencing) để ẩn dấu message trong png. Tương tự challenge, ta sử dụng công cụ <strong>stegopvd (</strong><a href="https://gist.github.com/dhondta/feaf4f5fb3ed8d1eb7515abe8cde4880">Tinyscript steganography tool implementing the Pixel Value Differencing algorithm · GitHub</a>) để extract message:</p>
 <p><img src="Steganography/./media/image63.png" alt="" /></p>
@@ -1616,11 +1641,11 @@ Password: `1’ or 1=1--`
 
         <script src="elasticlunr-ef4e11c1.min.js"></script>
         <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-6752007c.js"></script>
+        <script src="searcher-9aeb6ddf.js"></script>
 
         <script src="clipboard-1626706a.min.js"></script>
         <script src="highlight-abc7f01d.js"></script>
-        <script src="book-66cfebdd.js"></script>
+        <script src="book-9576a2db.js"></script>
 
         <!-- Custom JS scripts -->
         <script src="js/medium-zoom-11d3e061.min.js"></script>
@@ -1631,6 +1656,7 @@ Password: `1’ or 1=1--`
             window.setTimeout(window.print, 100);
         });
         </script>
+
 
     </div>
     </body>

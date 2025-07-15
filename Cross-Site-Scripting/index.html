@@ -14,9 +14,9 @@
 
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
-        <link rel="stylesheet" href="../css/variables-0f4f7d13.css">
-        <link rel="stylesheet" href="../css/general-d4e31f58.css">
-        <link rel="stylesheet" href="../css/chrome-49e8d624.css">
+        <link rel="stylesheet" href="../css/variables-3865ffda.css">
+        <link rel="stylesheet" href="../css/general-4c35105a.css">
+        <link rel="stylesheet" href="../css/chrome-c0e702bf.css">
         <link rel="stylesheet" href="../css/print-ad67d350.css" media="print">
 
         <!-- Fonts -->
@@ -37,6 +37,7 @@
             const path_to_root = "../";
             const default_light_theme = "ayu";
             const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "../searchindex-db75bb8b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-668db0a3.js"></script>
@@ -93,10 +94,13 @@
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
@@ -150,7 +154,12 @@
 
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -224,15 +233,16 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-6752007c.js"></script>
+        <script src="../searcher-9aeb6ddf.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-abc7f01d.js"></script>
-        <script src="../book-66cfebdd.js"></script>
+        <script src="../book-9576a2db.js"></script>
 
         <!-- Custom JS scripts -->
         <script src="../js/medium-zoom-11d3e061.min.js"></script>
         <script src="../js/image-zoom-07fd8d4c.js"></script>
+
 
 
     </div>
