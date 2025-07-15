@@ -2,7 +2,7 @@
 
 Root-me link for this subject: [https://www.root-me.org/en/Challenges/Steganography/](https://www.root-me.org/en/Challenges/Steganography/)
 
-- [Steganography](#steganography)
+- [Steganography](#steganography):
   - [EXIF - Metadata](#exif---metadata)
   - [Dot and next line](#dot-and-next-line)
   - [Steganomobile](#steganomobile)
@@ -20,6 +20,7 @@ Root-me link for this subject: [https://www.root-me.org/en/Challenges/Steganogra
   - [PNG - Pixel Indicator Technique](#png---pixel-indicator-technique)
   - [PNG - Pixel Value Differencing](#png---pixel-value-differencing)
 
+---
 ## EXIF - Metadata
 
 Link challenges: <https://www.root-me.org/en/Challenges/Steganography/EXIF-Metadata>
@@ -40,6 +41,7 @@ Flag là thành phố nơi chụp bức ảnh.
 
 ![](./media/image3.png)
 
+---
 ## Dot and next line
 
 Hình ảnh được cho:
@@ -66,6 +68,7 @@ Submit và thành công
 
 ![](./media/image5.png)
 
+---
 ## Steganomobile
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/Steganomobile>
@@ -82,6 +85,7 @@ Thử nhập kết quả nhưng sai. Chuyển sang lowercase thì submit thành 
 
 ![](./media/image8.png)
 
+---
 ## Twitter Secret Messages
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/Twitter-Secret-Messages>
@@ -96,6 +100,7 @@ Ta nhận được message: **rendezvous at grand central terminal on friday.**
 
 ![](./media/image10.png)
 
+---
 ## Poem from Space
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/Poem-from-Space>
@@ -116,6 +121,7 @@ Sử dụng công cụ Whitespace Language decode để decode:
 
 ![](./media/image14.png)
 
+---
 ## Yellow dots
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/Yellow-dots>
@@ -138,6 +144,7 @@ Ta có bảng dò như sau:
 
 ![](./media/image19.png)
 
+---
 ## WAV - Noise analysis
 
 Link:<https://www.root-me.org/en/Challenges/Steganography/WAV-Noise-analysis>
@@ -154,6 +161,7 @@ Nghe lại ta có được flag: **3b27641fc5h0**
 
 ![](./media/image21.png)
 
+---
 ## EXIF - Thumbnail
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/EXIF-Thumbnail>
@@ -170,6 +178,7 @@ Sử dụng công cụ bóc tách thumbnail, <https://29a.ch/photo-forensics/#th
 
 ![](./media/image24.png)
 
+---
 ## WAV-Spectral-analysis
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/WAV-Spectral-analysis>
@@ -182,6 +191,7 @@ Sử dụng Audicity tool và chọn chế độ Spectogram để xem. Ta có th
 
 ![](./media/image26.png)
 
+---
 ## APNG – Just a PNG
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/APNG-Just-A-PNG>
@@ -206,6 +216,7 @@ Sử dụng python để decode và ta được flag:
 
 ![](./media/image31.png)
 
+---
 ## TXT - George and Alfred
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/TXT-George-and-Alfred>
@@ -224,6 +235,7 @@ Mở bài gốc, ta biết được, những từ đầu hàng ở đoạn cuố
 
 ![](./media/image34.png)
 
+---
 ## Embedded PDF
 
 Sử dụng **pdf-parser** để xem cấu trúc của file pdf:
@@ -256,6 +268,7 @@ Xuất ra file hidden.jpg, ta có flag:
 
 ![](./media/image41.png)
 
+---
 ## Kitty spy
 
 Link: <https://www.root-me.org/en/Challenges/Steganography/Kitty-spy>
@@ -316,6 +329,7 @@ Decode và y như dự đoán rằng, có thể QR Code sẽ hỗ trợ ta ở s
 
 Tui bị dừng lại ở đây là chưa nghĩ ra hướng tiếp theo.
 
+---
 ## Crypto Art
 
 ![](./media/image55.png)
@@ -344,6 +358,7 @@ Decode và nhận kết quả:
 
 ![](./media/image60.png)
 
+---
 ## PNG - Pixel Indicator Technique
 
 Pixel Indicator Technique là kỹ thuật ẩn giấu thông tin vào pixel của ảnh. Sử dụng công cụ stegopit (chuyên cho PIT) để phân tích ảnh của challenge:
@@ -356,6 +371,7 @@ Và ta tìm được hidden data:
 
 ![](./media/image62.png)
 
+---
 ## PNG - Pixel Value Differencing
 
 Đây là challenge dựa trên kỹ thuật PVD (Pixel Value Differencing) để ẩn dấu message trong png. Tương tự challenge, ta sử dụng công cụ **stegopvd (**[Tinyscript steganography tool implementing the Pixel Value Differencing algorithm · GitHub](https://gist.github.com/dhondta/feaf4f5fb3ed8d1eb7515abe8cde4880)) để extract message:
