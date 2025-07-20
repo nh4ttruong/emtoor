@@ -20,6 +20,7 @@ site-url = "/emtoor/"
 hash-files = true
 additional-js = ["js/medium-zoom.min.js", "js/image-zoom.js"]
 additional-css = ["css/image-zoom.css"]
+google-analytics = "G-E8JWH6EHCJ"
 
 [output.html.search]
 enable = true            # enables the search feature
