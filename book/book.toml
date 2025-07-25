@@ -1,7 +1,7 @@
 [book]
-title = "RootMe Solutions & Write-Ups"
+title = "RootMe Solutions & Write-Up"
 authors = ["nh4ttruong"]
-description = "RootMe Solutions & Write-Ups for education purposes."
+description = "RootMe Solutions & Write-Up for education purposes. Let's dive into CTF challenges!"
 
 [build]
 create-missing = false
@@ -18,9 +18,8 @@ git-repository-url = "https://github.com/nh4ttruong/emtoor"
 git-repository-icon = "fa-github"
 site-url = "/emtoor/"
 hash-files = true
-additional-js = ["js/medium-zoom.min.js", "js/image-zoom.js"]
-additional-css = ["css/image-zoom.css"]
-google-analytics = "G-E8JWH6EHCJ"
+additional-js = ["theme/js/medium-zoom.min.js", "theme/js/image-zoom.js"]
+additional-css = ["theme/css/image-zoom.css"]
 
 [output.html.search]
 enable = true            # enables the search feature
