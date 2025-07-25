@@ -20,6 +20,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install static-sitemap-cli
+        run: npm install static-sitemap-cli
+
       - name: Set up mdBook
         uses: peaceiris/actions-mdbook@v1
         with:
@@ -34,6 +37,11 @@ jobs:
       - name: Build site with mdbook
         run: mdbook build
         working-directory: ./book
+
+      - name: Generate sitemap
+        run: |
+          npx sscli --no-clean --base https://nh4ttruong.github.io/emtoor
+        working-directory: ./book/html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
