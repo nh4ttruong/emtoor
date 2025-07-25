@@ -1,9 +1,8 @@
 .github/*.md
-.env
+.env*
 .vscode/
 book/html
-book/src
-book/wordcount
+book/src/*/
 
 node_modules
 dist
