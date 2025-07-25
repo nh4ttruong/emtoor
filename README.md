@@ -5,6 +5,8 @@ This repository offers write-ups and solutions for [Root Me CTF challenges](http
 > [!IMPORTANT]
 > Please read the [**Disclaimer**](https://nh4ttruong.github.io/emtoor/disclaimer.html) before "dive" into the challenges.
 
+![Flag](flag.jpg)
+
 ---
 
 ## Categories

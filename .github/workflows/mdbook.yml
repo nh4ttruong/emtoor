@@ -32,7 +32,6 @@ jobs:
         run: |
           chmod +x ci/sync.sh
           bash ci/sync.sh
-        working-directory: ./book
 
       - name: Build site with mdbook
         run: mdbook build
