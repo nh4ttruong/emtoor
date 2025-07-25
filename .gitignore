@@ -2,4 +2,10 @@
 .env
 .vscode/
 book/html
-book/src/*/
+book/src
+book/wordcount
+
+node_modules
+dist
+coverage
+build
