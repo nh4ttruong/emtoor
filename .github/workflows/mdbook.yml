@@ -39,7 +39,7 @@ jobs:
 
       - name: Generate sitemap
         run: |
-          npx sscli --no-clean --base https://nh4ttruong.github.io/emtoor
+          npx sscli --no-clean -c '**,monthly' -m '**/*.{html,jpg,png}' -f xml --base https://nh4ttruong.github.io/emtoor
         working-directory: ./book/html
 
       - name: Deploy to GitHub Pages
