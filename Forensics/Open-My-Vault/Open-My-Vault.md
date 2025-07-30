@@ -1,4 +1,4 @@
-# O[pen My Vault](https://www.root-me.org/en/Challenges/Forensic/Open-My-Vault)
+# [Open My Vault](https://www.root-me.org/en/Challenges/Forensic/Open-My-Vault)
 
 Sau khi ssh vào server, ta kiểm tra history của user:
 
