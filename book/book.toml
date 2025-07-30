@@ -1,7 +1,7 @@
 [book]
 title = "RootMe Solutions & Write-Up"
 authors = ["nh4ttruong"]
-description = "RootMe Solutions & Write-Up for education purposes. Let's dive into CTF challenges!"
+description = "RootMe solutions & write-ups made for education. Hands‑on CTF guides, real hacking scenarios, and clear steps to level up your cyber skills. Let's dive into hacking!"
 
 [build]
 create-missing = false
