@@ -35,6 +35,7 @@ copy-js = true           # include Javascript code for search
 
 [output.html.playground]
 copyable = true
+editable = true
 
 [output.html.fold]
 enable = true
