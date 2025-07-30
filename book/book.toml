@@ -20,6 +20,7 @@ site-url = "/emtoor/"
 hash-files = true
 additional-js = ["theme/js/medium-zoom.min.js", "theme/js/image-zoom.js"]
 additional-css = ["theme/css/image-zoom.css"]
+edit-url-template = "https://github.com/nh4ttruong/emtoor/edit/main/{path}"
 
 [output.html.search]
 enable = true            # enables the search feature
