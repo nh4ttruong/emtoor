@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - dev
   workflow_dispatch:
 
 jobs:
@@ -42,9 +43,22 @@ jobs:
           npx sscli --no-clean -c '**,monthly' -f xml --base https://nh4ttruong.github.io/emtoor
         working-directory: ./book/html
 
+      - name: Custom git_repository_edit_url
+        run: |
+          find ./book/html -name "*.html" -exec sed -i 's|edit/main/src|edit/main|g' {} +
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./book/html
+          publish_branch: gh-pages
+        
+      - name: Deploy for GitHub Pages Dev
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/dev'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book/html
+          publish_branch: gh-pages-dev
