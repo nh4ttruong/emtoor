@@ -2,252 +2,252 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/contributor.html</loc>
-        <lastmod>2025-07-31T03:45:17.689Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.277Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/disclaimer.html</loc>
-        <lastmod>2025-07-31T03:45:17.689Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.276Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/index.html</loc>
-        <lastmod>2025-07-31T03:45:17.663Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.251Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/CSRF/index.html</loc>
-        <lastmod>2025-07-31T03:45:17.668Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.256Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Cross-Site-Scripting/index.html</loc>
-        <lastmod>2025-07-31T03:45:17.664Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.251Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Forensics/index.html</loc>
-        <lastmod>2025-07-31T03:45:17.670Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.257Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Javascript/index.html</loc>
-        <lastmod>2025-07-31T03:45:17.671Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.259Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/index.html</loc>
-        <lastmod>2025-07-31T03:45:17.675Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.263Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/index.html</loc>
-        <lastmod>2025-07-31T03:45:17.681Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.269Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Steganography/index.html</loc>
-        <lastmod>2025-07-31T03:45:17.688Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.276Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/CSRF/CSRF0protection/CSRF0protection.html</loc>
-        <lastmod>2025-07-31T03:45:17.669Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.256Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/CSRF/CSRFtokenbypass/CSRFtokenbypass.html</loc>
-        <lastmod>2025-07-31T03:45:17.669Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.257Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Cross-Site-Scripting/XSS-DOMBased-Eval/XSS-DOMBased-Eval.html</loc>
-        <lastmod>2025-07-31T03:45:17.665Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.253Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Cross-Site-Scripting/XSS-Reflected/XSS-Reflected.html</loc>
-        <lastmod>2025-07-31T03:45:17.666Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.253Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Cross-Site-Scripting/XSS-Stored1/XSS-Stored1.html</loc>
-        <lastmod>2025-07-31T03:45:17.666Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.254Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Cross-Site-Scripting/XSS-Stored2/XSS-Stored2.html</loc>
-        <lastmod>2025-07-31T03:45:17.667Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.254Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Cross-Site-Scripting/XSSDOMBased-Angular/XSSDOMBased-Angular.html</loc>
-        <lastmod>2025-07-31T03:45:17.667Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.255Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Cross-Site-Scripting/XSSDOMBased-Introduction/XSSDOMBased-Introduction.html</loc>
-        <lastmod>2025-07-31T03:45:17.668Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.255Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Forensics/Docker-layer/Docker-layer.html</loc>
-        <lastmod>2025-07-31T03:45:17.670Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.258Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Forensics/Open-My-Vault/Open-My-Vault.html</loc>
-        <lastmod>2025-07-31T03:45:17.671Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.258Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Javascript/Javascript-Authentication/Javascript-Authentication.html</loc>
-        <lastmod>2025-07-31T03:45:17.672Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.259Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Javascript/Javascript-Authentication2/Javascript-Authentication2.html</loc>
-        <lastmod>2025-07-31T03:45:17.672Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.260Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Javascript/Javascript-Nativecode/Javascript-Nativecode.html</loc>
-        <lastmod>2025-07-31T03:45:17.673Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.260Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Javascript/Javascript-Obfuscation1/Javascript-Obfuscation1.html</loc>
-        <lastmod>2025-07-31T03:45:17.673Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.261Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Javascript/Javascript-Obfuscation2/Javascript-Obfuscation2.html</loc>
-        <lastmod>2025-07-31T03:45:17.674Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.261Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Javascript/Javascript-Obfuscation3/Javascript-Obfuscation3.html</loc>
-        <lastmod>2025-07-31T03:45:17.674Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.262Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/Javascript/Javascript-Source/Javascript-Source.html</loc>
-        <lastmod>2025-07-31T03:45:17.674Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.262Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/DirectoryTraversal/DirectoryTraversal.html</loc>
-        <lastmod>2025-07-31T03:45:17.675Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.263Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/Fileupload-Doubleextensions/Fileupload-Doubleextensions.html</loc>
-        <lastmod>2025-07-31T03:45:17.676Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.264Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/Fileupload-MIMEtype/Fileupload-MIMEtype.html</loc>
-        <lastmod>2025-07-31T03:45:17.677Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.264Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/HTTP-Directoryindexing/HTTP-Directoryindexing.html</loc>
-        <lastmod>2025-07-31T03:45:17.677Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.265Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/LocalFileInclusion-DoubleEncoding/LocalFileInclusion-DoubleEncoding.html</loc>
-        <lastmod>2025-07-31T03:45:17.678Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.266Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/LocalFileInclusion-Wrappers/LocalFileInclusion-Wrappers.html</loc>
-        <lastmod>2025-07-31T03:45:17.679Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.266Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/LocalFileInclusion/LocalFileInclusion.html</loc>
-        <lastmod>2025-07-31T03:45:17.677Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.265Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/PHP-Filters/PHP-Filters.html</loc>
-        <lastmod>2025-07-31T03:45:17.680Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.267Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/PHP-assert()/PHP-assert().html</loc>
-        <lastmod>2025-07-31T03:45:17.679Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.267Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/PHP-registerglobal/PHP-registerglobal.html</loc>
-        <lastmod>2025-07-31T03:45:17.680Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.268Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/PHP/RemoteFileInclusion/RemoteFileInclusion.html</loc>
-        <lastmod>2025-07-31T03:45:17.681Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.268Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLTruncation/SQLTruncation.html</loc>
-        <lastmod>2025-07-31T03:45:17.687Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.275Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-Authentication/SQLinjection-Authentication.html</loc>
-        <lastmod>2025-07-31T03:45:17.682Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.269Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-AuthenticationGBK/SQLinjection-AuthenticationGBK.html</loc>
-        <lastmod>2025-07-31T03:45:17.682Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.270Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-Blind/SQLinjection-Blind.html</loc>
-        <lastmod>2025-07-31T03:45:17.683Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.270Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-Filereading/SQLinjection-Filereading.html</loc>
-        <lastmod>2025-07-31T03:45:17.684Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.271Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-Filterbypass/SQLinjection-Filterbypass.html</loc>
-        <lastmod>2025-07-31T03:45:17.684Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.272Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-Insert/SQLinjection-Insert.html</loc>
-        <lastmod>2025-07-31T03:45:17.685Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.272Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-Routed/SQLinjection-Routed.html</loc>
-        <lastmod>2025-07-31T03:45:17.685Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.273Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-Time-based/SQLinjection-Time-based.html</loc>
-        <lastmod>2025-07-31T03:45:17.686Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.273Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjection-errorbased/SQLinjection-errorbased.html</loc>
-        <lastmod>2025-07-31T03:45:17.683Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.271Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjectionnumeric/SQLinjectionnumeric.html</loc>
-        <lastmod>2025-07-31T03:45:17.686Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.274Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://nh4ttruong.github.io/emtoor/SQL-Injection/SQLinjectionstring/SQLinjectionstring.html</loc>
-        <lastmod>2025-07-31T03:45:17.687Z</lastmod>
+        <lastmod>2025-07-31T03:47:50.274Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
 </urlset>
