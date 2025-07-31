@@ -1,0 +1,46 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+  <g transform="scale(12) translate(-10.5, -8.5)">
+  <!-- Keeping the hair as in the previous version -->
+  <path d="M15,26 C15,18 25,14 32,14 C39,14 49,18 49,26 C49,28 48,30 47,31 C46,32 45,33 45,33 L19,33 C19,33 18,32 17,31 C16,30 15,28 15,26 Z" fill="#1a1a1a" />
+  
+  <!-- Curly details unchanged -->
+  <path d="M17,21 C19,19 18,17 20,18 C22,19 21,21 23,20 C25,19 24,17 26,19" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" />
+  <path d="M37,19 C39,17 38,15 40,16 C42,17 41,19 43,18 C45,17 44,15 46,17" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" />
+  <path d="M27,16 C29,14 28,12 30,13 C32,14 31,16 33,15 C35,14 34,12 36,14" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Additional curl details unchanged -->
+  <path d="M22,17 C24,15 23,14 25,15" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M32,15 C34,13 33,12 35,13" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M42,18 C44,16 43,15 45,16" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" />
+  
+  <!-- Face with subtle gradient -->
+  <defs>
+    <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d5bd" />
+      <stop offset="100%" stop-color="#e8c3a9" />
+    </linearGradient>
+  </defs>
+  <path d="M19,33 C19,43 25,48 32,48 C39,48 45,43 45,30 L19,30 Z" fill="url(#skinGradient)" />
+  
+  <!-- Refined glasses unchanged -->
+  <rect x="17" y="28" width="12" height="9" rx="3" fill="none" stroke="#1c2027" stroke-width="1.5" />
+  <rect x="35" y="28" width="12" height="9" rx="3" fill="none" stroke="#1c2027" stroke-width="1.5" />
+  <line x1="29" y1="32" x2="35" y2="32" stroke="#1c2027" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="17" y1="32" x2="15" y2="30" stroke="#1c2027" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="47" y1="32" x2="49" y2="30" stroke="#1c2027" stroke-width="1.5" stroke-linecap="round" />
+  
+  <!-- Subtle reflection on glasses -->
+  <path d="M19,30 L23,28" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.5" />
+  <path d="M37,30 L41,28" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.5" />
+  
+  <circle cx="24" cy="32" r="1.2" fill="#2c3e50" />
+  <circle cx="39" cy="32" r="1.2" fill="#2c3e50" />
+  
+  <!-- Centered and proportional nose -->
+  <path d="M32,34 Q32.5,36 32,37" stroke="#d6b09e" stroke-width="1" stroke-linecap="round" fill="none" />
+  
+  <!-- Balanced lips with proportional size to face -->
+  <path d="M30,41 Q32,42 34,41" stroke="#e27267" stroke-width="1.2" stroke-linecap="round" fill="none" />
+  <path d="M30,41 Q32,40.5 34,41" stroke="#e27267" stroke-width="0.6" stroke-linecap="round" fill="none" opacity="0.7" />
+</g>
+</svg>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nh4ttruong.github.io/emtoor/sitemap.xml
