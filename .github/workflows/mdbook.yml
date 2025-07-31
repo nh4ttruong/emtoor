@@ -9,9 +9,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+  pull_request:
+    types: [closed]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -41,6 +43,11 @@ jobs:
         run: |
           npx sscli --no-clean -c '**,monthly' -f xml --base https://nh4ttruong.github.io/emtoor
         working-directory: ./book/html
+
+      - name: Custom git_repository_edit_url
+        run: |
+          # remove "/src"
+          sed -i 's|edit/main/src|edit/main|g' ./book/html/**/*.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
