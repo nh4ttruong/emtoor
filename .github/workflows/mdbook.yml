@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -45,7 +45,6 @@ jobs:
 
       - name: Custom git_repository_edit_url
         run: |
-          # remove "/src"
           sed -i 's|edit/main/src|edit/main|g' ./book/html/**/*.html
 
       - name: Deploy to GitHub Pages
