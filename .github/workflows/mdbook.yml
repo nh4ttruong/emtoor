@@ -46,8 +46,7 @@ jobs:
 
       - name: Custom git_repository_edit_url
         run: |
-          # remove "/src"
-          sed -i 's|edit/main/src|edit/main|g' ./book/html/**/*.html
+          find ./book/html -name "*.html" -exec sed -i 's|edit/main/src|edit/main|g' {} +
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
