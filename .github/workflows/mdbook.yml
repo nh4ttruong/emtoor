@@ -31,8 +31,8 @@ jobs:
 
       - name: Sync sources
         run: |
-          chmod +x ci/sync.sh
-          bash ci/sync.sh
+          chmod +x book/ci/sync.sh
+          bash book/ci/sync.sh
 
       - name: Install cargo packages
         run: cargo install mdbook-alerts
