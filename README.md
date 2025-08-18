@@ -10,16 +10,17 @@ This repository offers write-ups and solutions for [Root Me CTF challenges](http
 ---
 
 ## Categories
+
 This repository is organized into several categories, each focusing on different aspects of cybersecurity challenges:
 
-| Category              | Description                       |
-| --------------------- | --------------------------------- |
-| Cross-Site Scripting  | XSS attack techniques & solutions |
-| CSRF                  | Cross-Site Request Forgery        |
-| PHP Vulnerabilities   | File inclusion, upload, etc.      |
-| SQL Injection         | SQLi types and bypasses           |
-| Steganography         | Hidden data in files/images       |
-| Forensics             | Digital forensics challenges      |
+| Category                                                                         | Description                       |
+| -------------------------------------------------------------------------------- | --------------------------------- |
+| [Cross-Site Scripting](https://nh4ttruong.github.io/emtoor/Cross-Site-Scripting) | XSS attack techniques & solutions |
+| [CSRF Challenges](https://nh4ttruong.github.io/emtoor/CSRF)                      | Cross-Site Request Forgery        |
+| [PHP Vulnerabilities](https://nh4ttruong.github.io/emtoor/PHP)                   | File inclusion, upload, etc.      |
+| [SQL Injection](https://nh4ttruong.github.io/emtoor/SQL-Injection)               | SQLi types and bypasses           |
+| [Steganography Challenges](https://nh4ttruong.github.io/emtoor/Steganography)    | Hidden data in files/images       |
+| [Forensics](https://nh4ttruong.github.io/emtoor/Forensics)                       | Digital forensics challenges      |
 
 > [!WARNING]
 > This is just my solution approach and it may not be correct at the time you attempt the challenge.
@@ -31,4 +32,4 @@ This repository is organized into several categories, each focusing on different
 
 ## Contributors
 
-- [GitHub: nh4ttruong](https://github.com/nh4ttruong)
+- [@nh4ttruong](https://github.com/nh4ttruong)
