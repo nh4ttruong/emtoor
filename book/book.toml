@@ -11,6 +11,8 @@ build-dir = "./"
 
 [preprocessor.links]
 
+[preprocessor.alerts]
+
 [output.html]
 default-theme = "ayu"
 preferred-dark-theme = "ayu"
