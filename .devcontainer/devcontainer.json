@@ -14,7 +14,7 @@
 		"ghcr.io/eitsupi/devcontainer-features/mdbook:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/node:1": {
+		"ghcr.io/devcontainers/features/node:2": {
 			"nodeGypDependencies": true,
 			"version": "20",
 			"pnpmVersion": "latest",
